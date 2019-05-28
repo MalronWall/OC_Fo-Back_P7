@@ -8,11 +8,13 @@ declare(strict_types=1);
 
 namespace AppBundle\Domain\Entity;
 
-use Ramsey\Uuid\UuidInterface;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Serializer\Annotation\Groups;
+use Ramsey\Uuid\UuidInterface;
 
 /**
- * @ORM\Entity()
+ * @ORM\Entity(repositoryClass="AppBundle\Domain\Repository\UserRepository")
  * @ORM\Table(name="user")
  */
 class User
@@ -20,13 +22,18 @@ class User
     /**
      * @var UuidInterface
      *
+     * @Groups({"user_list"})
+     *
      * @ORM\Id
-     * @ORM\Column(type="integer")
-     * @ORM\GeneratedValue(strategy="UUID")
+     * @ORM\Column(type="uuid", unique=true)
+     * @ORM\GeneratedValue(strategy="CUSTOM")
+     * @ORM\CustomIdGenerator(class="Doctrine\ORM\Id\UuidGenerator")
      */
     private $id;
     /**
      * @var string
+     *
+     * @Groups({"user_list", "user_detail"})
      *
      * @ORM\Column(type="string")
      */
@@ -34,11 +41,15 @@ class User
     /**
      * @var string
      *
+     * @Groups({"user_list", "user_detail"})
+     *
      * @ORM\Column(type="string")
      */
     private $name;
     /**
      * @var string
+     *
+     * @Groups({"user_detail"})
      *
      * @ORM\Column(type="string")
      */
@@ -46,15 +57,35 @@ class User
     /**
      * @var string
      *
+     * @Groups({"user_detail"})
+     *
      * @ORM\Column(type="string")
      */
     private $cp;
     /**
      * @var string
      *
+     * @Groups({"user_detail"})
+     *
+     * @ORM\Column(type="string")
+     */
+    private $city;
+    /**
+     * @var string
+     *
+     * @Groups({"user_detail"})
+     *
      * @ORM\Column(type="string", name="phoneNumber")
      */
     private $phoneNumber;
+    /**
+     * @var Collection|Client[]
+     *
+     * @Groups({"user_list", "user_detail"})
+     *
+     * @ORM\ManyToMany(targetEntity="Client", mappedBy="users")
+     */
+    private $clients;
 
     /**
      * User constructor.
@@ -62,6 +93,7 @@ class User
      * @param string $name
      * @param string $address
      * @param string $cp
+     * @param string $city
      * @param string $phoneNumber
      */
     public function __construct(
@@ -69,12 +101,14 @@ class User
         string $name,
         string $address,
         string $cp,
+        string $city,
         string $phoneNumber
     ) {
         $this->firstname = $firstname;
         $this->name = $name;
         $this->address = $address;
         $this->cp = $cp;
+        $this->city = $city;
         $this->phoneNumber = $phoneNumber;
     }
 
@@ -121,8 +155,24 @@ class User
     /**
      * @return string
      */
+    public function getCity(): string
+    {
+        return $this->city;
+    }
+
+    /**
+     * @return string
+     */
     public function getPhoneNumber(): string
     {
         return $this->phoneNumber;
+    }
+
+    /**
+     * @return Client[]|Collection
+     */
+    public function getClients()
+    {
+        return $this->clients;
     }
 }

@@ -13,7 +13,7 @@ use Ramsey\Uuid\UuidInterface;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity()
+ * @ORM\Entity(repositoryClass="AppBundle\Domain\Repository\ClientRepository")
  * @ORM\Table(name="client")
  */
 class Client
@@ -22,8 +22,9 @@ class Client
      * @var UuidInterface
      *
      * @ORM\Id
-     * @ORM\Column(type="integer")
-     * @ORM\GeneratedValue(strategy="UUID")
+     * @ORM\Column(type="uuid", unique=true)
+     * @ORM\GeneratedValue(strategy="CUSTOM")
+     * @ORM\CustomIdGenerator(class="Doctrine\ORM\Id\UuidGenerator")
      */
     private $id;
     /**
@@ -52,7 +53,7 @@ class Client
     /**
      * @var Collection|User[]
      *
-     * @ORM\ManyToMany(targetEntity="User")
+     * @ORM\ManyToMany(targetEntity="User", inversedBy="clients")
      * @ORM\JoinTable(
      *     name="clients_users",
      *     joinColumns={@ORM\JoinColumn(name="client_id", referencedColumnName="id")},

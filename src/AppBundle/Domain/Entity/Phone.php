@@ -12,7 +12,7 @@ use Ramsey\Uuid\UuidInterface;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity()
+ * @ORM\Entity(repositoryClass="AppBundle\Domain\Repository\PhoneRepository")
  * @ORM\Table(name="phone")
  */
 class Phone
@@ -21,8 +21,9 @@ class Phone
      * @var UuidInterface
      *
      * @ORM\Id
-     * @ORM\Column(type="integer")
-     * @ORM\GeneratedValue(strategy="UUID")
+     * @ORM\Column(type="uuid", unique=true)
+     * @ORM\GeneratedValue(strategy="CUSTOM")
+     * @ORM\CustomIdGenerator(class="Doctrine\ORM\Id\UuidGenerator")
      */
     private $id;
     /**

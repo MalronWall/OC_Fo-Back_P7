@@ -980,7 +980,7 @@
     </table>
     <table id="251" parent="18" name="migration_versions">
       <Engine>InnoDB</Engine>
-      <Collation>utf8_unicode_ci</Collation>
+      <Collation>utf8mb4_unicode_ci</Collation>
     </table>
     <table id="252" parent="18" name="phone">
       <Engine>InnoDB</Engine>
@@ -992,7 +992,8 @@
     </table>
     <column id="254" parent="248" name="id">
       <Position>1</Position>
-      <DataType>int(11)|0s</DataType>
+      <Comment>(DC2Type:uuid)</Comment>
+      <DataType>char(36)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
@@ -1023,13 +1024,15 @@
     </key>
     <column id="260" parent="249" name="client_id">
       <Position>1</Position>
-      <DataType>int(11)|0s</DataType>
+      <Comment>(DC2Type:uuid)</Comment>
+      <DataType>char(36)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
     <column id="261" parent="249" name="phone_id">
       <Position>2</Position>
-      <DataType>int(11)|0s</DataType>
+      <Comment>(DC2Type:uuid)</Comment>
+      <DataType>char(36)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
@@ -1059,13 +1062,15 @@ phone_id</ColNames>
     </foreign-key>
     <column id="267" parent="250" name="client_id">
       <Position>1</Position>
-      <DataType>int(11)|0s</DataType>
+      <Comment>(DC2Type:uuid)</Comment>
+      <DataType>char(36)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
     <column id="268" parent="250" name="user_id">
       <Position>2</Position>
-      <DataType>int(11)|0s</DataType>
+      <Comment>(DC2Type:uuid)</Comment>
+      <DataType>char(36)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
@@ -1113,7 +1118,8 @@ user_id</ColNames>
     </key>
     <column id="277" parent="252" name="id">
       <Position>1</Position>
-      <DataType>int(11)|0s</DataType>
+      <Comment>(DC2Type:uuid)</Comment>
+      <DataType>char(36)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
@@ -1208,7 +1214,8 @@ user_id</ColNames>
     </key>
     <column id="295" parent="253" name="id">
       <Position>1</Position>
-      <DataType>int(11)|0s</DataType>
+      <Comment>(DC2Type:uuid)</Comment>
+      <DataType>char(36)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
@@ -1236,13 +1243,19 @@ user_id</ColNames>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="300" parent="253" name="phoneNumber">
+    <column id="300" parent="253" name="city">
       <Position>6</Position>
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="301" parent="253" name="PRIMARY">
+    <column id="301" parent="253" name="phoneNumber">
+      <Position>7</Position>
+      <DataType>varchar(255)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <key id="302" parent="253" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>

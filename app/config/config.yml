@@ -18,7 +18,7 @@ framework:
     form: ~
     csrf_protection: ~
     validation: { enable_annotations: true }
-    #serializer: { enable_annotations: true }
+    serializer: { enable_annotations: true }
     default_locale: '%locale%'
     trusted_hosts: ~
     session:
@@ -47,8 +47,11 @@ doctrine:
         password: '%database_password%'
         charset: utf8mb4
         default_table_options:
-                charset: utf8mb4
-                collate: utf8mb4_unicode_ci
+            charset: utf8mb4
+            collate: utf8mb4_unicode_ci
+        types:
+            uuid: Ramsey\Uuid\Doctrine\UuidType
+
         # if using pdo_sqlite as your database driver:
         #   1. add the path in parameters.yml
         #     e.g. database_path: '%kernel.project_dir%/var/data/data.sqlite'
