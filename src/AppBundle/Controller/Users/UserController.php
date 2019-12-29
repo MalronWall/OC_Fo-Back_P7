@@ -8,7 +8,6 @@ declare(strict_types=1);
 
 namespace AppBundle\Controller\Users;
 
-use AppBundle\Domain\DTO\Users\CreateUserDTO;
 use AppBundle\Domain\Helpers\Client\DB\ClientDBManager;
 use AppBundle\Domain\Helpers\User\DB\UserDBManager;
 use AppBundle\Domain\Helpers\User\Validator\UserValidatorHelper;
@@ -17,11 +16,9 @@ use AppBundle\Responder\User\UserResponder;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 use Symfony\Component\Serializer\SerializerInterface;
-use Symfony\Component\Validator\Exception\ValidatorException;
 
 class UserController
 {
@@ -87,7 +84,7 @@ class UserController
             $usersWithPager = $this->userDBManager->listUser($dto);
             $defaultDisplay = $this->defaultRepresentation->defaultDisplay($usersWithPager);
             $datas = $this->serializer->serialize($defaultDisplay, 'json', ['groups' => ['user_list', 'client_list']]);
-        } catch (ValidatorException $e) {
+        } catch (\Exception $e) {
             $errors = $e->getMessage();
         }
 
@@ -107,7 +104,7 @@ class UserController
         try {
             $user = $this->userDBManager->existUser($id);
             $datas = $this->serializer->serialize($user, 'json', ['groups' => ['user_detail', 'client_list']]);
-        } catch (NotFoundHttpException $e) {
+        } catch (\Exception $e) {
             $error = $e->getMessage();
         }
 
@@ -128,9 +125,7 @@ class UserController
             $dto = $this->userValidatorHelper->createUserParameterValidate($request->getContent());
             $dto->client = $this->clientDBManager->existClient($dto->idClient);
             $user = $this->userDBManager->createUser($dto);
-        } catch (ValidatorException $e) {
-            $error = $e->getMessage();
-        } catch (NotFoundHttpException $e) {
+        } catch (\Exception $e) {
             $error = $e->getMessage();
         }
 
@@ -150,7 +145,7 @@ class UserController
         try {
             $user = $this->userDBManager->existUser($id);
             $this->userDBManager->delete($user);
-        } catch (NotFoundHttpException $e) {
+        } catch (\Exception $e) {
             $error = $e->getMessage();
         }
 

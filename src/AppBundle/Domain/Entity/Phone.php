@@ -21,7 +21,7 @@ class Phone
     /**
      * @var UuidInterface
      *
-     * @Groups({"phone_list"})
+     * @Groups({"phone_list", "client_detail"})
      *
      * @ORM\Id
      * @ORM\Column(type="uuid", unique=true)
@@ -32,7 +32,7 @@ class Phone
     /**
      * @var string
      *
-     * @Groups({"phone_list", "phone_detail"})
+     * @Groups({"phone_list", "phone_detail", "client_detail"})
      *
      * @ORM\Column(type="string")
      */
@@ -40,7 +40,7 @@ class Phone
     /**
      * @var string
      *
-     * @Groups({"phone_list", "phone_detail"})
+     * @Groups({"phone_list", "phone_detail", "client_detail"})
      *
      * @ORM\Column(type="string")
      */

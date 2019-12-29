@@ -55,12 +55,12 @@ class CreateUserDTO
 
     /**
      * CreateUserDTO constructor.
-     * @param string $name
-     * @param string $firstname
-     * @param string $address
-     * @param string $cp
-     * @param string $city
-     * @param string $phoneNumber
+     * @param string|null $name
+     * @param string|null $firstname
+     * @param string|null $address
+     * @param string|null $cp
+     * @param string|null $city
+     * @param string|null $phoneNumber
      * @param string|null $idClient
      */
     public function __construct(

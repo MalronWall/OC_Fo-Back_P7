@@ -13,10 +13,8 @@ use AppBundle\Domain\Helpers\Client\Validator\ClientValidatorHelper;
 use AppBundle\Responder\Client\ClientResponder;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Serializer\SerializerInterface;
-use Symfony\Component\Validator\Exception\ValidatorException;
 
 class ClientController
 {
@@ -60,8 +58,12 @@ class ClientController
         $datas = null;
         try {
             $client = $this->clientDBManager->existClient($id);
-            $datas = $this->serializer->serialize($client, 'json', ['groups' => ['client_detail']]);
-        } catch (NotFoundHttpException $e) {
+            $datas = $this->serializer->serialize(
+                $client,
+                'json',
+                ['groups' => ['client_detail']]
+            );
+        } catch (\Exception $e) {
             $error = $e->getMessage();
         }
 
@@ -81,7 +83,7 @@ class ClientController
             $dto =
                 $this->clientValidatorHelper->createClientParameterValidate(json_decode($request->getContent(), true));
             $client = $this->clientDBManager->createClient($dto);
-        } catch (ValidatorException $e) {
+        } catch (\Exception $e) {
             $error = $e->getMessage();
         }
 

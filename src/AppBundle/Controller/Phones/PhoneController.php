@@ -15,10 +15,8 @@ use AppBundle\Domain\Representation\DefaultRepresentation;
 use AppBundle\Responder\Phone\PhoneResponder;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Serializer\SerializerInterface;
-use Symfony\Component\Validator\Exception\ValidatorException;
 
 class PhoneController
 {
@@ -74,7 +72,7 @@ class PhoneController
             $phonesWithPager = $this->phoneDBManager->listPhone($dto);
             $defaultDisplay = $this->defaultRepresentation->defaultDisplay($phonesWithPager);
             $datas = $this->serializer->serialize($defaultDisplay, 'json', ['groups' => ['phone_list', 'client_list']]);
-        } catch (ValidatorException $e) {
+        } catch (\Exception $e) {
             $errors = $e->getMessage();
         }
 
@@ -94,7 +92,7 @@ class PhoneController
         try {
             $phone = $this->phoneDBManager->existPhone($id);
             $datas = $this->serializer->serialize($phone, 'json', ['groups' => ['phone_detail', 'client_list']]);
-        } catch (NotFoundHttpException $e) {
+        } catch (\Exception $e) {
             $error = $e->getMessage();
         }
 
@@ -115,7 +113,7 @@ class PhoneController
             $dto = $this->phoneValidatorHelper->createPhoneParameterValidate(json_decode($request->getContent(), true));
             $dto->client = $this->clientDBManager->existClient($dto->idClient);
             $phone = $this->phoneDBManager->createPhone($dto);
-        } catch (ValidatorException $e) {
+        } catch (\Exception $e) {
             $error = $e->getMessage();
         }
 
