@@ -10,6 +10,7 @@ namespace AppBundle\Domain\Entity;
 
 use Ramsey\Uuid\UuidInterface;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
  * @ORM\Entity(repositoryClass="AppBundle\Domain\Repository\PhoneRepository")
@@ -20,6 +21,8 @@ class Phone
     /**
      * @var UuidInterface
      *
+     * @Groups({"phone_list"})
+     *
      * @ORM\Id
      * @ORM\Column(type="uuid", unique=true)
      * @ORM\GeneratedValue(strategy="CUSTOM")
@@ -29,11 +32,15 @@ class Phone
     /**
      * @var string
      *
+     * @Groups({"phone_list", "phone_detail"})
+     *
      * @ORM\Column(type="string")
      */
     private $brand;
     /**
      * @var string
+     *
+     * @Groups({"phone_list", "phone_detail"})
      *
      * @ORM\Column(type="string")
      */
@@ -41,11 +48,15 @@ class Phone
     /**
      * @var string
      *
+     * @Groups({"phone_detail"})
+     *
      * @ORM\Column(type="string")
      */
     private $os;
     /**
-     * @var string
+     * @var float
+     *
+     * @Groups({"phone_detail"})
      *
      * @ORM\Column(type="float")
      */
@@ -53,11 +64,15 @@ class Phone
     /**
      * @var string
      *
+     * @Groups({"phone_detail"})
+     *
      * @ORM\Column(type="string", nullable=true)
      */
     private $cpu;
     /**
      * @var string
+     *
+     * @Groups({"phone_detail"})
      *
      * @ORM\Column(type="string", nullable=true)
      */
@@ -65,11 +80,15 @@ class Phone
     /**
      * @var string
      *
+     * @Groups({"phone_detail"})
+     *
      * @ORM\Column(type="string", nullable=true)
      */
     private $ram;
     /**
      * @var string
+     *
+     * @Groups({"phone_detail"})
      *
      * @ORM\Column(type="string", nullable=true)
      */
@@ -77,11 +96,15 @@ class Phone
     /**
      * @var string
      *
+     * @Groups({"phone_detail"})
+     *
      * @ORM\Column(type="string", nullable=true)
      */
     private $dimensions;
     /**
      * @var string
+     *
+     * @Groups({"phone_detail"})
      *
      * @ORM\Column(type="string", nullable=true)
      */
@@ -89,11 +112,15 @@ class Phone
     /**
      * @var string
      *
+     * @Groups({"phone_detail"})
+     *
      * @ORM\Column(type="string", nullable=true)
      */
     private $resolution;
     /**
      * @var string
+     *
+     * @Groups({"phone_detail"})
      *
      * @ORM\Column(type="string", name="mainCamera", nullable=true)
      */
@@ -101,11 +128,15 @@ class Phone
     /**
      * @var string
      *
+     * @Groups({"phone_detail"})
+     *
      * @ORM\Column(type="string", name="selfieCamera", nullable=true)
      */
     private $selfieCamera;
     /**
      * @var string
+     *
+     * @Groups({"phone_detail"})
      *
      * @ORM\Column(type="string", nullable=true)
      */
@@ -113,18 +144,31 @@ class Phone
     /**
      * @var string
      *
+     * @Groups({"phone_detail"})
+     *
      * @ORM\Column(type="string", nullable=true)
      */
     private $battery;
     /**
      * @var string
      *
+     * @Groups({"phone_detail"})
+     *
      * @ORM\Column(type="string", nullable=true)
      */
     private $colors;
+    /**
+     * @var Client
+     *
+     * @Groups({"phone_list", "phone_detail"})
+     *
+     * @ORM\ManyToOne(targetEntity="Client", inversedBy="phones")
+     * @ORM\JoinColumn(name="client_id", referencedColumnName="id")
+     */
+    private $client;
 
     /**
-     * Phone constructor.
+     * Phones constructor.
      * @param string $brand
      * @param string $model
      * @param string $os
@@ -141,12 +185,14 @@ class Phone
      * @param string $sound
      * @param string $battery
      * @param string $colors
+     * @param Client|null $client
      */
     public function __construct(
         string $brand,
         string $model,
         string $os,
         float $price,
+        Client $client,
         string $cpu = null,
         string $gpu = null,
         string $ram = null,
@@ -164,6 +210,7 @@ class Phone
         $this->model = $model;
         $this->os = $os;
         $this->price = $price;
+        $this->client = $client;
         $this->cpu = $cpu;
         $this->gpu = $gpu;
         $this->ram = $ram;
@@ -312,5 +359,13 @@ class Phone
     public function getColors(): string
     {
         return $this->colors;
+    }
+
+    /**
+     * @return Client
+     */
+    public function getClient(): Client
+    {
+        return $this->client;
     }
 }

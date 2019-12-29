@@ -8,7 +8,6 @@ declare(strict_types=1);
 
 namespace AppBundle\Domain\Entity;
 
-use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Serializer\Annotation\Groups;
 use Ramsey\Uuid\UuidInterface;
@@ -79,13 +78,14 @@ class User
      */
     private $phoneNumber;
     /**
-     * @var Collection|Client[]
+     * @var Client
      *
      * @Groups({"user_list", "user_detail"})
      *
-     * @ORM\ManyToMany(targetEntity="Client", mappedBy="users")
+     * @ORM\ManyToOne(targetEntity="Client", inversedBy="users")
+     * @ORM\JoinColumn(name="client_id", referencedColumnName="id")
      */
-    private $clients;
+    private $client;
 
     /**
      * User constructor.
@@ -95,6 +95,7 @@ class User
      * @param string $cp
      * @param string $city
      * @param string $phoneNumber
+     * @param Client $client
      */
     public function __construct(
         string $firstname,
@@ -102,7 +103,8 @@ class User
         string $address,
         string $cp,
         string $city,
-        string $phoneNumber
+        string $phoneNumber,
+        Client $client
     ) {
         $this->firstname = $firstname;
         $this->name = $name;
@@ -110,6 +112,7 @@ class User
         $this->cp = $cp;
         $this->city = $city;
         $this->phoneNumber = $phoneNumber;
+        $this->client = $client;
     }
 
     /**
@@ -169,10 +172,10 @@ class User
     }
 
     /**
-     * @return Client[]|Collection
+     * @return Client
      */
-    public function getClients()
+    public function getClient(): Client
     {
-        return $this->clients;
+        return $this->client;
     }
 }

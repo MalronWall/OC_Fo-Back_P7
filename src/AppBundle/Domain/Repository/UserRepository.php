@@ -52,4 +52,20 @@ class UserRepository extends AbstractRepository
             ->getQuery()
             ->getResult();
     }
+
+    /**
+     * @param $id
+     * @return mixed
+     * @throws \Doctrine\ORM\NonUniqueResultException
+     */
+    public function findUserById($id)
+    {
+        return $this->createQueryBuilder('u')
+            ->where('u.id = :id')
+
+            ->setParameter('id', $id)
+
+            ->getQuery()
+            ->getOneOrNullResult();
+    }
 }

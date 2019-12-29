@@ -6,36 +6,47 @@ declare(strict_types=1);
  * (c) Thibaut Tourte <thibaut.tourte17@gmail.com>
  */
 
-namespace AppBundle\Representation;
+namespace AppBundle\Domain\Representation;
 
 use Pagerfanta\Pagerfanta;
 use Symfony\Component\Form\Extension\Core\Type\CollectionType;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 class DefaultRepresentation
 {
-    /** @var Pagerfanta */
+    /**
+     * @var Pagerfanta
+     *
+     * @Groups({"user_list", "phone_list", "client_list"})
+     */
     public $datas;
-    /** @var CollectionType */
+    /**
+     * @var CollectionType
+     *
+     * @Groups({"user_list", "phone_list", "client_list"})
+     */
     public $metas;
 
     /**
-     * AbstractRepresentation constructor.
      * @param Pagerfanta $datas
+     * @return $this
      */
-    public function __construct(Pagerfanta $datas)
+    public function defaultDisplay(Pagerfanta $datas)
     {
         $this->datas = $datas;
 
         // $limit
-        $this->addMeta('limit_per_page', $datas->getMaxPerPage());
+        $this->addMeta('limitPerPage', $datas->getMaxPerPage());
         // count results of the current page
-        $this->addMeta('current_items', count($datas->getCurrentPageResults()));
+        $this->addMeta('currentItems', count($datas->getCurrentPageResults()));
         // nb total of results in all pages
-        $this->addMeta('total_items', $datas->getNbResults());
+        $this->addMeta('totalItems', $datas->getNbResults());
         // offset / limit => nb total items passed + 1 / limit per page ALL rounded up
-        $this->addMeta('current_page', ceil($datas->getCurrentPageOffsetStart()/$datas->getMaxPerPage()));
+        $this->addMeta('currentPage', ceil($datas->getCurrentPageOffsetStart()/$datas->getMaxPerPage()));
         // nb total of results / limit
-        $this->addMeta('total_pages', ceil($datas->getNbResults()/$datas->getMaxPerPage()));
+        $this->addMeta('totalPages', ceil($datas->getNbResults()/$datas->getMaxPerPage()));
+
+        return $this;
     }
 
     /**

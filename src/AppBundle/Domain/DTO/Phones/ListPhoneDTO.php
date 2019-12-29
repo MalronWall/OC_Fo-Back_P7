@@ -6,20 +6,24 @@ declare(strict_types=1);
  * (c) Thibaut Tourte <thibaut.tourte17@gmail.com>
  */
 
-namespace AppBundle\Domain\DTO\Users;
+namespace AppBundle\Domain\DTO\Phones;
 
 use Symfony\Component\Validator\Constraints as Assert;
 
-class ListUserDTO
+class ListPhoneDTO
 {
     /**
      * @var null|string
      */
-    public $name;
+    public $brand;
     /**
      * @var null|string
      */
-    public $firstname;
+    public $model;
+    /**
+     * @var null|string
+     */
+    public $os;
     /**
      * @var null|string
      * @Assert\Choice({"asc", "desc"})
@@ -37,24 +41,29 @@ class ListUserDTO
     public $offset;
 
     /**
-     * listUserDTO constructor.
-     * @param $name
-     * @param $firstname
-     * @param $order
-     * @param $limit
-     * @param $offset
+     * ListPhoneDTO constructor.
+     * @param null|string $brand
+     * @param null|string $model
+     * @param null|string $os
+     * @param null|string $order
+     * @param null|string $limit
+     * @param null|string $offset
      */
     public function __construct(
-        ?string $name,
-        ?string $firstname,
+        ?string $brand,
+        ?string $model,
+        ?string $os,
         ?string $order,
         ?string $limit,
         ?string $offset
     ) {
-        $this->name = $name;
-        $this->firstname = $firstname;
+        $this->brand = $brand;
+        $this->model = $model;
+        $this->os = $os;
         $this->order = $order;
         $this->limit = $limit;
         $this->offset = $offset;
     }
+
+
 }
