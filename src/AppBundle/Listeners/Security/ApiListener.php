@@ -42,6 +42,10 @@ class ApiListener
      */
     public function onKernelRequest(GetResponseEvent $event)
     {
+        if (preg_match("/\/login/", $event->getRequest()->getRequestUri())) {
+            return;
+        }
+
         $jwt = $event->getRequest()->headers->get("Authorization");
 
         if (is_null($jwt)) {

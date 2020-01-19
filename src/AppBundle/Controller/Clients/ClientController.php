@@ -50,7 +50,6 @@ class ClientController
      * @Route("/api/clients/{id}", name="client_show", methods={"GET"})
      * @param $id
      * @return Response
-     * @throws \Doctrine\ORM\NonUniqueResultException
      */
     public function showAction($id)
     {

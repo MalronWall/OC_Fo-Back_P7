@@ -11,7 +11,6 @@ namespace AppBundle\Controller\Phones;
 use AppBundle\Domain\Helpers\Client\DB\ClientDBManager;
 use AppBundle\Domain\Helpers\Phone\DB\PhoneDBManager;
 use AppBundle\Domain\Helpers\Phone\Validator\PhoneValidatorHelper;
-use AppBundle\Domain\Representation\DefaultRepresentation;
 use AppBundle\Responder\Phone\PhoneResponder;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -24,8 +23,6 @@ class PhoneController
     private $phoneValidatorHelper;
     /** @var PhoneDBManager */
     private $phoneDBManager;
-    /** @var DefaultRepresentation */
-    private $defaultRepresentation;
     /** @var SerializerInterface */
     private $serializer;
     /** @var PhoneResponder */
@@ -38,7 +35,6 @@ class PhoneController
      * @param PhoneValidatorHelper $phoneValidatorHelper
      * @param PhoneDBManager $phoneDBManager
      * @param ClientDBManager $clientDBManager
-     * @param DefaultRepresentation $defaultRepresentation
      * @param SerializerInterface $serializer
      * @param PhoneResponder $phoneResponder
      */
@@ -46,14 +42,12 @@ class PhoneController
         PhoneValidatorHelper $phoneValidatorHelper,
         PhoneDBManager $phoneDBManager,
         ClientDBManager $clientDBManager,
-        DefaultRepresentation $defaultRepresentation,
         SerializerInterface $serializer,
         PhoneResponder $phoneResponder
     ) {
         $this->phoneValidatorHelper = $phoneValidatorHelper;
         $this->phoneDBManager = $phoneDBManager;
         $this->clientDBManager = $clientDBManager;
-        $this->defaultRepresentation = $defaultRepresentation;
         $this->serializer = $serializer;
         $this->phoneResponder = $phoneResponder;
     }
@@ -69,9 +63,11 @@ class PhoneController
         $datas = null;
         try {
             $dto = $this->phoneValidatorHelper->listPhoneParameterValidate($request->query);
-            $phonesWithPager = $this->phoneDBManager->listPhone($dto);
-            $defaultDisplay = $this->defaultRepresentation->defaultDisplay($phonesWithPager);
-            $datas = $this->serializer->serialize($defaultDisplay, 'json', ['groups' => ['phone_list', 'client_list']]);
+            $datas = $this->serializer->serialize(
+                $this->phoneDBManager->listPhone($dto),
+                'json',
+                ['groups' => ['phone_list', 'client_list']]
+            );
         } catch (\Exception $e) {
             $errors = $e->getMessage();
         }
@@ -83,7 +79,6 @@ class PhoneController
      * @Route("/api/phones/{id}", name="phone_show", methods={"GET"})
      * @param $id
      * @return Response
-     * @throws \Doctrine\ORM\NonUniqueResultException
      */
     public function showAction($id)
     {
@@ -103,7 +98,6 @@ class PhoneController
      * @Route("/api/phones", name="phone_create", methods={"POST"})
      * @param Request $request
      * @return Response
-     * @throws \Doctrine\ORM\NonUniqueResultException
      */
     public function createAction(Request $request)
     {

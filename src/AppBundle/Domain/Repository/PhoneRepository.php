@@ -10,6 +10,16 @@ namespace AppBundle\Domain\Repository;
 
 class PhoneRepository extends AbstractRepository
 {
+    /**
+     * @param null $brandLike
+     * @param null $modelLike
+     * @param null $osLike
+     * @param string $order
+     * @param int $limit
+     * @param int $offset
+     * @return array
+     * @throws \Doctrine\ORM\NonUniqueResultException
+     */
     public function listWithPagination(
         $brandLike = null,
         $modelLike = null,
@@ -24,8 +34,16 @@ class PhoneRepository extends AbstractRepository
             ->addOrderBy('p.model', $order)
         ;
 
+        $nb = $this
+            ->createQueryBuilder('u')
+            ->select('count(u.id)');
+
         if ($brandLike) {
             $qb
+                ->where('p.brand LIKE ?1')
+                ->setParameter(1, '%'.$brandLike.'%')
+            ;
+            $nb
                 ->where('p.brand LIKE ?1')
                 ->setParameter(1, '%'.$brandLike.'%')
             ;
@@ -35,15 +53,23 @@ class PhoneRepository extends AbstractRepository
                 ->where('p.model LIKE ?2')
                 ->setParameter(2, '%'.$modelLike.'%')
             ;
+            $nb
+                ->where('p.model LIKE ?2')
+                ->setParameter(2, '%'.$modelLike.'%')
+            ;
         }
         if ($osLike) {
             $qb
                 ->where('p.os LIKE ?3')
                 ->setParameter(3, '%'.$osLike.'%')
             ;
+            $nb
+                ->where('p.os LIKE ?3')
+                ->setParameter(3, '%'.$osLike.'%')
+            ;
         }
 
-        return $this->paginate($qb, $limit, $offset);
+        return $this->paginate($qb, $nb, $limit, $offset);
     }
 
     /**

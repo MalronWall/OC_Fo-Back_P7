@@ -8,21 +8,26 @@ declare(strict_types=1);
 
 namespace AppBundle\Domain\Repository;
 
+use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\ORM\EntityRepository;
+use Doctrine\ORM\Mapping;
 use Doctrine\ORM\QueryBuilder;
-use Pagerfanta\Adapter\DoctrineORMAdapter;
-use Pagerfanta\Pagerfanta;
 
 class AbstractRepository extends EntityRepository
 {
     /**
      * @param QueryBuilder $qb
+     * @param QueryBuilder $nb
      * @param int $limit
      * @param int $offset
-     * @return Pagerfanta
+     * @return array
+     * @throws \Doctrine\ORM\NonUniqueResultException
      */
-    protected function paginate(QueryBuilder $qb, $limit = 10, $offset = 0)
+    protected function paginate(QueryBuilder $qb, QueryBuilder $nb, $limit = 10, $offset = 0) : array
     {
+        $limit = (int)$limit;
+        $offset = (int)$offset;
+
         if ($limit <= 0) {
             throw new \LogicException('$limit must be greater than or equal to 0.');
         }
@@ -30,12 +35,23 @@ class AbstractRepository extends EntityRepository
             throw new \LogicException('$offset must be greater than 0.');
         }
 
-        $pager = new Pagerfanta(new DoctrineORMAdapter($qb));
-        $currentPage = $offset + 1;
+        if ($limit) {
+            $qb->setMaxResults($limit);
+        }
+        if ($offset) {
+            $qb->setFirstResult($offset);
+        }
 
-        $pager->setMaxPerPage((int) $limit);
-        $pager->setCurrentPage($currentPage);
+        $nbItems = (int)$nb->getQuery()->getSingleScalarResult();
+        $results = $qb->getQuery()->getResult();
 
-        return $pager;
+        return [
+            "datas" => $results,
+            "metas" => [
+                "nbTotalOfItems" => $nbItems,
+                "currentPage" => ceil(($offset+1)/$limit),
+                "totalPages" => ceil($nbItems/$limit),
+            ]
+        ];
     }
 }

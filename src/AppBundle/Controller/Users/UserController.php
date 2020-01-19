@@ -11,7 +11,6 @@ namespace AppBundle\Controller\Users;
 use AppBundle\Domain\Helpers\Client\DB\ClientDBManager;
 use AppBundle\Domain\Helpers\User\DB\UserDBManager;
 use AppBundle\Domain\Helpers\User\Validator\UserValidatorHelper;
-use AppBundle\Domain\Representation\DefaultRepresentation;
 use AppBundle\Responder\User\UserResponder;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
@@ -30,8 +29,6 @@ class UserController
     private $userValidatorHelper;
     /** @var EntityManagerInterface */
     private $entityManager;
-    /** @var DefaultRepresentation */
-    private $defaultRepresentation;
     /** @var UserDBManager */
     private $userDBManager;
     /** @var UserResponder */
@@ -47,7 +44,6 @@ class UserController
      * @param EntityManagerInterface $entityManager
      * @param UserDBManager $userDBManager
      * @param ClientDBManager $clientDBManager
-     * @param DefaultRepresentation $defaultRepresentation
      * @param UserResponder $userResponder
      */
     public function __construct(
@@ -57,7 +53,6 @@ class UserController
         EntityManagerInterface $entityManager,
         UserDBManager $userDBManager,
         ClientDBManager $clientDBManager,
-        DefaultRepresentation $defaultRepresentation,
         UserResponder $userResponder
     ) {
         $this->serializer = $serializer;
@@ -66,7 +61,6 @@ class UserController
         $this->entityManager = $entityManager;
         $this->userDBManager = $userDBManager;
         $this->clientDBManager = $clientDBManager;
-        $this->defaultRepresentation = $defaultRepresentation;
         $this->userResponder = $userResponder;
     }
 
@@ -81,9 +75,11 @@ class UserController
         $datas = null;
         try {
             $dto = $this->userValidatorHelper->listUserParameterValidate($request->query);
-            $usersWithPager = $this->userDBManager->listUser($dto);
-            $defaultDisplay = $this->defaultRepresentation->defaultDisplay($usersWithPager);
-            $datas = $this->serializer->serialize($defaultDisplay, 'json', ['groups' => ['user_list', 'client_list']]);
+            $datas = $this->serializer->serialize(
+                $this->userDBManager->listUser($dto),
+                'json',
+                ['groups' => ['user_list', 'client_list']]
+            );
         } catch (\Exception $e) {
             $errors = $e->getMessage();
         }
@@ -95,7 +91,6 @@ class UserController
      * @Route("/api/users/{id}", name="user_show", methods={"GET"})
      * @param $id
      * @return Response
-     * @throws \Doctrine\ORM\NonUniqueResultException
      */
     public function showAction($id)
     {
@@ -115,7 +110,6 @@ class UserController
      * @Route("/api/users", name="user_create", methods={"POST"})
      * @param Request $request
      * @return Response
-     * @throws \Doctrine\ORM\NonUniqueResultException
      */
     public function createAction(Request $request)
     {
@@ -136,7 +130,6 @@ class UserController
      * @Route("/api/users/{id}", name="user_delete", methods={"DELETE"})
      * @param $id
      * @return Response
-     * @throws \Doctrine\ORM\NonUniqueResultException
      */
     public function deleteAction($id)
     {
