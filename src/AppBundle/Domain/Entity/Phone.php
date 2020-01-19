@@ -157,15 +157,6 @@ class Phone
      * @ORM\Column(type="string", nullable=true)
      */
     private $colors;
-    /**
-     * @var Client
-     *
-     * @Groups({"phone_list", "phone_detail"})
-     *
-     * @ORM\ManyToOne(targetEntity="Client", inversedBy="phones")
-     * @ORM\JoinColumn(name="client_id", referencedColumnName="id")
-     */
-    private $client;
 
     /**
      * Phones constructor.
@@ -185,14 +176,12 @@ class Phone
      * @param string $sound
      * @param string $battery
      * @param string $colors
-     * @param Client|null $client
      */
     public function __construct(
         string $brand,
         string $model,
         string $os,
         float $price,
-        Client $client,
         string $cpu = null,
         string $gpu = null,
         string $ram = null,
@@ -210,7 +199,6 @@ class Phone
         $this->model = $model;
         $this->os = $os;
         $this->price = $price;
-        $this->client = $client;
         $this->cpu = $cpu;
         $this->gpu = $gpu;
         $this->ram = $ram;
@@ -359,13 +347,5 @@ class Phone
     public function getColors(): string
     {
         return $this->colors;
-    }
-
-    /**
-     * @return Client
-     */
-    public function getClient(): Client
-    {
-        return $this->client;
     }
 }

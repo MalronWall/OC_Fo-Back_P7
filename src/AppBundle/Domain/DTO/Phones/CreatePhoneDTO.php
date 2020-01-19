@@ -8,7 +8,6 @@ declare(strict_types=1);
 
 namespace AppBundle\Domain\DTO\Phones;
 
-use AppBundle\Domain\Entity\Client;
 use Symfony\Component\Validator\Constraints as Assert;
 
 class CreatePhoneDTO
@@ -33,11 +32,6 @@ class CreatePhoneDTO
      * @Assert\NotBlank()
      */
     public $price;
-    /**
-     * @var string
-     * @Assert\NotBlank()
-     */
-    public $idClient;
     /**
      * @var string|null
      */
@@ -86,10 +80,6 @@ class CreatePhoneDTO
      * @var string|null
      */
     public $colors;
-    /**
-     * @var Client
-     */
-    public $client;
 
     /**
      * CreatePhoneDTO constructor.
@@ -97,7 +87,6 @@ class CreatePhoneDTO
      * @param null|string $model
      * @param null|string $os
      * @param float|null $price
-     * @param string|null $idClient
      * @param null|string $cpu
      * @param null|string $gpu
      * @param null|string $ram
@@ -116,7 +105,6 @@ class CreatePhoneDTO
         ?string $model,
         ?string $os,
         ?float $price,
-        ?string $idClient,
         ?string $cpu,
         ?string $gpu,
         ?string $ram,
@@ -134,7 +122,6 @@ class CreatePhoneDTO
         $this->model = $model;
         $this->os = $os;
         $this->price = $price;
-        $this->idClient = $idClient;
         $this->cpu = $cpu;
         $this->gpu = $gpu;
         $this->ram = $ram;

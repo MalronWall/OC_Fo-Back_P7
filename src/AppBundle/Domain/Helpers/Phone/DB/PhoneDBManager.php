@@ -10,10 +10,7 @@ namespace AppBundle\Domain\Helpers\Phone\DB;
 
 use AppBundle\Domain\DTO\Phones\CreatePhoneDTO;
 use AppBundle\Domain\DTO\Phones\ListPhoneDTO;
-use AppBundle\Domain\DTO\Users\CreateUserDTO;
-use AppBundle\Domain\DTO\Users\ListUserDTO;
 use AppBundle\Domain\Entity\Phone;
-use AppBundle\Domain\Entity\User;
 use AppBundle\Domain\Helpers\Common\EasyEntityManager;
 use AppBundle\Domain\Helpers\Common\ExceptionManager;
 use Doctrine\ORM\EntityManagerInterface;
@@ -42,6 +39,7 @@ class PhoneDBManager extends EasyEntityManager
     /**
      * @param ListPhoneDTO $dto
      * @return mixed
+     * @throws \Doctrine\ORM\NonUniqueResultException
      */
     public function listPhone(ListPhoneDTO $dto)
     {
@@ -80,7 +78,6 @@ class PhoneDBManager extends EasyEntityManager
             $dto->model,
             $dto->os,
             $dto->price,
-            $dto->client,
             $dto->cpu,
             $dto->gpu,
             $dto->ram,

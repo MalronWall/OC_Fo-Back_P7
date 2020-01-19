@@ -105,7 +105,6 @@ class PhoneController
         $phone = null;
         try {
             $dto = $this->phoneValidatorHelper->createPhoneParameterValidate(json_decode($request->getContent(), true));
-            $dto->client = $this->clientDBManager->existClient($dto->idClient);
             $phone = $this->phoneDBManager->createPhone($dto);
         } catch (\Exception $e) {
             $error = $e->getMessage();

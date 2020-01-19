@@ -10,8 +10,6 @@ namespace AppBundle\Domain\Helpers\Phone\Validator;
 
 use AppBundle\Domain\DTO\Phones\CreatePhoneDTO;
 use AppBundle\Domain\DTO\Phones\ListPhoneDTO;
-use AppBundle\Domain\DTO\Users\CreateUserDTO;
-use AppBundle\Domain\DTO\Users\ListUserDTO;
 use AppBundle\Domain\Helpers\Common\ExceptionManager;
 use Symfony\Component\HttpFoundation\ParameterBag;
 use Symfony\Component\Validator\Validator\ValidatorInterface;
@@ -68,7 +66,6 @@ class PhoneValidatorHelper
             $params['model'],
             $params['os'],
             (float)$params['price'],
-            $params['client'],
             $params['cpu'],
             $params['gpu'],
             $params['ram'],

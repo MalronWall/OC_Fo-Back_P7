@@ -39,6 +39,7 @@ class UserDBManager extends EasyEntityManager
     /**
      * @param ListUserDTO $dto
      * @return \Pagerfanta\Pagerfanta
+     * @throws \Doctrine\ORM\NonUniqueResultException
      */
     public function listUser(ListUserDTO $dto)
     {
