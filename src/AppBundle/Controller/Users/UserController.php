@@ -9,6 +9,7 @@ declare(strict_types=1);
 namespace AppBundle\Controller\Users;
 
 use AppBundle\Domain\Helpers\Client\DB\ClientDBManager;
+use AppBundle\Domain\Helpers\Common\HateoasManager;
 use AppBundle\Domain\Helpers\User\DB\UserDBManager;
 use AppBundle\Domain\Helpers\User\Validator\UserValidatorHelper;
 use AppBundle\Responder\User\UserResponder;
@@ -35,6 +36,10 @@ class UserController
     private $userResponder;
     /** @var ClientDBManager */
     private $clientDBManager;
+    /**
+     * @var HateoasManager
+     */
+    private $hateoasManager;
 
     /**
      * UserController constructor.
@@ -45,6 +50,7 @@ class UserController
      * @param UserDBManager $userDBManager
      * @param ClientDBManager $clientDBManager
      * @param UserResponder $userResponder
+     * @param HateoasManager $hateoasManager
      */
     public function __construct(
         SerializerInterface $serializer,
@@ -53,7 +59,8 @@ class UserController
         EntityManagerInterface $entityManager,
         UserDBManager $userDBManager,
         ClientDBManager $clientDBManager,
-        UserResponder $userResponder
+        UserResponder $userResponder,
+        HateoasManager $hateoasManager
     ) {
         $this->serializer = $serializer;
         $this->urlGenerator = $urlGenerator;
@@ -62,6 +69,7 @@ class UserController
         $this->userDBManager = $userDBManager;
         $this->clientDBManager = $clientDBManager;
         $this->userResponder = $userResponder;
+        $this->hateoasManager = $hateoasManager;
     }
 
     /**
@@ -75,8 +83,13 @@ class UserController
         $datas = null;
         try {
             $dto = $this->userValidatorHelper->listUserParameterValidate($request->query);
-            $datas = $this->serializer->serialize(
+            $results = $this->hateoasManager->buildHateoas(
                 $this->userDBManager->listUser($dto),
+                "user",
+                [HateoasManager::SHOW, HateoasManager::CREATE, HateoasManager::DELETE]
+            );
+            $datas = $this->serializer->serialize(
+                $results,
                 'json',
                 ['groups' => ['user_list', 'client_list']]
             );

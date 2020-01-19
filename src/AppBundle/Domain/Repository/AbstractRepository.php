@@ -8,9 +8,7 @@ declare(strict_types=1);
 
 namespace AppBundle\Domain\Repository;
 
-use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\ORM\EntityRepository;
-use Doctrine\ORM\Mapping;
 use Doctrine\ORM\QueryBuilder;
 
 class AbstractRepository extends EntityRepository

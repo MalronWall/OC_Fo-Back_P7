@@ -9,6 +9,7 @@ declare(strict_types=1);
 namespace AppBundle\Controller\Phones;
 
 use AppBundle\Domain\Helpers\Client\DB\ClientDBManager;
+use AppBundle\Domain\Helpers\Common\HateoasManager;
 use AppBundle\Domain\Helpers\Phone\DB\PhoneDBManager;
 use AppBundle\Domain\Helpers\Phone\Validator\PhoneValidatorHelper;
 use AppBundle\Responder\Phone\PhoneResponder;
@@ -29,6 +30,10 @@ class PhoneController
     private $phoneResponder;
     /** @var ClientDBManager */
     private $clientDBManager;
+    /**
+     * @var HateoasManager
+     */
+    private $hateoasManager;
 
     /**
      * PhoneController constructor.
@@ -37,19 +42,22 @@ class PhoneController
      * @param ClientDBManager $clientDBManager
      * @param SerializerInterface $serializer
      * @param PhoneResponder $phoneResponder
+     * @param HateoasManager $hateoasManager
      */
     public function __construct(
         PhoneValidatorHelper $phoneValidatorHelper,
         PhoneDBManager $phoneDBManager,
         ClientDBManager $clientDBManager,
         SerializerInterface $serializer,
-        PhoneResponder $phoneResponder
+        PhoneResponder $phoneResponder,
+        HateoasManager $hateoasManager
     ) {
         $this->phoneValidatorHelper = $phoneValidatorHelper;
         $this->phoneDBManager = $phoneDBManager;
         $this->clientDBManager = $clientDBManager;
         $this->serializer = $serializer;
         $this->phoneResponder = $phoneResponder;
+        $this->hateoasManager = $hateoasManager;
     }
 
     /**
@@ -63,8 +71,13 @@ class PhoneController
         $datas = null;
         try {
             $dto = $this->phoneValidatorHelper->listPhoneParameterValidate($request->query);
-            $datas = $this->serializer->serialize(
+            $results = $this->hateoasManager->buildHateoas(
                 $this->phoneDBManager->listPhone($dto),
+                "phone",
+                [HateoasManager::SHOW]
+            );
+            $datas = $this->serializer->serialize(
+                $results,
                 'json',
                 ['groups' => ['phone_list', 'client_list']]
             );
