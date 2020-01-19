@@ -38,4 +38,20 @@ class ClientRepository extends AbstractRepository
             ->getQuery()
             ->getOneOrNullResult();
     }
+
+    /**
+     * @param $username
+     * @return mixed
+     * @throws \Doctrine\ORM\NonUniqueResultException
+     */
+    public function findClientByUsername($username)
+    {
+        return $this->createQueryBuilder('c')
+            ->where('c.username = :username')
+
+            ->setParameter('username', $username)
+
+            ->getQuery()
+            ->getOneOrNullResult();
+    }
 }
