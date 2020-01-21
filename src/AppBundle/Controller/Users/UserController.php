@@ -135,7 +135,7 @@ class UserController
         $user = null;
         try {
             $dto = $this->userValidatorHelper->createUserParameterValidate($request->getContent());
-            $dto->client = $this->clientDBManager->existClient($dto->idClient);
+            $dto->client = $this->clientDBManager->existClient($request->getSession()->get('JWT'));
             $user = $this->hateoasManager->buildHateoas(
                 $this->userDBManager->createUser($dto),
                 "user",
@@ -150,15 +150,16 @@ class UserController
 
     /**
      * @Route("/api/users/{id}", name="user_delete", methods={"DELETE"})
+     * @param Request $request
      * @param $id
      * @return Response
      */
-    public function deleteAction($id)
+    public function deleteAction(Request $request, $id)
     {
         $error = null;
         $datas = null;
         try {
-            $user = $this->userDBManager->existUser($id)["datas"][0];
+            $user = $this->userDBManager->existUser($id, $request->getSession()->get('JWT'))["datas"][0];
             $this->userDBManager->delete($user);
         } catch (\Exception $e) {
             $error = $e->getMessage();

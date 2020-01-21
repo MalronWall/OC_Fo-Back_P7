@@ -44,11 +44,6 @@ class CreateUserDTO
      */
     public $phoneNumber;
     /**
-     * @var string
-     * @Assert\NotBlank()
-     */
-    public $idClient;
-    /**
      * @var Client
      */
     public $client;
@@ -61,7 +56,6 @@ class CreateUserDTO
      * @param string|null $cp
      * @param string|null $city
      * @param string|null $phoneNumber
-     * @param string|null $idClient
      */
     public function __construct(
         ?string $name = null,
@@ -69,8 +63,7 @@ class CreateUserDTO
         ?string $address = null,
         ?string $cp = null,
         ?string $city = null,
-        ?string $phoneNumber = null,
-        ?string $idClient = null
+        ?string $phoneNumber = null
     ) {
         $this->name = $name;
         $this->firstname = $firstname;
@@ -78,7 +71,6 @@ class CreateUserDTO
         $this->cp = $cp;
         $this->city = $city;
         $this->phoneNumber = $phoneNumber;
-        $this->idClient = $idClient;
     }
 
 

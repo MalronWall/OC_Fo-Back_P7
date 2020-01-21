@@ -84,8 +84,6 @@ class HateoasManager
         return $links;
     }
 
-    // TODO : quand SFR Token, GET QUE les users de SFR /!\ Mettre dans show, lier à la création et vérifier pour le DELETE
-
     // TODO : Hateoas en cas d'erreur dans le APIListener ->buildHateoasError
 
     // TODO : doc API SWAGGER
