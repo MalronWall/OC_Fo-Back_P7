@@ -11,11 +11,10 @@ namespace AppBundle\Domain\Helpers\User\DB;
 use AppBundle\Domain\DTO\Users\CreateUserDTO;
 use AppBundle\Domain\DTO\Users\ListUserDTO;
 use AppBundle\Domain\Entity\User;
-use AppBundle\Domain\Helpers\Common\EasyEntityManager;
 use AppBundle\Domain\Helpers\Common\ExceptionManager;
 use Doctrine\ORM\EntityManagerInterface;
 
-class UserDBManager extends EasyEntityManager
+class UserDBManager
 {
     /** @var \AppBundle\Domain\Repository\UserRepository|\Doctrine\Common\Persistence\ObjectRepository */
     private $userRepo;
@@ -31,30 +30,42 @@ class UserDBManager extends EasyEntityManager
         EntityManagerInterface $entityManager,
         ExceptionManager $exceptionManager
     ) {
-        parent::__construct($entityManager);
-        $this->userRepo = $this->entityManager->getRepository(User::class);
+        $this->userRepo = $entityManager->getRepository(User::class);
         $this->exceptionManager = $exceptionManager;
     }
 
     /**
      * @param ListUserDTO $dto
+     * @param string $clientId
+     * @return array
      * @throws \Doctrine\ORM\NonUniqueResultException
      */
-    public function listUser(ListUserDTO $dto)
+    public function listUser(ListUserDTO $dto, string $clientId): array
     {
-        return $this->userRepo->listWithPagination($dto->name, $dto->firstname, $dto->order, $dto->limit, $dto->offset);
+        return $this->userRepo->listWithPagination(
+            $dto->name,
+            $dto->firstname,
+            $dto->order,
+            $dto->limit,
+            $dto->offset,
+            $clientId
+        );
     }
 
     /**
      * @param $id
+     * @param $clientId
      * @return mixed
      * @throws \Doctrine\ORM\NonUniqueResultException
      */
-    public function existUser($id)
+    public function existUser($id, ?string $clientId = null)
     {
         $result = $this->userRepo->findUserById($id);
         if (is_null($result)) {
             $this->exceptionManager->pageNotFoundExceptionToJson($id);
+        }
+        if ($result["datas"][0]->getClient()->getId()->toString() != $clientId) {
+            $this->exceptionManager->unauthorizedAccessExceptionToJson($id);
         }
         return $result;
     }
@@ -74,6 +85,14 @@ class UserDBManager extends EasyEntityManager
             $dto->phoneNumber,
             $dto->client
         );
-        return $this->create($user);
+        return $this->userRepo->create($user);
+    }
+
+    /**
+     * @param $user
+     */
+    public function delete($user)
+    {
+        return $this->userRepo->delete($user);
     }
 }

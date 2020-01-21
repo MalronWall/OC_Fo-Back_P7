@@ -84,7 +84,7 @@ class UserController
         try {
             $dto = $this->userValidatorHelper->listUserParameterValidate($request->query);
             $results = $this->hateoasManager->buildHateoas(
-                $this->userDBManager->listUser($dto),
+                $this->userDBManager->listUser($dto, $request->getSession()->get('JWT')),
                 "user",
                 [HateoasManager::SHOW, HateoasManager::CREATE, HateoasManager::DELETE]
             );
@@ -102,15 +102,20 @@ class UserController
 
     /**
      * @Route("/api/users/{id}", name="user_show", methods={"GET"})
+     * @param Request $request
      * @param $id
      * @return Response
      */
-    public function showAction($id)
+    public function showAction(Request $request, $id)
     {
         $error = null;
         $datas = null;
         try {
-            $user = $this->userDBManager->existUser($id);
+            $user = $this->hateoasManager->buildHateoas(
+                $this->userDBManager->existUser($id, $request->getSession()->get('JWT')),
+                "user",
+                [HateoasManager::LIST, HateoasManager::CREATE, HateoasManager::DELETE]
+            );
             $datas = $this->serializer->serialize($user, 'json', ['groups' => ['user_detail', 'client_list']]);
         } catch (\Exception $e) {
             $error = $e->getMessage();
@@ -131,7 +136,11 @@ class UserController
         try {
             $dto = $this->userValidatorHelper->createUserParameterValidate($request->getContent());
             $dto->client = $this->clientDBManager->existClient($dto->idClient);
-            $user = $this->userDBManager->createUser($dto);
+            $user = $this->hateoasManager->buildHateoas(
+                $this->userDBManager->createUser($dto),
+                "user",
+                [HateoasManager::LIST, HateoasManager::SHOW, HateoasManager::DELETE]
+            );
         } catch (\Exception $e) {
             $error = $e->getMessage();
         }
@@ -149,7 +158,7 @@ class UserController
         $error = null;
         $datas = null;
         try {
-            $user = $this->userDBManager->existUser($id);
+            $user = $this->userDBManager->existUser($id)["datas"][0];
             $this->userDBManager->delete($user);
         } catch (\Exception $e) {
             $error = $e->getMessage();

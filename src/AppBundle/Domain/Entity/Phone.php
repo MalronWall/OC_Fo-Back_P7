@@ -21,7 +21,7 @@ class Phone
     /**
      * @var UuidInterface
      *
-     * @Groups({"phone_list", "client_detail"})
+     * @Groups({"phone_list", "phone_detail", "client_detail"})
      *
      * @ORM\Id
      * @ORM\Column(type="uuid", unique=true)

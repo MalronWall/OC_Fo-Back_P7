@@ -74,7 +74,7 @@ class PhoneController
             $results = $this->hateoasManager->buildHateoas(
                 $this->phoneDBManager->listPhone($dto),
                 "phone",
-                [HateoasManager::SHOW]
+                [HateoasManager::SHOW, HateoasManager::CREATE, HateoasManager::DELETE]
             );
             $datas = $this->serializer->serialize(
                 $results,
@@ -98,7 +98,11 @@ class PhoneController
         $error = null;
         $datas = null;
         try {
-            $phone = $this->phoneDBManager->existPhone($id);
+            $phone = $this->hateoasManager->buildHateoas(
+                $this->phoneDBManager->existPhone($id),
+                "phone",
+                [HateoasManager::LIST, HateoasManager::CREATE, HateoasManager::DELETE]
+            );
             $datas = $this->serializer->serialize($phone, 'json', ['groups' => ['phone_detail', 'client_list']]);
         } catch (\Exception $e) {
             $error = $e->getMessage();
@@ -118,11 +122,34 @@ class PhoneController
         $phone = null;
         try {
             $dto = $this->phoneValidatorHelper->createPhoneParameterValidate(json_decode($request->getContent(), true));
-            $phone = $this->phoneDBManager->createPhone($dto);
+            $phone = $this->hateoasManager->buildHateoas(
+                $this->phoneDBManager->createPhone($dto),
+                "phone",
+                [HateoasManager::LIST, HateoasManager::SHOW, HateoasManager::DELETE]
+            );
         } catch (\Exception $e) {
             $error = $e->getMessage();
         }
 
         return $this->phoneResponder->createResponse($phone, $error);
+    }
+
+    /**
+     * @Route("/api/phones/{id}", name="phone_delete", methods={"DELETE"})
+     * @param $id
+     * @return Response
+     */
+    public function deleteAction($id)
+    {
+        $error = null;
+        $datas = null;
+        try {
+            $phone = $this->phoneDBManager->existPhone($id)["datas"][0];
+            $this->phoneDBManager->delete($phone);
+        } catch (\Exception $e) {
+            $error = $e->getMessage();
+        }
+
+        return $this->phoneResponder->deleteResponse($error);
     }
 }

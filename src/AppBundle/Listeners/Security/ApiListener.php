@@ -110,6 +110,8 @@ class ApiListener
             return;
         }
 
+        $event->getRequest()->getSession()->set('JWT', $jwt->getPayload()->sub);
+
         return;
     }
 }

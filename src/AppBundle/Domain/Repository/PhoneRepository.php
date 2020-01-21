@@ -93,12 +93,10 @@ class PhoneRepository extends AbstractRepository
      */
     public function findPhoneById($id)
     {
-        return $this->createQueryBuilder('p')
+        $qb = $this->createQueryBuilder('p')
             ->where('p.id = :id')
+            ->setParameter('id', $id);
 
-            ->setParameter('id', $id)
-
-            ->getQuery()
-            ->getOneOrNullResult();
+        return $this->getResultAsArray($qb);
     }
 }

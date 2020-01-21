@@ -11,11 +11,10 @@ namespace AppBundle\Domain\Helpers\Phone\DB;
 use AppBundle\Domain\DTO\Phones\CreatePhoneDTO;
 use AppBundle\Domain\DTO\Phones\ListPhoneDTO;
 use AppBundle\Domain\Entity\Phone;
-use AppBundle\Domain\Helpers\Common\EasyEntityManager;
 use AppBundle\Domain\Helpers\Common\ExceptionManager;
 use Doctrine\ORM\EntityManagerInterface;
 
-class PhoneDBManager extends EasyEntityManager
+class PhoneDBManager
 {
     /** @var \AppBundle\Domain\Repository\PhoneRepository|\Doctrine\Common\Persistence\ObjectRepository */
     private $phoneRepo;
@@ -31,8 +30,7 @@ class PhoneDBManager extends EasyEntityManager
         EntityManagerInterface $entityManager,
         ExceptionManager $exceptionManager
     ) {
-        parent::__construct($entityManager);
-        $this->phoneRepo = $this->entityManager->getRepository(Phone::class);
+        $this->phoneRepo = $entityManager->getRepository(Phone::class);
         $this->exceptionManager = $exceptionManager;
     }
 
@@ -73,7 +71,7 @@ class PhoneDBManager extends EasyEntityManager
      */
     public function createPhone(CreatePhoneDTO $dto)
     {
-        $user = new Phone(
+        $phone = new Phone(
             $dto->brand,
             $dto->model,
             $dto->os,
@@ -91,6 +89,14 @@ class PhoneDBManager extends EasyEntityManager
             $dto->battery,
             $dto->colors
         );
-        return $this->create($user);
+        return $this->phoneRepo->create($phone);
+    }
+
+    /**
+     * @param $phone
+     */
+    public function delete($phone)
+    {
+        return $this->phoneRepo->delete($phone);
     }
 }

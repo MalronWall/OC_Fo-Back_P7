@@ -12,20 +12,26 @@ use AppBundle\Domain\Entity\Client;
 use AppBundle\Domain\Entity\Phone;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
+use Symfony\Component\Serializer\SerializerInterface;
 
 class PhoneResponder
 {
     /** @var UrlGeneratorInterface */
     private $urlGenerator;
+    /** @var SerializerInterface */
+    private $serializer;
 
     /**
      * PhoneResponder constructor.
      * @param UrlGeneratorInterface $urlGenerator
+     * @param SerializerInterface $serializer
      */
     public function __construct(
-        UrlGeneratorInterface $urlGenerator
+        UrlGeneratorInterface $urlGenerator,
+        SerializerInterface $serializer
     ) {
         $this->urlGenerator = $urlGenerator;
+        $this->serializer = $serializer;
     }
 
     /**
@@ -79,11 +85,11 @@ class PhoneResponder
      * @param null $error
      * @return Response
      */
-    public function createResponse(Phone $phone = null, $error = null)
+    public function createResponse(array $phone = null, $error = null)
     {
         return new Response(
             is_null($error) ?
-                null
+                $this->serializer->serialize($phone, 'json', ['groups' => ['phone_detail', 'client_list']])
                 : $error,
             is_null($error) ?
                 Response::HTTP_CREATED
@@ -91,12 +97,31 @@ class PhoneResponder
             is_null($error) ?
                 [
                     'Content-Type' => 'application/json',
-                    "Location" => $this->urlGenerator->generate("phone_show", ["id" => $phone->getId()])
+                    "Location" => $this->urlGenerator->generate("phone_show", ["id" => $phone["datas"][0]["phone"]->getId()])
                 ]
                 :
                 [
                     'Content-Type' => 'application/json'
                 ]
+        );
+    }
+
+    /**
+     * @param null $error
+     * @return Response
+     */
+    public function deleteResponse($error = null)
+    {
+        return new Response(
+            is_null($error) ?
+                null
+                : $error,
+            is_null($error) ?
+                Response::HTTP_NO_CONTENT
+                : Response::HTTP_NOT_FOUND,
+            [
+                'Content-Type' => 'application/json'
+            ]
         );
     }
 }

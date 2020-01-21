@@ -52,4 +52,39 @@ class AbstractRepository extends EntityRepository
             ]
         ];
     }
+
+    /**
+     * @param QueryBuilder $qb
+     * @return array
+     * @throws \Doctrine\ORM\NonUniqueResultException
+     */
+    public function getResultAsArray(QueryBuilder $qb) : array
+    {
+        return $this->format($qb->getQuery()->getOneOrNullResult());
+    }
+
+    public function create($entity)
+    {
+        $this->_em->persist($entity);
+        $this->_em->flush();
+        return $this->format($entity);
+    }
+
+    public function update()
+    {
+        $this->_em->flush();
+    }
+
+    public function delete($entity)
+    {
+        $this->_em->remove($entity);
+        $this->_em->flush();
+    }
+
+    private function format($entity)
+    {
+        return [
+            "datas" => [$entity]
+        ];
+    }
 }

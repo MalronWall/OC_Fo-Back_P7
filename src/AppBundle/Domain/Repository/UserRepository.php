@@ -16,6 +16,7 @@ class UserRepository extends AbstractRepository
      * @param string $order
      * @param int $limit
      * @param int $offset
+     * @param string $clientId
      * @return array
      * @throws \Doctrine\ORM\NonUniqueResultException
      */
@@ -24,15 +25,20 @@ class UserRepository extends AbstractRepository
         $firstnameLike = null,
         $order = 'asc',
         $limit = 10,
-        $offset = 0
-    ) {
+        $offset = 0,
+        $clientId = ""
+    ): array {
         $qb = $this
             ->createQueryBuilder('u')
             ->orderBy('u.name', $order)
-            ->addOrderBy('u.firstname', $order);
+            ->addOrderBy('u.firstname', $order)
+            ->where('u.client = :client')
+            ->setParameter("client", $clientId);
         $nb = $this
             ->createQueryBuilder('u')
-            ->select('count(u.id)');
+            ->select('count(u.id)')
+            ->where('u.client = :client')
+            ->setParameter("client", $clientId);
 
         if ($nameLike) {
             $qb
@@ -73,10 +79,10 @@ class UserRepository extends AbstractRepository
      */
     public function findUserById($id)
     {
-        return $this->createQueryBuilder('u')
-                    ->where('u.id = :id')
-                    ->setParameter('id', $id)
-                    ->getQuery()
-                    ->getOneOrNullResult();
+        $qb = $this->createQueryBuilder('u')
+                   ->where('u.id = :id')
+                   ->setParameter('id', $id);
+
+        return $this->getResultAsArray($qb);
     }
 }

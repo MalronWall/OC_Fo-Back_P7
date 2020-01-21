@@ -9,6 +9,7 @@ declare(strict_types=1);
 namespace AppBundle\Domain\Helpers\Common;
 
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
+use Symfony\Component\HttpKernel\Exception\UnauthorizedHttpException;
 use Symfony\Component\Validator\ConstraintViolationListInterface;
 use Symfony\Component\Validator\Exception\ValidatorException;
 
@@ -30,10 +31,21 @@ class ExceptionManager
 
     public function pageNotFoundExceptionToJson($value = null, $field = "id")
     {
+        $msg = [];
         $msg["errors"]["onProperty"] = $field;
         $msg["errors"]["errorMessage"] = "This field does not correspond to anything.";
         $msg["errors"]["valueGiven"] = $value;
 
         throw new NotFoundHttpException(json_encode($msg));
+    }
+
+    public function unauthorizedAccessExceptionToJson($value = null, $field = "id")
+    {
+        $msg = [];
+        $msg["errors"]["onProperty"] = $field;
+        $msg["errors"]["errorMessage"] = "You don't have the access to this user.";
+        $msg["errors"]["valueGiven"] = $value;
+
+        throw new UnauthorizedHttpException(null, json_encode($msg));
     }
 }

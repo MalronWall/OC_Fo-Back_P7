@@ -80,11 +80,11 @@ class UserResponder
     }
 
     /**
-     * @param User $user
+     * @param array $user
      * @param null $error
      * @return Response
      */
-    public function createResponse(User $user = null, $error = null)
+    public function createResponse(array $user = null, $error = null)
     {
         return new Response(
             is_null($error) ?
@@ -96,7 +96,7 @@ class UserResponder
             is_null($error) ?
                 [
                     'Content-Type' => 'application/json',
-                    "Location" => $this->urlGenerator->generate("user_show", ["id" => $user->getId()])
+                    "Location" => $this->urlGenerator->generate("user_show", ["id" => $user["datas"][0]["user"]->getId()])
                 ]
                 :
                 [
@@ -105,6 +105,10 @@ class UserResponder
         );
     }
 
+    /**
+     * @param null $error
+     * @return Response
+     */
     public function deleteResponse($error = null)
     {
         return new Response(

@@ -21,7 +21,7 @@ class User
     /**
      * @var UuidInterface
      *
-     * @Groups({"user_list", "client_detail"})
+     * @Groups({"user_list", "user_detail", "client_detail"})
      *
      * @ORM\Id
      * @ORM\Column(type="uuid", unique=true)

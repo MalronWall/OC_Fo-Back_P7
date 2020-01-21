@@ -10,12 +10,10 @@ namespace AppBundle\Domain\Helpers\Client\DB;
 
 use AppBundle\Domain\DTO\Clients\CreateClientDTO;
 use AppBundle\Domain\Entity\Client;
-use AppBundle\Domain\Helpers\Common\EasyEntityManager;
 use AppBundle\Domain\Helpers\Common\ExceptionManager;
-use AppBundle\Domain\Repository\ClientRepository;
 use Doctrine\ORM\EntityManagerInterface;
 
-class ClientDBManager extends EasyEntityManager
+class ClientDBManager
 {
     /** @var \AppBundle\Domain\Repository\ClientRepository|\Doctrine\Common\Persistence\ObjectRepository */
     private $clientRepo;
@@ -31,8 +29,7 @@ class ClientDBManager extends EasyEntityManager
         EntityManagerInterface $entityManager,
         ExceptionManager $exceptionManager
     ) {
-        parent::__construct($entityManager);
-        $this->clientRepo = $this->entityManager->getRepository(Client::class);
+        $this->clientRepo = $entityManager->getRepository(Client::class);
         $this->exceptionManager = $exceptionManager;
     }
 
@@ -60,6 +57,6 @@ class ClientDBManager extends EasyEntityManager
             $dto->username,
             $dto->password
         );
-        return $this->create($client);
+        return $this->clientRepo->create($client);
     }
 }
