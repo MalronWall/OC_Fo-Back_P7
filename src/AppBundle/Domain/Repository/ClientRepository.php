@@ -30,13 +30,12 @@ class ClientRepository extends AbstractRepository
      */
     public function findClientById($id)
     {
-        return $this->createQueryBuilder('c')
+        $qb = $this->createQueryBuilder('c')
             ->where('c.id = :id')
 
-            ->setParameter('id', $id)
+            ->setParameter('id', $id);
 
-            ->getQuery()
-            ->getOneOrNullResult();
+        return $this->getResultAsArray($qb);
     }
 
     /**

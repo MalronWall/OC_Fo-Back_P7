@@ -34,19 +34,19 @@ class ClientResponder
     }
 
     /**
-     * @param null $datas
+     * @param null $client
      * @param null $error
      * @return Response
      */
-    public function showResponse($datas = null, $error = null)
+    public function showResponse($client = null, $error = null)
     {
         return new Response(
-            is_null($datas) ?
+            is_null($client) ?
                 (is_null($error) ?
                     null
                     : $error)
-                : $datas,
-            is_null($datas) ?
+                : $this->serializer->serialize($client, 'json', ['groups' => ['client_detail']]),
+            is_null($client) ?
                 is_null($error) ?
                     Response::HTTP_NO_CONTENT
                     : Response::HTTP_NOT_FOUND
@@ -58,11 +58,11 @@ class ClientResponder
     }
 
     /**
-     * @param Client $client
+     * @param array $client
      * @param null $error
      * @return Response
      */
-    public function createResponse(Client $client = null, $error = null)
+    public function createResponse(array $client = null, $error = null)
     {
         return new Response(
             is_null($error) ?
@@ -84,7 +84,8 @@ class ClientResponder
             is_null($error) ?
                 [
                     'Content-Type' => 'application/json',
-                    "Location" => $this->urlGenerator->generate("client_show", ["id" => $client->getId()])
+                    "Location" => $this->urlGenerator->generate("client_show",
+                        ["id" => $client["datas"][0]["client"]->getId()])
                 ]
                 :
                 [

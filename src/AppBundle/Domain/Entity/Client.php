@@ -54,14 +54,6 @@ class Client implements UserInterface
      */
     private $roles;
     /**
-     * @var Collection|Phone[]
-     *
-     * @Groups({"client_detail"})
-     *
-     * @ORM\OneToMany(targetEntity="Phone", mappedBy="client")
-     */
-    private $phones;
-    /**
      * @var Collection|User[]
      *
      * @Groups({"client_detail"})
@@ -100,14 +92,6 @@ class Client implements UserInterface
     public function getUsername(): string
     {
         return $this->username;
-    }
-
-    /**
-     * @return Phone[]|Collection
-     */
-    public function getPhones()
-    {
-        return $this->phones;
     }
 
     /**

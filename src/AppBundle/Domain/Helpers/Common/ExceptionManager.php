@@ -8,6 +8,7 @@ declare(strict_types=1);
 
 namespace AppBundle\Domain\Helpers\Common;
 
+use Symfony\Component\HttpKernel\Exception\ConflictHttpException;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Symfony\Component\HttpKernel\Exception\UnauthorizedHttpException;
 use Symfony\Component\Validator\ConstraintViolationListInterface;
@@ -47,5 +48,15 @@ class ExceptionManager
         $msg["errors"]["valueGiven"] = $value;
 
         throw new UnauthorizedHttpException(null, json_encode($msg));
+    }
+
+    public function conflictExceptionToJson($value = null, $field = "username")
+    {
+        $msg = [];
+        $msg["errors"]["onProperty"] = $field;
+        $msg["errors"]["errorMessage"] = "This username still exist.";
+        $msg["errors"]["valueGiven"] = $value;
+
+        throw new ConflictHttpException(json_encode($msg));
     }
 }

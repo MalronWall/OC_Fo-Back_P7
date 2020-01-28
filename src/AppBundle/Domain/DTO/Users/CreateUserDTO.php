@@ -72,6 +72,4 @@ class CreateUserDTO
         $this->city = $city;
         $this->phoneNumber = $phoneNumber;
     }
-
-
 }

@@ -84,7 +84,5 @@ class HateoasManager
         return $links;
     }
 
-    // TODO : Hateoas en cas d'erreur dans le APIListener ->buildHateoasError
-
     // TODO : doc API SWAGGER
 }

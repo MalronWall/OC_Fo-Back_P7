@@ -10,6 +10,7 @@ namespace AppBundle\Controller\Clients;
 
 use AppBundle\Domain\Helpers\Client\DB\ClientDBManager;
 use AppBundle\Domain\Helpers\Client\Validator\ClientValidatorHelper;
+use AppBundle\Domain\Helpers\Common\HateoasManager;
 use AppBundle\Responder\Client\ClientResponder;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -26,6 +27,10 @@ class ClientController
     private $clientDBManager;
     /** @var ClientResponder */
     private $clientResponder;
+    /**
+     * @var HateoasManager
+     */
+    private $hateoasManager;
 
     /**
      * ClientController constructor.
@@ -33,17 +38,20 @@ class ClientController
      * @param ClientValidatorHelper $clientValidatorHelper
      * @param ClientDBManager $clientDBManager
      * @param ClientResponder $clientResponder
+     * @param HateoasManager $hateoasManager
      */
     public function __construct(
         SerializerInterface $serializer,
         ClientValidatorHelper $clientValidatorHelper,
         ClientDBManager $clientDBManager,
-        ClientResponder $clientResponder
+        ClientResponder $clientResponder,
+        HateoasManager $hateoasManager
     ) {
         $this->serializer = $serializer;
         $this->clientValidatorHelper = $clientValidatorHelper;
         $this->clientDBManager = $clientDBManager;
         $this->clientResponder = $clientResponder;
+        $this->hateoasManager = $hateoasManager;
     }
 
     /**
@@ -56,11 +64,11 @@ class ClientController
         $error = null;
         $datas = null;
         try {
-            $client = $this->clientDBManager->existClient($id);
-            $datas = $this->serializer->serialize(
+            $client = $this->clientDBManager->existClientById($id);
+            $datas = $this->hateoasManager->buildHateoas(
                 $client,
-                'json',
-                ['groups' => ['client_detail']]
+                "client",
+                []
             );
         } catch (\Exception $e) {
             $error = $e->getMessage();
@@ -81,7 +89,12 @@ class ClientController
         try {
             $dto =
                 $this->clientValidatorHelper->createClientParameterValidate(json_decode($request->getContent(), true));
-            $client = $this->clientDBManager->createClient($dto);
+            $this->clientDBManager->existClientByUsername($dto->username);
+            $client = $this->hateoasManager->buildHateoas(
+                $this->clientDBManager->createClient($dto),
+                "client",
+                [HateoasManager::SHOW]
+            );
         } catch (\Exception $e) {
             $error = $e->getMessage();
         }

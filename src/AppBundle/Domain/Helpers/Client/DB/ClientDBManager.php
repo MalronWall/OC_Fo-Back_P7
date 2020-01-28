@@ -12,6 +12,7 @@ use AppBundle\Domain\DTO\Clients\CreateClientDTO;
 use AppBundle\Domain\Entity\Client;
 use AppBundle\Domain\Helpers\Common\ExceptionManager;
 use Doctrine\ORM\EntityManagerInterface;
+use Symfony\Component\Security\Core\Encoder\EncoderFactoryInterface;
 
 class ClientDBManager
 {
@@ -19,18 +20,25 @@ class ClientDBManager
     private $clientRepo;
     /** @var ExceptionManager */
     private $exceptionManager;
+    /**
+     * @var EncoderFactoryInterface
+     */
+    private $encoderFactory;
 
     /**
      * ClientDBManager constructor.
      * @param EntityManagerInterface $entityManager
      * @param ExceptionManager $exceptionManager
+     * @param EncoderFactoryInterface $encoderFactory
      */
     public function __construct(
         EntityManagerInterface $entityManager,
-        ExceptionManager $exceptionManager
+        ExceptionManager $exceptionManager,
+        EncoderFactoryInterface $encoderFactory
     ) {
         $this->clientRepo = $entityManager->getRepository(Client::class);
         $this->exceptionManager = $exceptionManager;
+        $this->encoderFactory = $encoderFactory;
     }
 
     /**
@@ -38,13 +46,25 @@ class ClientDBManager
      * @return mixed
      * @throws \Doctrine\ORM\NonUniqueResultException
      */
-    public function existClient($id)
+    public function existClientById($id)
     {
         $result = $this->clientRepo->findClientById($id);
         if (is_null($result)) {
             $this->exceptionManager->pageNotFoundExceptionToJson($id);
         }
         return $result;
+    }
+
+    /**
+     * @param $username
+     * @throws \Doctrine\ORM\NonUniqueResultException
+     */
+    public function existClientByUsername($username)
+    {
+        $result = $this->clientRepo->findClientByUsername($username);
+        if (!is_null($result)) {
+            $this->exceptionManager->conflictExceptionToJson($username);
+        }
     }
 
     /**
@@ -55,7 +75,8 @@ class ClientDBManager
     {
         $client = new Client(
             $dto->username,
-            $dto->password
+            $this->encoderFactory->getEncoder(Client::class)
+                                 ->encodePassword($dto->password, null)
         );
         return $this->clientRepo->create($client);
     }

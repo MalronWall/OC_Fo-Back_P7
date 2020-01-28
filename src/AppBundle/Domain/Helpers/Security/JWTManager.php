@@ -61,7 +61,7 @@ class JWTManager
 
         $payload = [
             "sub" => $client->getId()->toString(),
-            "name" => $client->getUsername(),
+            "name" => $client["datas"][0]->getUsername(),
             "iat" => $iat->getTimestamp(),
             "exp" => $iat->add(new \DateInterval("P1D"))->getTimestamp(),
         ];
@@ -115,6 +115,6 @@ class JWTManager
         if (is_null($client)) {
             return false;
         }
-        return $client->getUsername() === $payload->name;
+        return $client["datas"][0]->getUsername() === $payload->name;
     }
 }

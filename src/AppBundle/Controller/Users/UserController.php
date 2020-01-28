@@ -135,7 +135,7 @@ class UserController
         $user = null;
         try {
             $dto = $this->userValidatorHelper->createUserParameterValidate($request->getContent());
-            $dto->client = $this->clientDBManager->existClient($request->getSession()->get('JWT'));
+            $dto->client = $this->clientDBManager->existClientById($request->getSession()->get('JWT'));
             $user = $this->hateoasManager->buildHateoas(
                 $this->userDBManager->createUser($dto),
                 "user",
