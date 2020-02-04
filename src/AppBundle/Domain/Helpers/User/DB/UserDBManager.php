@@ -83,7 +83,7 @@ class UserDBManager
             $dto->cp,
             $dto->city,
             $dto->phoneNumber,
-            $dto->client
+            $dto->client["datas"][0]
         );
         return $this->userRepo->create($user);
     }

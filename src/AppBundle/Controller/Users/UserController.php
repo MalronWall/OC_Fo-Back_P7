@@ -82,7 +82,39 @@ class UserController
      * @return Response
      * @SWG\Response(
      *     response="200",
-     *     description="Return list of users"
+     *     description="Return list of users",
+     *     @SWG\Schema(
+     *          type="object",
+     *          @SWG\Property(
+     *              property="datas",
+     *              type="array",
+     *              @SWG\Items(
+     *                  type="object",
+     *                  @SWG\Property(
+     *                      property="user",
+     *                      type="object",
+     *                      ref=@Model(type=User::class)
+     *                  ),
+     *                  @SWG\Property(
+     *                      property="links",
+     *                      type="array",
+     *                      @SWG\Items(
+     *                          type="object",
+     *                          @SWG\Property(property="url", type="string"),
+     *                          @SWG\Property(property="method", type="string"),
+     *                          @SWG\Property(property="returnType", type="string")
+     *                      )
+     *                  )
+     *              )
+     *          ),
+     *          @SWG\Property(
+     *              property="metas",
+     *              type="object",
+     *              @SWG\Property(property="nbTotalOfItems", type="integer"),
+     *              @SWG\Property(property="currentPage", type="integer"),
+     *              @SWG\Property(property="totalPages", type="integer"),
+     *          )
+     *      )
      * )
      * @SWG\Parameter(
      *     name="name",
@@ -115,6 +147,7 @@ class UserController
      *     description="'First user called in db'"
      * )
      * @SWG\Tag(name="User")
+     * @Security(name="Bearer")
      */
     public function listAction(Request $request)
     {

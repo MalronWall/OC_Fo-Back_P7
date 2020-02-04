@@ -11,6 +11,7 @@ namespace AppBundle\Domain\Entity;
 use Doctrine\Common\Collections\Collection;
 use Ramsey\Uuid\UuidInterface;
 use Doctrine\ORM\Mapping as ORM;
+use Swagger\Annotations as SWG;
 use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\Serializer\Annotation\Groups;
 
@@ -29,6 +30,8 @@ class Client implements UserInterface
      * @ORM\Column(type="uuid", unique=true)
      * @ORM\GeneratedValue(strategy="CUSTOM")
      * @ORM\CustomIdGenerator(class="Doctrine\ORM\Id\UuidGenerator")
+     *
+     * @SWG\Property(type="string")
      */
     private $id;
     /**
@@ -51,6 +54,7 @@ class Client implements UserInterface
      * @Groups({"client_detail"})
      *
      * @ORM\Column(type="array")
+     * @SWG\Property(type="array", @SWG\Items(type="string"))
      */
     private $roles;
     /**

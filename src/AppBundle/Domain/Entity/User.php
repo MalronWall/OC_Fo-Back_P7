@@ -9,6 +9,7 @@ declare(strict_types=1);
 namespace AppBundle\Domain\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Swagger\Annotations as SWG;
 use Symfony\Component\Serializer\Annotation\Groups;
 use Ramsey\Uuid\UuidInterface;
 
@@ -27,6 +28,8 @@ class User
      * @ORM\Column(type="uuid", unique=true)
      * @ORM\GeneratedValue(strategy="CUSTOM")
      * @ORM\CustomIdGenerator(class="Doctrine\ORM\Id\UuidGenerator")
+     *
+     * @SWG\Property(type="string")
      */
     private $id;
     /**
