@@ -50,8 +50,10 @@ class ApiListener
      */
     public function onKernelRequest(GetResponseEvent $event)
     {
-        if (preg_match("/\/login/", $event->getRequest()
-                                          ->getRequestUri())) {
+        if (preg_match("/\/login/", $event->getRequest()->getRequestUri()) ||
+            preg_match("/\/_/", $event->getRequest()->getRequestUri()) or
+            preg_match("/\/api\/doc/", $event->getRequest()->getRequestUri())
+        ) {
             return;
         }
 
