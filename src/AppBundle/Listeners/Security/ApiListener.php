@@ -47,6 +47,7 @@ class ApiListener
 
     /**
      * @param GetResponseEvent $event
+     * @throws \Doctrine\ORM\NonUniqueResultException
      */
     public function onKernelRequest(GetResponseEvent $event)
     {

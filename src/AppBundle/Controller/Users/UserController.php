@@ -8,12 +8,16 @@ declare(strict_types=1);
 
 namespace AppBundle\Controller\Users;
 
+use AppBundle\Domain\Entity\User;
 use AppBundle\Domain\Helpers\Client\DB\ClientDBManager;
 use AppBundle\Domain\Helpers\Common\HateoasManager;
 use AppBundle\Domain\Helpers\User\DB\UserDBManager;
 use AppBundle\Domain\Helpers\User\Validator\UserValidatorHelper;
 use AppBundle\Responder\User\UserResponder;
 use Doctrine\ORM\EntityManagerInterface;
+use Nelmio\ApiDocBundle\Annotation\Model;
+use Nelmio\ApiDocBundle\Annotation\Security;
+use Swagger\Annotations as SWG;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -76,6 +80,41 @@ class UserController
      * @Route("/api/users", name="user_list", methods={"GET"})
      * @param Request $request
      * @return Response
+     * @SWG\Response(
+     *     response="200",
+     *     description="Return list of users"
+     * )
+     * @SWG\Parameter(
+     *     name="name",
+     *     in="query",
+     *     type="string",
+     *     description="'Name of the user'"
+     * )
+     * @SWG\Parameter(
+     *     name="firstname",
+     *     in="query",
+     *     type="string",
+     *     description="'Firstname of the user'"
+     * )
+     * @SWG\Parameter(
+     *     name="order",
+     *     in="query",
+     *     type="string",
+     *     description="'Ascendant (asc) or Descendant (desc) list'"
+     * )
+     * @SWG\Parameter(
+     *     name="limit",
+     *     in="query",
+     *     type="integer",
+     *     description="'Limit of the number of user'"
+     * )
+     * @SWG\Parameter(
+     *     name="offset",
+     *     in="query",
+     *     type="integer",
+     *     description="'First user called in db'"
+     * )
+     * @SWG\Tag(name="User")
      */
     public function listAction(Request $request)
     {

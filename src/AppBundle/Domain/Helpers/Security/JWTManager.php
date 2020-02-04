@@ -20,7 +20,7 @@ class JWTManager
      */
     private $container;
     /**
-     * @var EntityManager
+     * @var EntityManagerInterface
      */
     private $entityManager;
 
@@ -61,7 +61,7 @@ class JWTManager
 
         $payload = [
             "sub" => $client->getId()->toString(),
-            "name" => $client["datas"][0]->getUsername(),
+            "name" => $client->getUsername(),
             "iat" => $iat->getTimestamp(),
             "exp" => $iat->add(new \DateInterval("P1D"))->getTimestamp(),
         ];
@@ -107,10 +107,10 @@ class JWTManager
     /**
      * @param \stdClass $payload
      * @return bool
+     * @throws \Doctrine\ORM\NonUniqueResultException
      */
     public function isValidClient(\stdClass $payload): bool
     {
-        /** @var Client $client */
         $client = $this->entityManager->getRepository(Client::class)->findClientById($payload->sub);
         if (is_null($client)) {
             return false;
