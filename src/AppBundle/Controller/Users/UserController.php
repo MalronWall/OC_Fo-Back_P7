@@ -177,6 +177,37 @@ class UserController
      * @param Request $request
      * @param $id
      * @return Response
+     * @SWG\Response(
+     *     response="200",
+     *     description="Return the details of a user",
+     *     @SWG\Schema(
+     *          type="object",
+     *          @SWG\Property(
+     *              property="datas",
+     *              type="array",
+     *              @SWG\Items(
+     *                  type="object",
+     *                  @SWG\Property(
+     *                      property="user",
+     *                      type="object",
+     *                      ref=@Model(type=User::class)
+     *                  ),
+     *                  @SWG\Property(
+     *                      property="links",
+     *                      type="array",
+     *                      @SWG\Items(
+     *                          type="object",
+     *                          @SWG\Property(property="url", type="string"),
+     *                          @SWG\Property(property="method", type="string"),
+     *                          @SWG\Property(property="returnType", type="string")
+     *                      )
+     *                  )
+     *              )
+     *          )
+     *      )
+     * )
+     * @SWG\Tag(name="User")
+     * @Security(name="Bearer")
      */
     public function showAction(Request $request, $id)
     {
@@ -200,6 +231,37 @@ class UserController
      * @Route("/api/users", name="user_create", methods={"POST"})
      * @param Request $request
      * @return Response
+     * @SWG\Response(
+     *     response="201",
+     *     description="Create new user",
+     *     @SWG\Schema(
+     *          type="object",
+     *          @SWG\Property(
+     *              property="datas",
+     *              type="array",
+     *              @SWG\Items(
+     *                  type="object",
+     *                  @SWG\Property(
+     *                      property="user",
+     *                      type="object",
+     *                      ref=@Model(type=User::class)
+     *                  ),
+     *                  @SWG\Property(
+     *                      property="links",
+     *                      type="array",
+     *                      @SWG\Items(
+     *                          type="object",
+     *                          @SWG\Property(property="url", type="string"),
+     *                          @SWG\Property(property="method", type="string"),
+     *                          @SWG\Property(property="returnType", type="string")
+     *                      )
+     *                  )
+     *              )
+     *          )
+     *      )
+     * )
+     * @SWG\Tag(name="User")
+     * @Security(name="Bearer")
      */
     public function createAction(Request $request)
     {
@@ -225,6 +287,12 @@ class UserController
      * @param Request $request
      * @param $id
      * @return Response
+     * @SWG\Response(
+     *     response="204",
+     *     description="Delete user"
+     * )
+     * @SWG\Tag(name="User")
+     * @Security(name="Bearer")
      */
     public function deleteAction(Request $request, $id)
     {

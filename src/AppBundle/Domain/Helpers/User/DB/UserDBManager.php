@@ -61,7 +61,7 @@ class UserDBManager
     public function existUser($id, ?string $clientId = null)
     {
         $result = $this->userRepo->findUserById($id);
-        if (is_null($result)) {
+        if (is_null($result["datas"][0])) {
             $this->exceptionManager->pageNotFoundExceptionToJson($id);
         }
         if ($result["datas"][0]->getClient()->getId()->toString() != $clientId) {
