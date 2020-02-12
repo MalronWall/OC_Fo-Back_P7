@@ -10,6 +10,8 @@ namespace AppBundle\Domain\Entity;
 
 use Ramsey\Uuid\UuidInterface;
 use Doctrine\ORM\Mapping as ORM;
+use Swagger\Annotations as SWG;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
  * @ORM\Entity(repositoryClass="AppBundle\Domain\Repository\PhoneRepository")
@@ -20,14 +22,20 @@ class Phone
     /**
      * @var UuidInterface
      *
+     * @Groups({"phone_list", "phone_detail", "client_detail"})
+     *
      * @ORM\Id
      * @ORM\Column(type="uuid", unique=true)
      * @ORM\GeneratedValue(strategy="CUSTOM")
      * @ORM\CustomIdGenerator(class="Doctrine\ORM\Id\UuidGenerator")
+     *
+     * @SWG\Property(type="string")
      */
     private $id;
     /**
      * @var string
+     *
+     * @Groups({"phone_list", "phone_detail", "client_detail"})
      *
      * @ORM\Column(type="string")
      */
@@ -35,17 +43,23 @@ class Phone
     /**
      * @var string
      *
+     * @Groups({"phone_list", "phone_detail", "client_detail"})
+     *
      * @ORM\Column(type="string")
      */
     private $model;
     /**
      * @var string
      *
+     * @Groups({"phone_detail"})
+     *
      * @ORM\Column(type="string")
      */
     private $os;
     /**
-     * @var string
+     * @var float
+     *
+     * @Groups({"phone_detail"})
      *
      * @ORM\Column(type="float")
      */
@@ -53,11 +67,15 @@ class Phone
     /**
      * @var string
      *
+     * @Groups({"phone_detail"})
+     *
      * @ORM\Column(type="string", nullable=true)
      */
     private $cpu;
     /**
      * @var string
+     *
+     * @Groups({"phone_detail"})
      *
      * @ORM\Column(type="string", nullable=true)
      */
@@ -65,11 +83,15 @@ class Phone
     /**
      * @var string
      *
+     * @Groups({"phone_detail"})
+     *
      * @ORM\Column(type="string", nullable=true)
      */
     private $ram;
     /**
      * @var string
+     *
+     * @Groups({"phone_detail"})
      *
      * @ORM\Column(type="string", nullable=true)
      */
@@ -77,11 +99,15 @@ class Phone
     /**
      * @var string
      *
+     * @Groups({"phone_detail"})
+     *
      * @ORM\Column(type="string", nullable=true)
      */
     private $dimensions;
     /**
      * @var string
+     *
+     * @Groups({"phone_detail"})
      *
      * @ORM\Column(type="string", nullable=true)
      */
@@ -89,11 +115,15 @@ class Phone
     /**
      * @var string
      *
+     * @Groups({"phone_detail"})
+     *
      * @ORM\Column(type="string", nullable=true)
      */
     private $resolution;
     /**
      * @var string
+     *
+     * @Groups({"phone_detail"})
      *
      * @ORM\Column(type="string", name="mainCamera", nullable=true)
      */
@@ -101,11 +131,15 @@ class Phone
     /**
      * @var string
      *
+     * @Groups({"phone_detail"})
+     *
      * @ORM\Column(type="string", name="selfieCamera", nullable=true)
      */
     private $selfieCamera;
     /**
      * @var string
+     *
+     * @Groups({"phone_detail"})
      *
      * @ORM\Column(type="string", nullable=true)
      */
@@ -113,18 +147,22 @@ class Phone
     /**
      * @var string
      *
+     * @Groups({"phone_detail"})
+     *
      * @ORM\Column(type="string", nullable=true)
      */
     private $battery;
     /**
      * @var string
      *
+     * @Groups({"phone_detail"})
+     *
      * @ORM\Column(type="string", nullable=true)
      */
     private $colors;
 
     /**
-     * Phone constructor.
+     * Phones constructor.
      * @param string $brand
      * @param string $model
      * @param string $os

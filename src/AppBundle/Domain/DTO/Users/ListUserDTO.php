@@ -45,11 +45,11 @@ class ListUserDTO
      * @param $offset
      */
     public function __construct(
-        ?string $name = null,
-        ?string $firstname = null,
-        ?string $order = "asc",
-        ?string $limit = "10",
-        ?string $offset = "0"
+        ?string $name,
+        ?string $firstname,
+        ?string $order,
+        ?string $limit,
+        ?string $offset
     ) {
         $this->name = $name;
         $this->firstname = $firstname;
@@ -57,5 +57,4 @@ class ListUserDTO
         $this->limit = $limit;
         $this->offset = $offset;
     }
-
 }

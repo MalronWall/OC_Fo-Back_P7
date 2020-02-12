@@ -1,3 +1,18 @@
 app:
     resource: '@AppBundle/Controller/'
     type: annotation
+
+login:
+    path: '/login'
+    methods: 'post'
+
+index:
+    path: '/'
+    defaults:
+        _controller: FrameworkBundle:Redirect:urlRedirect
+        path: /api/doc
+        permanent: true
+
+NelmioApiDocBundle:
+    resource: "@NelmioApiDocBundle/Resources/config/routing/swaggerui.xml"
+    prefix:   /api/doc

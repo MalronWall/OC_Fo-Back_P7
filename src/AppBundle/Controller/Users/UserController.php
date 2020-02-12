@@ -8,109 +8,303 @@ declare(strict_types=1);
 
 namespace AppBundle\Controller\Users;
 
-use AppBundle\AppBundle;
-use AppBundle\Domain\Entity\ASupprimer;
 use AppBundle\Domain\Entity\User;
-use AppBundle\Helper\Users\UserHelper;
-use AppBundle\Representation\DefaultRepresentation;
-use Pagerfanta\Pagerfanta;
-use Symfony\Component\Form\Extension\Core\Type\CollectionType;
+use AppBundle\Domain\Helpers\Client\DB\ClientDBManager;
+use AppBundle\Domain\Helpers\Common\HateoasManager;
+use AppBundle\Domain\Helpers\User\DB\UserDBManager;
+use AppBundle\Domain\Helpers\User\Validator\UserValidatorHelper;
+use AppBundle\Responder\User\UserResponder;
+use Doctrine\ORM\EntityManagerInterface;
+use Nelmio\ApiDocBundle\Annotation\Model;
+use Nelmio\ApiDocBundle\Annotation\Security;
+use Swagger\Annotations as SWG;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 use Symfony\Component\Serializer\SerializerInterface;
 
 class UserController
 {
     /** @var SerializerInterface */
     private $serializer;
-    /** @var UserHelper */
-    private $helper;
+    /** @var UrlGeneratorInterface */
+    private $urlGenerator;
+    /** @var UserValidatorHelper */
+    private $userValidatorHelper;
+    /** @var EntityManagerInterface */
+    private $entityManager;
+    /** @var UserDBManager */
+    private $userDBManager;
+    /** @var UserResponder */
+    private $userResponder;
+    /** @var ClientDBManager */
+    private $clientDBManager;
+    /**
+     * @var HateoasManager
+     */
+    private $hateoasManager;
 
+    /**
+     * UserController constructor.
+     * @param SerializerInterface $serializer
+     * @param UrlGeneratorInterface $urlGenerator
+     * @param UserValidatorHelper $userValidatorHelper
+     * @param EntityManagerInterface $entityManager
+     * @param UserDBManager $userDBManager
+     * @param ClientDBManager $clientDBManager
+     * @param UserResponder $userResponder
+     * @param HateoasManager $hateoasManager
+     */
     public function __construct(
         SerializerInterface $serializer,
-        UserHelper $helper
+        UrlGeneratorInterface $urlGenerator,
+        UserValidatorHelper $userValidatorHelper,
+        EntityManagerInterface $entityManager,
+        UserDBManager $userDBManager,
+        ClientDBManager $clientDBManager,
+        UserResponder $userResponder,
+        HateoasManager $hateoasManager
     ) {
         $this->serializer = $serializer;
-        $this->helper = $helper;
+        $this->urlGenerator = $urlGenerator;
+        $this->userValidatorHelper = $userValidatorHelper;
+        $this->entityManager = $entityManager;
+        $this->userDBManager = $userDBManager;
+        $this->clientDBManager = $clientDBManager;
+        $this->userResponder = $userResponder;
+        $this->hateoasManager = $hateoasManager;
     }
 
     /**
      * @Route("/api/users", name="user_list", methods={"GET"})
      * @param Request $request
      * @return Response
+     * @SWG\Response(
+     *     response="200",
+     *     description="Return list of users",
+     *     @SWG\Schema(
+     *          type="object",
+     *          @SWG\Property(
+     *              property="datas",
+     *              type="array",
+     *              @SWG\Items(
+     *                  type="object",
+     *                  @SWG\Property(
+     *                      property="user",
+     *                      type="object",
+     *                      ref=@Model(type=User::class)
+     *                  ),
+     *                  @SWG\Property(
+     *                      property="links",
+     *                      type="array",
+     *                      @SWG\Items(
+     *                          type="object",
+     *                          @SWG\Property(property="url", type="string"),
+     *                          @SWG\Property(property="method", type="string"),
+     *                          @SWG\Property(property="returnType", type="string")
+     *                      )
+     *                  )
+     *              )
+     *          ),
+     *          @SWG\Property(
+     *              property="metas",
+     *              type="object",
+     *              @SWG\Property(property="nbTotalOfItems", type="integer"),
+     *              @SWG\Property(property="currentPage", type="integer"),
+     *              @SWG\Property(property="totalPages", type="integer"),
+     *          )
+     *      )
+     * )
+     * @SWG\Parameter(
+     *     name="name",
+     *     in="query",
+     *     type="string",
+     *     description="'Name of the user'"
+     * )
+     * @SWG\Parameter(
+     *     name="firstname",
+     *     in="query",
+     *     type="string",
+     *     description="'Firstname of the user'"
+     * )
+     * @SWG\Parameter(
+     *     name="order",
+     *     in="query",
+     *     type="string",
+     *     description="'Ascendant (asc) or Descendant (desc) list of users'"
+     * )
+     * @SWG\Parameter(
+     *     name="limit",
+     *     in="query",
+     *     type="integer",
+     *     description="'Limit of the number of user'"
+     * )
+     * @SWG\Parameter(
+     *     name="offset",
+     *     in="query",
+     *     type="integer",
+     *     description="'First user called in db'"
+     * )
+     * @SWG\Tag(name="User")
+     * @Security(name="Bearer")
      */
     public function listAction(Request $request)
     {
         $errors = null;
         $datas = null;
         try {
-            $users = $this->helper->listUser(
-                $request->get('name'),
-                $request->get('firstname'),
-                $request->get('order'),
-                $request->get('limit'),
-                $request->get('offset')
+            $dto = $this->userValidatorHelper->listUserParameterValidate($request->query);
+            $results = $this->hateoasManager->buildHateoas(
+                $this->userDBManager->listUser($dto, $request->getSession()->get('JWT')),
+                "user",
+                [HateoasManager::SHOW, HateoasManager::CREATE, HateoasManager::DELETE]
             );
-            $pager = new DefaultRepresentation($users);
-            $datas = $this->serializer->serialize($pager, 'json');
-            //$datas = $this->serializer->serialize($users, 'json', ['groups' => ['user_list']]);
+            $datas = $this->serializer->serialize(
+                $results,
+                'json',
+                ['groups' => ['user_list', 'client_list']]
+            );
         } catch (\Exception $e) {
-            $errors = $this->serializer->serialize($e->getMessage(), 'json');
+            $errors = $e->getMessage();
         }
 
-        return new Response(
-            is_null($datas) ? (is_null($errors) ? null : $errors) : $datas,
-            is_null($datas) ?
-                is_null($errors) ? Response::HTTP_NO_CONTENT : Response::HTTP_BAD_REQUEST
-                : Response::HTTP_OK,
-            ['Content-Type' => 'application/json']
-        );
+        return $this->userResponder->listResponse($datas, $errors);
     }
 
     /**
      * @Route("/api/users/{id}", name="user_show", methods={"GET"})
-     * @param User $user
+     * @param Request $request
+     * @param $id
      * @return Response
+     * @SWG\Response(
+     *     response="200",
+     *     description="Return the details of a user",
+     *     @SWG\Schema(
+     *          type="object",
+     *          @SWG\Property(
+     *              property="datas",
+     *              type="array",
+     *              @SWG\Items(
+     *                  type="object",
+     *                  @SWG\Property(
+     *                      property="user",
+     *                      type="object",
+     *                      ref=@Model(type=User::class)
+     *                  ),
+     *                  @SWG\Property(
+     *                      property="links",
+     *                      type="array",
+     *                      @SWG\Items(
+     *                          type="object",
+     *                          @SWG\Property(property="url", type="string"),
+     *                          @SWG\Property(property="method", type="string"),
+     *                          @SWG\Property(property="returnType", type="string")
+     *                      )
+     *                  )
+     *              )
+     *          )
+     *      )
+     * )
+     * @SWG\Tag(name="User")
+     * @Security(name="Bearer")
      */
-    public function showAction(User $user)
+    public function showAction(Request $request, $id)
     {
-        $data = $this->serializer->serialize($user, 'json', ['groups' => ['user_detail']]);
+        $error = null;
+        $datas = null;
+        try {
+            $user = $this->hateoasManager->buildHateoas(
+                $this->userDBManager->existUser($id, $request->getSession()->get('JWT')),
+                "user",
+                [HateoasManager::LIST, HateoasManager::CREATE, HateoasManager::DELETE]
+            );
+            $datas = $this->serializer->serialize($user, 'json', ['groups' => ['user_detail', 'client_list']]);
+        } catch (\Exception $e) {
+            $error = $e->getMessage();
+        }
 
-        return new Response(
-            !is_null($data) ? $data : null,
-            !is_null($data) ? Response::HTTP_OK : Response::HTTP_NO_CONTENT,
-            [
-                'Content-Type' => 'application/json'
-            ]
-        );
+        return $this->userResponder->showResponse($datas, $error);
     }
 
     /**
      * @Route("/api/users", name="user_create", methods={"POST"})
      * @param Request $request
      * @return Response
+     * @SWG\Response(
+     *     response="201",
+     *     description="Create new user",
+     *     @SWG\Schema(
+     *          type="object",
+     *          @SWG\Property(
+     *              property="datas",
+     *              type="array",
+     *              @SWG\Items(
+     *                  type="object",
+     *                  @SWG\Property(
+     *                      property="user",
+     *                      type="object",
+     *                      ref=@Model(type=User::class)
+     *                  ),
+     *                  @SWG\Property(
+     *                      property="links",
+     *                      type="array",
+     *                      @SWG\Items(
+     *                          type="object",
+     *                          @SWG\Property(property="url", type="string"),
+     *                          @SWG\Property(property="method", type="string"),
+     *                          @SWG\Property(property="returnType", type="string")
+     *                      )
+     *                  )
+     *              )
+     *          )
+     *      )
+     * )
+     * @SWG\Tag(name="User")
+     * @Security(name="Bearer")
      */
     public function createAction(Request $request)
     {
-        $data = $request->getContent();
-        /** @var User $user */
-        $user = $this->serializer->deserialize($data, 'AppBundle\Domain\Entity\User', 'json');
-        $this->helper->createUser($user);
+        $error = null;
+        $user = null;
+        try {
+            $dto = $this->userValidatorHelper->createUserParameterValidate($request->getContent());
+            $dto->client = $this->clientDBManager->existClientById($request->getSession()->get('JWT'));
+            $user = $this->hateoasManager->buildHateoas(
+                $this->userDBManager->createUser($dto),
+                "user",
+                [HateoasManager::LIST, HateoasManager::SHOW, HateoasManager::DELETE]
+            );
+        } catch (\Exception $e) {
+            $error = $e->getMessage();
+        }
 
-        return new Response('', Response::HTTP_CREATED);
+        return $this->userResponder->createResponse($user, $error);
     }
 
     /**
      * @Route("/api/users/{id}", name="user_delete", methods={"DELETE"})
-     * @param User $user
+     * @param Request $request
+     * @param $id
      * @return Response
+     * @SWG\Response(
+     *     response="204",
+     *     description="Delete user"
+     * )
+     * @SWG\Tag(name="User")
+     * @Security(name="Bearer")
      */
-    public function deleteAction(User $user)
+    public function deleteAction(Request $request, $id)
     {
-        //$user = $this->serializer->deserialize($user, 'AppBundle\Domain\Entity\User', 'json');
-        $this->helper->deleteUser($user);
+        $error = null;
+        $datas = null;
+        try {
+            $user = $this->userDBManager->existUser($id, $request->getSession()->get('JWT'))["datas"][0];
+            $this->userDBManager->delete($user);
+        } catch (\Exception $e) {
+            $error = $e->getMessage();
+        }
 
-        return new Response(null, Response::HTTP_NO_CONTENT);
+        return $this->userResponder->deleteResponse($error);
     }
 }

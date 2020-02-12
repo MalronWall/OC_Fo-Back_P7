@@ -8,9 +8,7 @@ declare(strict_types=1);
 
 namespace AppBundle\Domain\Repository;
 
-use Doctrine\ORM\EntityRepository;
-
-class ClientRepository extends EntityRepository
+class ClientRepository extends AbstractRepository
 {
     /**
      * @return mixed
@@ -23,5 +21,36 @@ class ClientRepository extends EntityRepository
 
             ->getQuery()
             ->getResult();
+    }
+
+    /**
+     * @param $id
+     * @return mixed
+     * @throws \Doctrine\ORM\NonUniqueResultException
+     */
+    public function findClientById($id)
+    {
+        $qb = $this->createQueryBuilder('c')
+            ->where('c.id = :id')
+
+            ->setParameter('id', $id);
+
+        return $this->getResultAsArray($qb);
+    }
+
+    /**
+     * @param $username
+     * @return mixed
+     * @throws \Doctrine\ORM\NonUniqueResultException
+     */
+    public function findClientByUsername($username)
+    {
+        return $this->createQueryBuilder('c')
+            ->where('c.username = :username')
+
+            ->setParameter('username', $username)
+
+            ->getQuery()
+            ->getOneOrNullResult();
     }
 }
