@@ -10,6 +10,7 @@ namespace AppBundle\Domain\Entity;
 
 use Ramsey\Uuid\UuidInterface;
 use Doctrine\ORM\Mapping as ORM;
+use Swagger\Annotations as SWG;
 use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
@@ -27,6 +28,8 @@ class Phone
      * @ORM\Column(type="uuid", unique=true)
      * @ORM\GeneratedValue(strategy="CUSTOM")
      * @ORM\CustomIdGenerator(class="Doctrine\ORM\Id\UuidGenerator")
+     *
+     * @SWG\Property(type="string")
      */
     private $id;
     /**

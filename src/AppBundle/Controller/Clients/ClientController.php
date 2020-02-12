@@ -8,13 +8,17 @@ declare(strict_types=1);
 
 namespace AppBundle\Controller\Clients;
 
+use AppBundle\Domain\Entity\Client;
 use AppBundle\Domain\Helpers\Client\DB\ClientDBManager;
 use AppBundle\Domain\Helpers\Client\Validator\ClientValidatorHelper;
 use AppBundle\Domain\Helpers\Common\HateoasManager;
 use AppBundle\Responder\Client\ClientResponder;
+use Nelmio\ApiDocBundle\Annotation\Model;
+use Nelmio\ApiDocBundle\Annotation\Security;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Swagger\Annotations as SWG;
 use Symfony\Component\Serializer\SerializerInterface;
 
 class ClientController
@@ -58,6 +62,37 @@ class ClientController
      * @Route("/api/clients/{id}", name="client_show", methods={"GET"})
      * @param $id
      * @return Response
+     * @SWG\Response(
+     *     response="200",
+     *     description="Return the details of a client",
+     *     @SWG\Schema(
+     *          type="object",
+     *          @SWG\Property(
+     *              property="datas",
+     *              type="array",
+     *              @SWG\Items(
+     *                  type="object",
+     *                  @SWG\Property(
+     *                      property="client",
+     *                      type="object",
+     *                      ref=@Model(type=Client::class)
+     *                  ),
+     *                  @SWG\Property(
+     *                      property="links",
+     *                      type="array",
+     *                      @SWG\Items(
+     *                          type="object",
+     *                          @SWG\Property(property="url", type="string"),
+     *                          @SWG\Property(property="method", type="string"),
+     *                          @SWG\Property(property="returnType", type="string")
+     *                      )
+     *                  )
+     *              )
+     *          )
+     *      )
+     * )
+     * @SWG\Tag(name="Client")
+     * @Security(name="Bearer")
      */
     public function showAction($id)
     {
@@ -81,6 +116,37 @@ class ClientController
      * @Route("/api/clients", name="client_create", methods={"POST"})
      * @param Request $request
      * @return Response
+     * @SWG\Response(
+     *     response="201",
+     *     description="Create client",
+     *     @SWG\Schema(
+     *          type="object",
+     *          @SWG\Property(
+     *              property="datas",
+     *              type="array",
+     *              @SWG\Items(
+     *                  type="object",
+     *                  @SWG\Property(
+     *                      property="client",
+     *                      type="object",
+     *                      ref=@Model(type=Client::class)
+     *                  ),
+     *                  @SWG\Property(
+     *                      property="links",
+     *                      type="array",
+     *                      @SWG\Items(
+     *                          type="object",
+     *                          @SWG\Property(property="url", type="string"),
+     *                          @SWG\Property(property="method", type="string"),
+     *                          @SWG\Property(property="returnType", type="string")
+     *                      )
+     *                  )
+     *              )
+     *          )
+     *      )
+     * )
+     * @SWG\Tag(name="Client")
+     * @Security(name="Bearer")
      */
     public function createAction(Request $request)
     {

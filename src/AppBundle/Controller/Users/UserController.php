@@ -132,7 +132,7 @@ class UserController
      *     name="order",
      *     in="query",
      *     type="string",
-     *     description="'Ascendant (asc) or Descendant (desc) list'"
+     *     description="'Ascendant (asc) or Descendant (desc) list of users'"
      * )
      * @SWG\Parameter(
      *     name="limit",

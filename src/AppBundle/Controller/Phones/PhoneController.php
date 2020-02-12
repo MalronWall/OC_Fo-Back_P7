@@ -8,11 +8,15 @@ declare(strict_types=1);
 
 namespace AppBundle\Controller\Phones;
 
+use AppBundle\Domain\Entity\Phone;
 use AppBundle\Domain\Helpers\Client\DB\ClientDBManager;
 use AppBundle\Domain\Helpers\Common\HateoasManager;
 use AppBundle\Domain\Helpers\Phone\DB\PhoneDBManager;
 use AppBundle\Domain\Helpers\Phone\Validator\PhoneValidatorHelper;
 use AppBundle\Responder\Phone\PhoneResponder;
+use Nelmio\ApiDocBundle\Annotation\Model;
+use Nelmio\ApiDocBundle\Annotation\Security;
+use Swagger\Annotations as SWG;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -64,6 +68,80 @@ class PhoneController
      * @Route("/api/phones", name="phone_list", methods={"GET"})
      * @param Request $request
      * @return Response
+     * @SWG\Response(
+     *     response="200",
+     *     description="Return list of phones",
+     *     @SWG\Schema(
+     *          type="object",
+     *          @SWG\Property(
+     *              property="datas",
+     *              type="array",
+     *              @SWG\Items(
+     *                  type="object",
+     *                  @SWG\Property(
+     *                      property="phone",
+     *                      type="object",
+     *                      ref=@Model(type=Phone::class)
+     *                  ),
+     *                  @SWG\Property(
+     *                      property="links",
+     *                      type="array",
+     *                      @SWG\Items(
+     *                          type="object",
+     *                          @SWG\Property(property="url", type="string"),
+     *                          @SWG\Property(property="method", type="string"),
+     *                          @SWG\Property(property="returnType", type="string")
+     *                      )
+     *                  )
+     *              )
+     *          ),
+     *          @SWG\Property(
+     *              property="metas",
+     *              type="object",
+     *              @SWG\Property(property="nbTotalOfItems", type="integer"),
+     *              @SWG\Property(property="currentPage", type="integer"),
+     *              @SWG\Property(property="totalPages", type="integer"),
+     *          )
+     *      )
+     * )
+     * @SWG\Parameter(
+     *     name="brand",
+     *     in="query",
+     *     type="string",
+     *     description="'Brand of the phone'"
+     * )
+     * @SWG\Parameter(
+     *     name="model",
+     *     in="query",
+     *     type="string",
+     *     description="'Model of the phone'"
+     * )
+     * @SWG\Parameter(
+     *     name="os",
+     *     in="query",
+     *     type="string",
+     *     description="'OS of the phone'"
+     * )
+     * @SWG\Parameter(
+     *     name="order",
+     *     in="query",
+     *     type="string",
+     *     description="'Ascendant (asc) or Descendant (desc) list of phones'"
+     * )
+     * @SWG\Parameter(
+     *     name="limit",
+     *     in="query",
+     *     type="integer",
+     *     description="'Limit of the number of phone'"
+     * )
+     * @SWG\Parameter(
+     *     name="offset",
+     *     in="query",
+     *     type="integer",
+     *     description="'First phone called in db'"
+     * )
+     * @SWG\Tag(name="Phone")
+     * @Security(name="Bearer")
      */
     public function listAction(Request $request)
     {
@@ -92,6 +170,37 @@ class PhoneController
      * @Route("/api/phones/{id}", name="phone_show", methods={"GET"})
      * @param $id
      * @return Response
+     * @SWG\Response(
+     *     response="200",
+     *     description="Return the details of a phone",
+     *     @SWG\Schema(
+     *          type="object",
+     *          @SWG\Property(
+     *              property="datas",
+     *              type="array",
+     *              @SWG\Items(
+     *                  type="object",
+     *                  @SWG\Property(
+     *                      property="phone",
+     *                      type="object",
+     *                      ref=@Model(type=Phone::class)
+     *                  ),
+     *                  @SWG\Property(
+     *                      property="links",
+     *                      type="array",
+     *                      @SWG\Items(
+     *                          type="object",
+     *                          @SWG\Property(property="url", type="string"),
+     *                          @SWG\Property(property="method", type="string"),
+     *                          @SWG\Property(property="returnType", type="string")
+     *                      )
+     *                  )
+     *              )
+     *          )
+     *      )
+     * )
+     * @SWG\Tag(name="Phone")
+     * @Security(name="Bearer")
      */
     public function showAction($id)
     {
@@ -115,6 +224,37 @@ class PhoneController
      * @Route("/api/phones", name="phone_create", methods={"POST"})
      * @param Request $request
      * @return Response
+     * @SWG\Response(
+     *     response="201",
+     *     description="Create phone",
+     *     @SWG\Schema(
+     *          type="object",
+     *          @SWG\Property(
+     *              property="datas",
+     *              type="array",
+     *              @SWG\Items(
+     *                  type="object",
+     *                  @SWG\Property(
+     *                      property="phone",
+     *                      type="object",
+     *                      ref=@Model(type=Phone::class)
+     *                  ),
+     *                  @SWG\Property(
+     *                      property="links",
+     *                      type="array",
+     *                      @SWG\Items(
+     *                          type="object",
+     *                          @SWG\Property(property="url", type="string"),
+     *                          @SWG\Property(property="method", type="string"),
+     *                          @SWG\Property(property="returnType", type="string")
+     *                      )
+     *                  )
+     *              )
+     *          )
+     *      )
+     * )
+     * @SWG\Tag(name="Phone")
+     * @Security(name="Bearer")
      */
     public function createAction(Request $request)
     {
@@ -138,6 +278,12 @@ class PhoneController
      * @Route("/api/phones/{id}", name="phone_delete", methods={"DELETE"})
      * @param $id
      * @return Response
+     * @SWG\Response(
+     *     response="204",
+     *     description="Delete phone"
+     * )
+     * @SWG\Tag(name="Phone")
+     * @Security(name="Bearer")
      */
     public function deleteAction($id)
     {
