@@ -33,10 +33,6 @@ services:
         tags:
             - { name: kernel.event_listener, event: kernel.request }
 
-    AppBundle\Listeners\Common\HateoasListener:
-        tags:
-            - { name: kernel.event_listener, event: kernel.response }
-
     # add more services, or override services that need manual wiring
     # AppBundle\Service\ExampleService:
     #     arguments:
