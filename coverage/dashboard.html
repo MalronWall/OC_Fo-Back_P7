@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <title>Dashboard for D:\Logiciels\wamp\www\mes_projets\OC_thibaut-tourte\OC\Formation_Backend\Projet_7\src\AppBundle</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href=".css/bootstrap.min.css" rel="stylesheet" type="text/css">
+  <link href=".css/nv.d3.min.css" rel="stylesheet" type="text/css">
+  <link href=".css/style.css" rel="stylesheet" type="text/css">
+  <!--[if lt IE 9]>
+  <script src=".js/html5shiv.min.js"></script>
+  <script src=".js/respond.min.js"></script>
+  <![endif]-->
+ </head>
+ <body>
+  <header>
+   <div class="container">
+    <div class="row">
+     <div class="col-md-12">
+      <ol class="breadcrumb">
+        <li><a href="index.html">D:\Logiciels\wamp\www\mes_projets\OC_thibaut-tourte\OC\Formation_Backend\Projet_7\src\AppBundle</a></li>
+        <li class="active">(Dashboard)</li>
+
+      </ol>
+     </div>
+    </div>
+   </div>
+  </header>
+  <div class="container">
+   <div class="row">
+    <div class="col-md-12">
+     <h2>Classes</h2>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-6">
+     <h3>Coverage Distribution</h3>
+     <div id="classCoverageDistribution" style="height: 300px;">
+       <svg></svg>
+     </div>
+    </div>
+    <div class="col-md-6">
+     <h3>Complexity</h3>
+     <div id="classComplexity" style="height: 300px;">
+       <svg></svg>
+     </div>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-6">
+     <h3>Insufficient Coverage</h3>
+     <div class="scrollbox">
+      <table class="table">
+       <thead>
+        <tr>
+         <th>Class</th>
+         <th class="text-right">Coverage</th>
+        </tr>
+       </thead>
+       <tbody>
+       <tr><td><a href="Controller/Clients/ClientController.php.html#24">AppBundle\Controller\Clients\ClientController</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controller/Phones/PhoneController.php.html#25">AppBundle\Controller\Phones\PhoneController</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Responder/Security/ApiResponder.php.html#15">AppBundle\Responder\Security\ApiResponder</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Responder/Phone/PhoneResponder.php.html#17">AppBundle\Responder\Phone\PhoneResponder</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Responder/Client/ClientResponder.php.html#16">AppBundle\Responder\Client\ClientResponder</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Domain/Security/ApiAuthenticator.php.html#28">AppBundle\Domain\Security\ApiAuthenticator</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Domain/Repository/UserRepository.php.html#11">AppBundle\Domain\Repository\UserRepository</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Domain/Repository/PhoneRepository.php.html#11">AppBundle\Domain\Repository\PhoneRepository</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Domain/Repository/ClientRepository.php.html#11">AppBundle\Domain\Repository\ClientRepository</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Domain/Repository/AbstractRepository.php.html#14">AppBundle\Domain\Repository\AbstractRepository</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Domain/Helpers/Phone/Validator/PhoneValidatorHelper.php.html#17">AppBundle\Domain\Helpers\Phone\Validator\PhoneValidatorHelper</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Domain/Helpers/Phone/DB/PhoneDBManager.php.html#17">AppBundle\Domain\Helpers\Phone\DB\PhoneDBManager</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Domain/Helpers/Common/HateoasManager.php.html#13">AppBundle\Domain\Helpers\Common\HateoasManager</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Domain/Helpers/Client/Validator/ClientValidatorHelper.php.html#15">AppBundle\Domain\Helpers\Client\Validator\ClientValidatorHelper</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Domain/Entity/Phone.php.html#20">AppBundle\Domain\Entity\Phone</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Domain/DTO/Users/CreateUserDTO.php.html#14">AppBundle\Domain\DTO\Users\CreateUserDTO</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Domain/DTO/Security/ApiLoginDTO.php.html#13">AppBundle\Domain\DTO\Security\ApiLoginDTO</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Domain/DTO/Phones/ListPhoneDTO.php.html#13">AppBundle\Domain\DTO\Phones\ListPhoneDTO</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Domain/DTO/Phones/CreatePhoneDTO.php.html#13">AppBundle\Domain\DTO\Phones\CreatePhoneDTO</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Domain/DTO/Clients/CreateClientDTO.php.html#13">AppBundle\Domain\DTO\Clients\CreateClientDTO</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Domain/Helpers/Client/DB/ClientDBManager.php.html#17">AppBundle\Domain\Helpers\Client\DB\ClientDBManager</a></td><td class="text-right">23%</td></tr>
+       <tr><td><a href="Responder/User/UserResponder.php.html#16">AppBundle\Responder\User\UserResponder</a></td><td class="text-right">28%</td></tr>
+       <tr><td><a href="Domain/Helpers/Common/ExceptionManager.php.html#17">AppBundle\Domain\Helpers\Common\ExceptionManager</a></td><td class="text-right">28%</td></tr>
+       <tr><td><a href="Domain/Helpers/User/DB/UserDBManager.php.html#17">AppBundle\Domain\Helpers\User\DB\UserDBManager</a></td><td class="text-right">36%</td></tr>
+       <tr><td><a href="Controller/Users/UserController.php.html#25">AppBundle\Controller\Users\UserController</a></td><td class="text-right">42%</td></tr>
+       <tr><td><a href="Domain/Entity/Client.php.html#22">AppBundle\Domain\Entity\Client</a></td><td class="text-right">54%</td></tr>
+       <tr><td><a href="Domain/Objects/JWT.php.html#11">AppBundle\Domain\Objects\JWT</a></td><td class="text-right">66%</td></tr>
+       <tr><td><a href="Domain/Helpers/User/Validator/UserValidatorHelper.php.html#19">AppBundle\Domain\Helpers\User\Validator\UserValidatorHelper</a></td><td class="text-right">72%</td></tr>
+       <tr><td><a href="Domain/Entity/User.php.html#20">AppBundle\Domain\Entity\User</a></td><td class="text-right">75%</td></tr>
+
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <div class="col-md-6">
+     <h3>Project Risks</h3>
+     <div class="scrollbox">
+      <table class="table">
+       <thead>
+        <tr>
+         <th>Class</th>
+         <th class="text-right"><abbr title="Change Risk Anti-Patterns (CRAP) Index">CRAP</abbr></th>
+        </tr>
+       </thead>
+       <tbody>
+       <tr><td><a href="Responder/Phone/PhoneResponder.php.html#17">AppBundle\Responder\Phone\PhoneResponder</a></td><td class="text-right">342</td></tr>
+       <tr><td><a href="Domain/DTO/Phones/CreatePhoneDTO.php.html#13">AppBundle\Domain\DTO\Phones\CreatePhoneDTO</a></td><td class="text-right">306</td></tr>
+       <tr><td><a href="Domain/Security/ApiAuthenticator.php.html#28">AppBundle\Domain\Security\ApiAuthenticator</a></td><td class="text-right">210</td></tr>
+       <tr><td><a href="Responder/User/UserResponder.php.html#16">AppBundle\Responder\User\UserResponder</a></td><td class="text-right">137</td></tr>
+       <tr><td><a href="Responder/Client/ClientResponder.php.html#16">AppBundle\Responder\Client\ClientResponder</a></td><td class="text-right">110</td></tr>
+       <tr><td><a href="Domain/Repository/AbstractRepository.php.html#14">AppBundle\Domain\Repository\AbstractRepository</a></td><td class="text-right">110</td></tr>
+       <tr><td><a href="Controller/Phones/PhoneController.php.html#25">AppBundle\Controller\Phones\PhoneController</a></td><td class="text-right">90</td></tr>
+       <tr><td><a href="Domain/Helpers/Common/HateoasManager.php.html#13">AppBundle\Domain\Helpers\Common\HateoasManager</a></td><td class="text-right">90</td></tr>
+       <tr><td><a href="Domain/Helpers/Phone/Validator/PhoneValidatorHelper.php.html#17">AppBundle\Domain\Helpers\Phone\Validator\PhoneValidatorHelper</a></td><td class="text-right">72</td></tr>
+       <tr><td><a href="Domain/DTO/Users/CreateUserDTO.php.html#14">AppBundle\Domain\DTO\Users\CreateUserDTO</a></td><td class="text-right">56</td></tr>
+       <tr><td><a href="Domain/DTO/Phones/ListPhoneDTO.php.html#13">AppBundle\Domain\DTO\Phones\ListPhoneDTO</a></td><td class="text-right">56</td></tr>
+       <tr><td><a href="Responder/Security/ApiResponder.php.html#15">AppBundle\Responder\Security\ApiResponder</a></td><td class="text-right">42</td></tr>
+       <tr><td><a href="Domain/Helpers/Phone/DB/PhoneDBManager.php.html#17">AppBundle\Domain\Helpers\Phone\DB\PhoneDBManager</a></td><td class="text-right">42</td></tr>
+       <tr><td><a href="Domain/Repository/PhoneRepository.php.html#11">AppBundle\Domain\Repository\PhoneRepository</a></td><td class="text-right">42</td></tr>
+       <tr><td><a href="Controller/Clients/ClientController.php.html#24">AppBundle\Controller\Clients\ClientController</a></td><td class="text-right">30</td></tr>
+       <tr><td><a href="Domain/Repository/UserRepository.php.html#11">AppBundle\Domain\Repository\UserRepository</a></td><td class="text-right">30</td></tr>
+       <tr><td><a href="Domain/Helpers/User/DB/UserDBManager.php.html#17">AppBundle\Domain\Helpers\User\DB\UserDBManager</a></td><td class="text-right">24</td></tr>
+       <tr><td><a href="Controller/Users/UserController.php.html#25">AppBundle\Controller\Users\UserController</a></td><td class="text-right">24</td></tr>
+       <tr><td><a href="Domain/Helpers/Client/DB/ClientDBManager.php.html#17">AppBundle\Domain\Helpers\Client\DB\ClientDBManager</a></td><td class="text-right">22</td></tr>
+       <tr><td><a href="Domain/Helpers/Client/Validator/ClientValidatorHelper.php.html#15">AppBundle\Domain\Helpers\Client\Validator\ClientValidatorHelper</a></td><td class="text-right">20</td></tr>
+       <tr><td><a href="Domain/Entity/Client.php.html#22">AppBundle\Domain\Entity\Client</a></td><td class="text-right">16</td></tr>
+       <tr><td><a href="Domain/Helpers/Common/ExceptionManager.php.html#17">AppBundle\Domain\Helpers\Common\ExceptionManager</a></td><td class="text-right">14</td></tr>
+       <tr><td><a href="Domain/DTO/Security/ApiLoginDTO.php.html#13">AppBundle\Domain\DTO\Security\ApiLoginDTO</a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="Domain/DTO/Clients/CreateClientDTO.php.html#13">AppBundle\Domain\DTO\Clients\CreateClientDTO</a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="Domain/Entity/User.php.html#20">AppBundle\Domain\Entity\User</a></td><td class="text-right">11</td></tr>
+       <tr><td><a href="Domain/Helpers/User/Validator/UserValidatorHelper.php.html#19">AppBundle\Domain\Helpers\User\Validator\UserValidatorHelper</a></td><td class="text-right">9</td></tr>
+
+       </tbody>
+      </table>
+     </div>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-12">
+     <h2>Methods</h2>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-6">
+     <h3>Coverage Distribution</h3>
+     <div id="methodCoverageDistribution" style="height: 300px;">
+       <svg></svg>
+     </div>
+    </div>
+    <div class="col-md-6">
+     <h3>Complexity</h3>
+     <div id="methodComplexity" style="height: 300px;">
+       <svg></svg>
+     </div>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-6">
+     <h3>Insufficient Coverage</h3>
+     <div class="scrollbox">
+      <table class="table">
+       <thead>
+        <tr>
+         <th>Method</th>
+         <th class="text-right">Coverage</th>
+        </tr>
+       </thead>
+       <tbody>
+       <tr><td><a href="Controller/Clients/ClientController.php.html#47"><abbr title="AppBundle\Controller\Clients\ClientController::__construct">__construct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Domain/Objects/JWT.php.html#89"><abbr title="AppBundle\Domain\Objects\JWT::setHeader">setHeader</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Domain/Repository/ClientRepository.php.html#16"><abbr title="AppBundle\Domain\Repository\ClientRepository::list">list</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Domain/Repository/AbstractRepository.php.html#84"><abbr title="AppBundle\Domain\Repository\AbstractRepository::format">format</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Domain/Repository/AbstractRepository.php.html#78"><abbr title="AppBundle\Domain\Repository\AbstractRepository::delete">delete</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Domain/Repository/AbstractRepository.php.html#73"><abbr title="AppBundle\Domain\Repository\AbstractRepository::update">update</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Domain/Repository/AbstractRepository.php.html#66"><abbr title="AppBundle\Domain\Repository\AbstractRepository::create">create</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Domain/Repository/AbstractRepository.php.html#61"><abbr title="AppBundle\Domain\Repository\AbstractRepository::getResultAsArray">getResultAsArray</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Domain/Repository/AbstractRepository.php.html#24"><abbr title="AppBundle\Domain\Repository\AbstractRepository::paginate">paginate</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Domain/Objects/JWT.php.html#121"><abbr title="AppBundle\Domain\Objects\JWT::setSignature">setSignature</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Domain/Objects/JWT.php.html#113"><abbr title="AppBundle\Domain\Objects\JWT::getSignature">getSignature</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Domain/Objects/JWT.php.html#105"><abbr title="AppBundle\Domain\Objects\JWT::setPayload">setPayload</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Domain/Objects/JWT.php.html#81"><abbr title="AppBundle\Domain\Objects\JWT::getHeader">getHeader</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Domain/Repository/ClientRepository.php.html#46"><abbr title="AppBundle\Domain\Repository\ClientRepository::findClientByUsername">findClientByUsername</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Domain/Helpers/User/Validator/UserValidatorHelper.php.html#67"><abbr title="AppBundle\Domain\Helpers\User\Validator\UserValidatorHelper::createUserParameterValidate">createUserParameterValidate</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Domain/Helpers/User/DB/UserDBManager.php.html#94"><abbr title="AppBundle\Domain\Helpers\User\DB\UserDBManager::delete">delete</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Domain/Helpers/User/DB/UserDBManager.php.html#77"><abbr title="AppBundle\Domain\Helpers\User\DB\UserDBManager::createUser">createUser</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Domain/Helpers/User/DB/UserDBManager.php.html#61"><abbr title="AppBundle\Domain\Helpers\User\DB\UserDBManager::existUser">existUser</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Domain/Helpers/Phone/Validator/PhoneValidatorHelper.php.html#90"><abbr title="AppBundle\Domain\Helpers\Phone\Validator\PhoneValidatorHelper::checkErrors">checkErrors</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Domain/Helpers/Phone/Validator/PhoneValidatorHelper.php.html#61"><abbr title="AppBundle\Domain\Helpers\Phone\Validator\PhoneValidatorHelper::createPhoneParameterValidate">createPhoneParameterValidate</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Domain/Helpers/Phone/Validator/PhoneValidatorHelper.php.html#41"><abbr title="AppBundle\Domain\Helpers\Phone\Validator\PhoneValidatorHelper::listPhoneParameterValidate">listPhoneParameterValidate</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Domain/Helpers/Phone/Validator/PhoneValidatorHelper.php.html#29"><abbr title="AppBundle\Domain\Helpers\Phone\Validator\PhoneValidatorHelper::__construct">__construct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Domain/Helpers/Phone/DB/PhoneDBManager.php.html#98"><abbr title="AppBundle\Domain\Helpers\Phone\DB\PhoneDBManager::delete">delete</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Domain/Helpers/Phone/DB/PhoneDBManager.php.html#72"><abbr title="AppBundle\Domain\Helpers\Phone\DB\PhoneDBManager::createPhone">createPhone</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Domain/Helpers/Phone/DB/PhoneDBManager.php.html#59"><abbr title="AppBundle\Domain\Helpers\Phone\DB\PhoneDBManager::existPhone">existPhone</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Domain/Repository/ClientRepository.php.html#31"><abbr title="AppBundle\Domain\Repository\ClientRepository::findClientById">findClientById</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Domain/Repository/PhoneRepository.php.html#23"><abbr title="AppBundle\Domain\Repository\PhoneRepository::listWithPagination">listWithPagination</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controller/Clients/ClientController.php.html#97"><abbr title="AppBundle\Controller\Clients\ClientController::showAction">showAction</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Responder/Client/ClientResponder.php.html#28"><abbr title="AppBundle\Responder\Client\ClientResponder::__construct">__construct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Responder/User/UserResponder.php.html#87"><abbr title="AppBundle\Responder\User\UserResponder::createResponse">createResponse</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Responder/User/UserResponder.php.html#63"><abbr title="AppBundle\Responder\User\UserResponder::showResponse">showResponse</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Responder/Security/ApiResponder.php.html#40"><abbr title="AppBundle\Responder\Security\ApiResponder::response">response</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Responder/Security/ApiResponder.php.html#27"><abbr title="AppBundle\Responder\Security\ApiResponder::__construct">__construct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Responder/Phone/PhoneResponder.php.html#113"><abbr title="AppBundle\Responder\Phone\PhoneResponder::deleteResponse">deleteResponse</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Responder/Phone/PhoneResponder.php.html#88"><abbr title="AppBundle\Responder\Phone\PhoneResponder::createResponse">createResponse</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Responder/Phone/PhoneResponder.php.html#64"><abbr title="AppBundle\Responder\Phone\PhoneResponder::showResponse">showResponse</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Responder/Phone/PhoneResponder.php.html#42"><abbr title="AppBundle\Responder\Phone\PhoneResponder::listResponse">listResponse</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Responder/Phone/PhoneResponder.php.html#29"><abbr title="AppBundle\Responder\Phone\PhoneResponder::__construct">__construct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Responder/Client/ClientResponder.php.html#65"><abbr title="AppBundle\Responder\Client\ClientResponder::createResponse">createResponse</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Responder/Client/ClientResponder.php.html#41"><abbr title="AppBundle\Responder\Client\ClientResponder::showResponse">showResponse</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Domain/Security/ApiAuthenticator.php.html#220"><abbr title="AppBundle\Domain\Security\ApiAuthenticator::onAuthenticationSuccess">onAuthenticationSuccess</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Domain/Repository/PhoneRepository.php.html#78"><abbr title="AppBundle\Domain\Repository\PhoneRepository::list">list</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Domain/Security/ApiAuthenticator.php.html#208"><abbr title="AppBundle\Domain\Security\ApiAuthenticator::onAuthenticationFailure">onAuthenticationFailure</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Domain/Security/ApiAuthenticator.php.html#191"><abbr title="AppBundle\Domain\Security\ApiAuthenticator::checkCredentials">checkCredentials</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Domain/Security/ApiAuthenticator.php.html#154"><abbr title="AppBundle\Domain\Security\ApiAuthenticator::getUser">getUser</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Domain/Security/ApiAuthenticator.php.html#130"><abbr title="AppBundle\Domain\Security\ApiAuthenticator::getCredentials">getCredentials</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Domain/Security/ApiAuthenticator.php.html#101"><abbr title="AppBundle\Domain\Security\ApiAuthenticator::supports">supports</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Domain/Security/ApiAuthenticator.php.html#92"><abbr title="AppBundle\Domain\Security\ApiAuthenticator::getLoginUrl">getLoginUrl</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Domain/Security/ApiAuthenticator.php.html#69"><abbr title="AppBundle\Domain\Security\ApiAuthenticator::__construct">__construct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Domain/Repository/UserRepository.php.html#80"><abbr title="AppBundle\Domain\Repository\UserRepository::findUserById">findUserById</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Domain/Repository/UserRepository.php.html#66"><abbr title="AppBundle\Domain\Repository\UserRepository::list">list</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Domain/Repository/UserRepository.php.html#23"><abbr title="AppBundle\Domain\Repository\UserRepository::listWithPagination">listWithPagination</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Domain/Repository/PhoneRepository.php.html#94"><abbr title="AppBundle\Domain\Repository\PhoneRepository::findPhoneById">findPhoneById</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Domain/Helpers/Phone/DB/PhoneDBManager.php.html#42"><abbr title="AppBundle\Domain\Helpers\Phone\DB\PhoneDBManager::listPhone">listPhone</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Domain/Helpers/Phone/DB/PhoneDBManager.php.html#29"><abbr title="AppBundle\Domain\Helpers\Phone\DB\PhoneDBManager::__construct">__construct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Domain/Helpers/Common/HateoasManager.php.html#58"><abbr title="AppBundle\Domain\Helpers\Common\HateoasManager::buildLink">buildLink</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Domain/DTO/Security/ApiLoginDTO.php.html#31"><abbr title="AppBundle\Domain\DTO\Security\ApiLoginDTO::__construct">__construct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Domain/Entity/Phone.php.html#238"><abbr title="AppBundle\Domain\Entity\Phone::getModel">getModel</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Domain/Entity/Phone.php.html#230"><abbr title="AppBundle\Domain\Entity\Phone::getBrand">getBrand</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Domain/Entity/Phone.php.html#222"><abbr title="AppBundle\Domain\Entity\Phone::getId">getId</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Domain/Entity/Phone.php.html#183"><abbr title="AppBundle\Domain\Entity\Phone::__construct">__construct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Domain/Entity/Client.php.html#159"><abbr title="AppBundle\Domain\Entity\Client::eraseCredentials">eraseCredentials</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Domain/Entity/Client.php.html#148"><abbr title="AppBundle\Domain\Entity\Client::getSalt">getSalt</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Domain/Entity/Client.php.html#136"><abbr title="AppBundle\Domain\Entity\Client::getPassword">getPassword</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Domain/Entity/Client.php.html#123"><abbr title="AppBundle\Domain\Entity\Client::getRoles">getRoles</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Domain/Entity/Client.php.html#104"><abbr title="AppBundle\Domain\Entity\Client::getUsers">getUsers</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Domain/DTO/Users/CreateUserDTO.php.html#60"><abbr title="AppBundle\Domain\DTO\Users\CreateUserDTO::__construct">__construct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Domain/DTO/Phones/ListPhoneDTO.php.html#52"><abbr title="AppBundle\Domain\DTO\Phones\ListPhoneDTO::__construct">__construct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Domain/Entity/Phone.php.html#254"><abbr title="AppBundle\Domain\Entity\Phone::getPrice">getPrice</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Domain/DTO/Phones/CreatePhoneDTO.php.html#103"><abbr title="AppBundle\Domain\DTO\Phones\CreatePhoneDTO::__construct">__construct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Domain/DTO/Clients/CreateClientDTO.php.html#34"><abbr title="AppBundle\Domain\DTO\Clients\CreateClientDTO::__construct">__construct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controller/Users/UserController.php.html#285"><abbr title="AppBundle\Controller\Users\UserController::deleteAction">deleteAction</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controller/Users/UserController.php.html#254"><abbr title="AppBundle\Controller\Users\UserController::createAction">createAction</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controller/Users/UserController.php.html#200"><abbr title="AppBundle\Controller\Users\UserController::showAction">showAction</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controller/Phones/PhoneController.php.html#288"><abbr title="AppBundle\Controller\Phones\PhoneController::deleteAction">deleteAction</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controller/Phones/PhoneController.php.html#259"><abbr title="AppBundle\Controller\Phones\PhoneController::createAction">createAction</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controller/Phones/PhoneController.php.html#205"><abbr title="AppBundle\Controller\Phones\PhoneController::showAction">showAction</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controller/Phones/PhoneController.php.html#146"><abbr title="AppBundle\Controller\Phones\PhoneController::listAction">listAction</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controller/Phones/PhoneController.php.html#51"><abbr title="AppBundle\Controller\Phones\PhoneController::__construct">__construct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controller/Clients/ClientController.php.html#151"><abbr title="AppBundle\Controller\Clients\ClientController::createAction">createAction</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Domain/Entity/Phone.php.html#246"><abbr title="AppBundle\Domain\Entity\Phone::getOs">getOs</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Domain/Entity/Phone.php.html#262"><abbr title="AppBundle\Domain\Entity\Phone::getCpu">getCpu</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Domain/Helpers/Common/HateoasManager.php.html#41"><abbr title="AppBundle\Domain\Helpers\Common\HateoasManager::buildHateoas">buildHateoas</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Domain/Entity/Phone.php.html#270"><abbr title="AppBundle\Domain\Entity\Phone::getGpu">getGpu</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Domain/Helpers/Common/HateoasManager.php.html#29"><abbr title="AppBundle\Domain\Helpers\Common\HateoasManager::__construct">__construct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Domain/Helpers/Common/ExceptionManager.php.html#53"><abbr title="AppBundle\Domain\Helpers\Common\ExceptionManager::conflictExceptionToJson">conflictExceptionToJson</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Domain/Helpers/Common/ExceptionManager.php.html#43"><abbr title="AppBundle\Domain\Helpers\Common\ExceptionManager::unauthorizedAccessExceptionToJson">unauthorizedAccessExceptionToJson</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Domain/Helpers/Common/ExceptionManager.php.html#33"><abbr title="AppBundle\Domain\Helpers\Common\ExceptionManager::pageNotFoundExceptionToJson">pageNotFoundExceptionToJson</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Domain/Helpers/Client/Validator/ClientValidatorHelper.php.html#50"><abbr title="AppBundle\Domain\Helpers\Client\Validator\ClientValidatorHelper::checkErrors">checkErrors</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Domain/Helpers/Client/Validator/ClientValidatorHelper.php.html#35"><abbr title="AppBundle\Domain\Helpers\Client\Validator\ClientValidatorHelper::createClientParameterValidate">createClientParameterValidate</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Domain/Helpers/Client/Validator/ClientValidatorHelper.php.html#27"><abbr title="AppBundle\Domain\Helpers\Client\Validator\ClientValidatorHelper::__construct">__construct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Domain/Helpers/Client/DB/ClientDBManager.php.html#74"><abbr title="AppBundle\Domain\Helpers\Client\DB\ClientDBManager::createClient">createClient</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Domain/Helpers/Client/DB/ClientDBManager.php.html#62"><abbr title="AppBundle\Domain\Helpers\Client\DB\ClientDBManager::existClientByUsername">existClientByUsername</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Domain/Helpers/Client/DB/ClientDBManager.php.html#49"><abbr title="AppBundle\Domain\Helpers\Client\DB\ClientDBManager::existClientById">existClientById</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Domain/Entity/User.php.html#172"><abbr title="AppBundle\Domain\Entity\User::getPhoneNumber">getPhoneNumber</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Domain/Entity/User.php.html#164"><abbr title="AppBundle\Domain\Entity\User::getCity">getCity</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Domain/Entity/User.php.html#156"><abbr title="AppBundle\Domain\Entity\User::getCp">getCp</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Domain/Entity/User.php.html#148"><abbr title="AppBundle\Domain\Entity\User::getAddress">getAddress</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Domain/Entity/Phone.php.html#350"><abbr title="AppBundle\Domain\Entity\Phone::getColors">getColors</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Domain/Entity/Phone.php.html#342"><abbr title="AppBundle\Domain\Entity\Phone::getBattery">getBattery</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Domain/Entity/Phone.php.html#334"><abbr title="AppBundle\Domain\Entity\Phone::getSound">getSound</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Domain/Entity/Phone.php.html#326"><abbr title="AppBundle\Domain\Entity\Phone::getSelfieCamera">getSelfieCamera</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Domain/Entity/Phone.php.html#318"><abbr title="AppBundle\Domain\Entity\Phone::getMainCamera">getMainCamera</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Domain/Entity/Phone.php.html#310"><abbr title="AppBundle\Domain\Entity\Phone::getResolution">getResolution</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Domain/Entity/Phone.php.html#302"><abbr title="AppBundle\Domain\Entity\Phone::getWeight">getWeight</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Domain/Entity/Phone.php.html#294"><abbr title="AppBundle\Domain\Entity\Phone::getDimensions">getDimensions</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Domain/Entity/Phone.php.html#286"><abbr title="AppBundle\Domain\Entity\Phone::getMemory">getMemory</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Domain/Entity/Phone.php.html#278"><abbr title="AppBundle\Domain\Entity\Phone::getRam">getRam</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Responder/User/UserResponder.php.html#112"><abbr title="AppBundle\Responder\User\UserResponder::deleteResponse">deleteResponse</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Responder/User/UserResponder.php.html#41"><abbr title="AppBundle\Responder\User\UserResponder::listResponse">listResponse</abbr></a></td><td class="text-right">83%</td></tr>
+
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <div class="col-md-6">
+     <h3>Project Risks</h3>
+     <div class="scrollbox">
+      <table class="table">
+       <thead>
+        <tr>
+         <th>Method</th>
+         <th class="text-right"><abbr title="Change Risk Anti-Patterns (CRAP) Index">CRAP</abbr></th>
+        </tr>
+       </thead>
+       <tbody>
+       <tr><td><a href="Domain/DTO/Phones/CreatePhoneDTO.php.html#103"><abbr title="AppBundle\Domain\DTO\Phones\CreatePhoneDTO::__construct">__construct</abbr></a></td><td class="text-right">306</td></tr>
+       <tr><td><a href="Domain/DTO/Users/CreateUserDTO.php.html#60"><abbr title="AppBundle\Domain\DTO\Users\CreateUserDTO::__construct">__construct</abbr></a></td><td class="text-right">56</td></tr>
+       <tr><td><a href="Domain/DTO/Phones/ListPhoneDTO.php.html#52"><abbr title="AppBundle\Domain\DTO\Phones\ListPhoneDTO::__construct">__construct</abbr></a></td><td class="text-right">56</td></tr>
+       <tr><td><a href="Domain/Helpers/Common/HateoasManager.php.html#58"><abbr title="AppBundle\Domain\Helpers\Common\HateoasManager::buildLink">buildLink</abbr></a></td><td class="text-right">42</td></tr>
+       <tr><td><a href="Responder/Client/ClientResponder.php.html#41"><abbr title="AppBundle\Responder\Client\ClientResponder::showResponse">showResponse</abbr></a></td><td class="text-right">30</td></tr>
+       <tr><td><a href="Domain/Repository/AbstractRepository.php.html#24"><abbr title="AppBundle\Domain\Repository\AbstractRepository::paginate">paginate</abbr></a></td><td class="text-right">30</td></tr>
+       <tr><td><a href="Responder/User/UserResponder.php.html#63"><abbr title="AppBundle\Responder\User\UserResponder::showResponse">showResponse</abbr></a></td><td class="text-right">30</td></tr>
+       <tr><td><a href="Responder/Security/ApiResponder.php.html#40"><abbr title="AppBundle\Responder\Security\ApiResponder::response">response</abbr></a></td><td class="text-right">30</td></tr>
+       <tr><td><a href="Responder/Phone/PhoneResponder.php.html#64"><abbr title="AppBundle\Responder\Phone\PhoneResponder::showResponse">showResponse</abbr></a></td><td class="text-right">30</td></tr>
+       <tr><td><a href="Responder/Phone/PhoneResponder.php.html#42"><abbr title="AppBundle\Responder\Phone\PhoneResponder::listResponse">listResponse</abbr></a></td><td class="text-right">30</td></tr>
+       <tr><td><a href="Domain/Repository/PhoneRepository.php.html#23"><abbr title="AppBundle\Domain\Repository\PhoneRepository::listWithPagination">listWithPagination</abbr></a></td><td class="text-right">20</td></tr>
+       <tr><td><a href="Domain/Security/ApiAuthenticator.php.html#154"><abbr title="AppBundle\Domain\Security\ApiAuthenticator::getUser">getUser</abbr></a></td><td class="text-right">20</td></tr>
+       <tr><td><a href="Domain/Helpers/Phone/Validator/PhoneValidatorHelper.php.html#41"><abbr title="AppBundle\Domain\Helpers\Phone\Validator\PhoneValidatorHelper::listPhoneParameterValidate">listPhoneParameterValidate</abbr></a></td><td class="text-right">20</td></tr>
+       <tr><td><a href="Domain/Helpers/User/DB/UserDBManager.php.html#61"><abbr title="AppBundle\Domain\Helpers\User\DB\UserDBManager::existUser">existUser</abbr></a></td><td class="text-right">20</td></tr>
+       <tr><td><a href="Responder/Phone/PhoneResponder.php.html#88"><abbr title="AppBundle\Responder\Phone\PhoneResponder::createResponse">createResponse</abbr></a></td><td class="text-right">20</td></tr>
+       <tr><td><a href="Responder/User/UserResponder.php.html#87"><abbr title="AppBundle\Responder\User\UserResponder::createResponse">createResponse</abbr></a></td><td class="text-right">20</td></tr>
+       <tr><td><a href="Responder/Client/ClientResponder.php.html#65"><abbr title="AppBundle\Responder\Client\ClientResponder::createResponse">createResponse</abbr></a></td><td class="text-right">20</td></tr>
+       <tr><td><a href="Domain/Repository/UserRepository.php.html#23"><abbr title="AppBundle\Domain\Repository\UserRepository::listWithPagination">listWithPagination</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="Responder/Phone/PhoneResponder.php.html#113"><abbr title="AppBundle\Responder\Phone\PhoneResponder::deleteResponse">deleteResponse</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="Responder/User/UserResponder.php.html#112"><abbr title="AppBundle\Responder\User\UserResponder::deleteResponse">deleteResponse</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="Domain/DTO/Security/ApiLoginDTO.php.html#31"><abbr title="AppBundle\Domain\DTO\Security\ApiLoginDTO::__construct">__construct</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="Domain/DTO/Clients/CreateClientDTO.php.html#34"><abbr title="AppBundle\Domain\DTO\Clients\CreateClientDTO::__construct">__construct</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="Controller/Phones/PhoneController.php.html#146"><abbr title="AppBundle\Controller\Phones\PhoneController::listAction">listAction</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Controller/Phones/PhoneController.php.html#205"><abbr title="AppBundle\Controller\Phones\PhoneController::showAction">showAction</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Controller/Phones/PhoneController.php.html#259"><abbr title="AppBundle\Controller\Phones\PhoneController::createAction">createAction</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Controller/Phones/PhoneController.php.html#288"><abbr title="AppBundle\Controller\Phones\PhoneController::deleteAction">deleteAction</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Controller/Users/UserController.php.html#200"><abbr title="AppBundle\Controller\Users\UserController::showAction">showAction</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Controller/Users/UserController.php.html#254"><abbr title="AppBundle\Controller\Users\UserController::createAction">createAction</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Controller/Users/UserController.php.html#285"><abbr title="AppBundle\Controller\Users\UserController::deleteAction">deleteAction</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Controller/Clients/ClientController.php.html#151"><abbr title="AppBundle\Controller\Clients\ClientController::createAction">createAction</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Domain/Helpers/Phone/Validator/PhoneValidatorHelper.php.html#90"><abbr title="AppBundle\Domain\Helpers\Phone\Validator\PhoneValidatorHelper::checkErrors">checkErrors</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Domain/Security/ApiAuthenticator.php.html#191"><abbr title="AppBundle\Domain\Security\ApiAuthenticator::checkCredentials">checkCredentials</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Domain/Helpers/Client/DB/ClientDBManager.php.html#49"><abbr title="AppBundle\Domain\Helpers\Client\DB\ClientDBManager::existClientById">existClientById</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Domain/Security/ApiAuthenticator.php.html#130"><abbr title="AppBundle\Domain\Security\ApiAuthenticator::getCredentials">getCredentials</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Domain/Security/ApiAuthenticator.php.html#101"><abbr title="AppBundle\Domain\Security\ApiAuthenticator::supports">supports</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Domain/Helpers/Client/DB/ClientDBManager.php.html#62"><abbr title="AppBundle\Domain\Helpers\Client\DB\ClientDBManager::existClientByUsername">existClientByUsername</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Domain/Helpers/Client/Validator/ClientValidatorHelper.php.html#50"><abbr title="AppBundle\Domain\Helpers\Client\Validator\ClientValidatorHelper::checkErrors">checkErrors</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Domain/Helpers/Common/HateoasManager.php.html#41"><abbr title="AppBundle\Domain\Helpers\Common\HateoasManager::buildHateoas">buildHateoas</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Domain/Helpers/Phone/DB/PhoneDBManager.php.html#59"><abbr title="AppBundle\Domain\Helpers\Phone\DB\PhoneDBManager::existPhone">existPhone</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Controller/Clients/ClientController.php.html#97"><abbr title="AppBundle\Controller\Clients\ClientController::showAction">showAction</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Responder/User/UserResponder.php.html#41"><abbr title="AppBundle\Responder\User\UserResponder::listResponse">listResponse</abbr></a></td><td class="text-right">5</td></tr>
+
+       </tbody>
+      </table>
+     </div>
+    </div>
+   </div>
+   <footer>
+    <hr/>
+    <p>
+     <small>Generated by <a href="https://github.com/sebastianbergmann/php-code-coverage" target="_top">php-code-coverage 5.3.2</a> using <a href="https://secure.php.net/" target="_top">PHP 7.4.2</a> with <a href="https://xdebug.org/">Xdebug 2.9.2</a> and <a href="https://phpunit.de/">PHPUnit 6.5.14</a> at Wed Feb 19 23:30:43 UTC 2020.</small>
+    </p>
+   </footer>
+  </div>
+  <script src=".js/jquery.min.js" type="text/javascript"></script>
+  <script src=".js/bootstrap.min.js" type="text/javascript"></script>
+  <script src=".js/holder.min.js" type="text/javascript"></script>
+  <script src=".js/d3.min.js" type="text/javascript"></script>
+  <script src=".js/nv.d3.min.js" type="text/javascript"></script>
+  <script type="text/javascript">
+$(document).ready(function() {
+  nv.addGraph(function() {
+    var chart = nv.models.multiBarChart();
+    chart.tooltips(false)
+      .showControls(false)
+      .showLegend(false)
+      .reduceXTicks(false)
+      .staggerLabels(true)
+      .yAxis.tickFormat(d3.format('d'));
+
+    d3.select('#classCoverageDistribution svg')
+      .datum(getCoverageDistributionData([20,0,0,3,1,1,1,1,2,0,0,3], "Class Coverage"))
+      .transition().duration(500).call(chart);
+
+    nv.utils.windowResize(chart.update);
+
+    return chart;
+  });
+
+  nv.addGraph(function() {
+    var chart = nv.models.multiBarChart();
+    chart.tooltips(false)
+      .showControls(false)
+      .showLegend(false)
+      .reduceXTicks(false)
+      .staggerLabels(true)
+      .yAxis.tickFormat(d3.format('d'));
+
+    d3.select('#methodCoverageDistribution svg')
+      .datum(getCoverageDistributionData([109,0,0,0,0,0,0,0,0,1,0,30], "Method Coverage"))
+      .transition().duration(500).call(chart);
+
+    nv.utils.windowResize(chart.update);
+
+    return chart;
+  });
+
+  function getCoverageDistributionData(data, label) {
+    var labels = [
+      '0%',
+      '0-10%',
+      '10-20%',
+      '20-30%',
+      '30-40%',
+      '40-50%',
+      '50-60%',
+      '60-70%',
+      '70-80%',
+      '80-90%',
+      '90-100%',
+      '100%'
+    ];
+    var values = [];
+    $.each(labels, function(key) {
+      values.push({x: labels[key], y: data[key]});
+    });
+
+    return [
+      {
+        key: label,
+        values: values,
+        color: "#4572A7"
+      }
+    ];
+  }
+  nv.addGraph(function() {
+    var chart = nv.models.scatterChart()
+      .showDistX(true)
+      .showDistY(true)
+      .showLegend(false)
+      .forceX([0, 100]);
+    chart.tooltipContent(function(graph) {
+      return '<p>' + graph.point.class + '</p>';
+    });
+
+    chart.xAxis.axisLabel('Code Coverage (in percent)');
+    chart.yAxis.axisLabel('Cyclomatic Complexity');
+
+    d3.select('#classComplexity svg')
+      .datum(getComplexityData([[0,5,"<a href=\"Controller\/Clients\/ClientController.php.html#24\">AppBundle\\Controller\\Clients\\ClientController<\/a>"],[0,9,"<a href=\"Controller\/Phones\/PhoneController.php.html#25\">AppBundle\\Controller\\Phones\\PhoneController<\/a>"],[42.857142857142854,9,"<a href=\"Controller\/Users\/UserController.php.html#25\">AppBundle\\Controller\\Users\\UserController<\/a>"],[0,3,"<a href=\"Domain\/DTO\/Clients\/CreateClientDTO.php.html#13\">AppBundle\\Domain\\DTO\\Clients\\CreateClientDTO<\/a>"],[0,17,"<a href=\"Domain\/DTO\/Phones\/CreatePhoneDTO.php.html#13\">AppBundle\\Domain\\DTO\\Phones\\CreatePhoneDTO<\/a>"],[0,7,"<a href=\"Domain\/DTO\/Phones\/ListPhoneDTO.php.html#13\">AppBundle\\Domain\\DTO\\Phones\\ListPhoneDTO<\/a>"],[0,3,"<a href=\"Domain\/DTO\/Security\/ApiLoginDTO.php.html#13\">AppBundle\\Domain\\DTO\\Security\\ApiLoginDTO<\/a>"],[0,7,"<a href=\"Domain\/DTO\/Users\/CreateUserDTO.php.html#14\">AppBundle\\Domain\\DTO\\Users\\CreateUserDTO<\/a>"],[100,6,"<a href=\"Domain\/DTO\/Users\/ListUserDTO.php.html#13\">AppBundle\\Domain\\DTO\\Users\\ListUserDTO<\/a>"],[54.54545454545454,9,"<a href=\"Domain\/Entity\/Client.php.html#22\">AppBundle\\Domain\\Entity\\Client<\/a>"],[0,18,"<a href=\"Domain\/Entity\/Phone.php.html#20\">AppBundle\\Domain\\Entity\\Phone<\/a>"],[75,10,"<a href=\"Domain\/Entity\/User.php.html#20\">AppBundle\\Domain\\Entity\\User<\/a>"],[23.52941176470588,6,"<a href=\"Domain\/Helpers\/Client\/DB\/ClientDBManager.php.html#17\">AppBundle\\Domain\\Helpers\\Client\\DB\\ClientDBManager<\/a>"],[0,4,"<a href=\"Domain\/Helpers\/Client\/Validator\/ClientValidatorHelper.php.html#15\">AppBundle\\Domain\\Helpers\\Client\\Validator\\ClientValidatorHelper<\/a>"],[28.57142857142857,5,"<a href=\"Domain\/Helpers\/Common\/ExceptionManager.php.html#17\">AppBundle\\Domain\\Helpers\\Common\\ExceptionManager<\/a>"],[0,9,"<a href=\"Domain\/Helpers\/Common\/HateoasManager.php.html#13\">AppBundle\\Domain\\Helpers\\Common\\HateoasManager<\/a>"],[0,6,"<a href=\"Domain\/Helpers\/Phone\/DB\/PhoneDBManager.php.html#17\">AppBundle\\Domain\\Helpers\\Phone\\DB\\PhoneDBManager<\/a>"],[0,8,"<a href=\"Domain\/Helpers\/Phone\/Validator\/PhoneValidatorHelper.php.html#17\">AppBundle\\Domain\\Helpers\\Phone\\Validator\\PhoneValidatorHelper<\/a>"],[100,7,"<a href=\"Domain\/Helpers\/Security\/JWTManager.php.html#16\">AppBundle\\Domain\\Helpers\\Security\\JWTManager<\/a>"],[36,8,"<a href=\"Domain\/Helpers\/User\/DB\/UserDBManager.php.html#17\">AppBundle\\Domain\\Helpers\\User\\DB\\UserDBManager<\/a>"],[72.72727272727273,8,"<a href=\"Domain\/Helpers\/User\/Validator\/UserValidatorHelper.php.html#19\">AppBundle\\Domain\\Helpers\\User\\Validator\\UserValidatorHelper<\/a>"],[66.66666666666666,10,"<a href=\"Domain\/Objects\/JWT.php.html#11\">AppBundle\\Domain\\Objects\\JWT<\/a>"],[0,10,"<a href=\"Domain\/Repository\/AbstractRepository.php.html#14\">AppBundle\\Domain\\Repository\\AbstractRepository<\/a>"],[0,3,"<a href=\"Domain\/Repository\/ClientRepository.php.html#11\">AppBundle\\Domain\\Repository\\ClientRepository<\/a>"],[0,6,"<a href=\"Domain\/Repository\/PhoneRepository.php.html#11\">AppBundle\\Domain\\Repository\\PhoneRepository<\/a>"],[0,5,"<a href=\"Domain\/Repository\/UserRepository.php.html#11\">AppBundle\\Domain\\Repository\\UserRepository<\/a>"],[0,14,"<a href=\"Domain\/Security\/ApiAuthenticator.php.html#28\">AppBundle\\Domain\\Security\\ApiAuthenticator<\/a>"],[100,10,"<a href=\"Listeners\/Security\/ApiListener.php.html#17\">AppBundle\\Listeners\\Security\\ApiListener<\/a>"],[0,10,"<a href=\"Responder\/Client\/ClientResponder.php.html#16\">AppBundle\\Responder\\Client\\ClientResponder<\/a>"],[0,18,"<a href=\"Responder\/Phone\/PhoneResponder.php.html#17\">AppBundle\\Responder\\Phone\\PhoneResponder<\/a>"],[0,6,"<a href=\"Responder\/Security\/ApiResponder.php.html#15\">AppBundle\\Responder\\Security\\ApiResponder<\/a>"],[28.26086956521739,18,"<a href=\"Responder\/User\/UserResponder.php.html#16\">AppBundle\\Responder\\User\\UserResponder<\/a>"]], 'Class Complexity'))
+      .transition()
+      .duration(500)
+      .call(chart);
+
+    nv.utils.windowResize(chart.update);
+
+    return chart;
+  });
+
+  nv.addGraph(function() {
+    var chart = nv.models.scatterChart()
+      .showDistX(true)
+      .showDistY(true)
+      .showLegend(false)
+      .forceX([0, 100]);
+    chart.tooltipContent(function(graph) {
+      return '<p>' + graph.point.class + '</p>';
+    });
+
+    chart.xAxis.axisLabel('Code Coverage (in percent)');
+    chart.yAxis.axisLabel('Method Complexity');
+
+    d3.select('#methodComplexity svg')
+      .datum(getComplexityData([[0,1,"<a href=\"Controller\/Clients\/ClientController.php.html#47\">AppBundle\\Controller\\Clients\\ClientController::__construct<\/a>"],[0,2,"<a href=\"Controller\/Clients\/ClientController.php.html#97\">AppBundle\\Controller\\Clients\\ClientController::showAction<\/a>"],[0,2,"<a href=\"Controller\/Clients\/ClientController.php.html#151\">AppBundle\\Controller\\Clients\\ClientController::createAction<\/a>"],[0,1,"<a href=\"Controller\/Phones\/PhoneController.php.html#51\">AppBundle\\Controller\\Phones\\PhoneController::__construct<\/a>"],[0,2,"<a href=\"Controller\/Phones\/PhoneController.php.html#146\">AppBundle\\Controller\\Phones\\PhoneController::listAction<\/a>"],[0,2,"<a href=\"Controller\/Phones\/PhoneController.php.html#205\">AppBundle\\Controller\\Phones\\PhoneController::showAction<\/a>"],[0,2,"<a href=\"Controller\/Phones\/PhoneController.php.html#259\">AppBundle\\Controller\\Phones\\PhoneController::createAction<\/a>"],[0,2,"<a href=\"Controller\/Phones\/PhoneController.php.html#288\">AppBundle\\Controller\\Phones\\PhoneController::deleteAction<\/a>"],[100,1,"<a href=\"Controller\/Users\/UserController.php.html#51\">AppBundle\\Controller\\Users\\UserController::__construct<\/a>"],[100,2,"<a href=\"Controller\/Users\/UserController.php.html#140\">AppBundle\\Controller\\Users\\UserController::listAction<\/a>"],[0,2,"<a href=\"Controller\/Users\/UserController.php.html#200\">AppBundle\\Controller\\Users\\UserController::showAction<\/a>"],[0,2,"<a href=\"Controller\/Users\/UserController.php.html#254\">AppBundle\\Controller\\Users\\UserController::createAction<\/a>"],[0,2,"<a href=\"Controller\/Users\/UserController.php.html#285\">AppBundle\\Controller\\Users\\UserController::deleteAction<\/a>"],[0,3,"<a href=\"Domain\/DTO\/Clients\/CreateClientDTO.php.html#34\">AppBundle\\Domain\\DTO\\Clients\\CreateClientDTO::__construct<\/a>"],[0,17,"<a href=\"Domain\/DTO\/Phones\/CreatePhoneDTO.php.html#103\">AppBundle\\Domain\\DTO\\Phones\\CreatePhoneDTO::__construct<\/a>"],[0,7,"<a href=\"Domain\/DTO\/Phones\/ListPhoneDTO.php.html#52\">AppBundle\\Domain\\DTO\\Phones\\ListPhoneDTO::__construct<\/a>"],[0,3,"<a href=\"Domain\/DTO\/Security\/ApiLoginDTO.php.html#31\">AppBundle\\Domain\\DTO\\Security\\ApiLoginDTO::__construct<\/a>"],[0,7,"<a href=\"Domain\/DTO\/Users\/CreateUserDTO.php.html#60\">AppBundle\\Domain\\DTO\\Users\\CreateUserDTO::__construct<\/a>"],[100,6,"<a href=\"Domain\/DTO\/Users\/ListUserDTO.php.html#47\">AppBundle\\Domain\\DTO\\Users\\ListUserDTO::__construct<\/a>"],[100,1,"<a href=\"Domain\/Entity\/Client.php.html#75\">AppBundle\\Domain\\Entity\\Client::__construct<\/a>"],[100,2,"<a href=\"Domain\/Entity\/Client.php.html#88\">AppBundle\\Domain\\Entity\\Client::getId<\/a>"],[100,1,"<a href=\"Domain\/Entity\/Client.php.html#96\">AppBundle\\Domain\\Entity\\Client::getUsername<\/a>"],[0,1,"<a href=\"Domain\/Entity\/Client.php.html#104\">AppBundle\\Domain\\Entity\\Client::getUsers<\/a>"],[0,1,"<a href=\"Domain\/Entity\/Client.php.html#123\">AppBundle\\Domain\\Entity\\Client::getRoles<\/a>"],[0,1,"<a href=\"Domain\/Entity\/Client.php.html#136\">AppBundle\\Domain\\Entity\\Client::getPassword<\/a>"],[0,1,"<a href=\"Domain\/Entity\/Client.php.html#148\">AppBundle\\Domain\\Entity\\Client::getSalt<\/a>"],[0,1,"<a href=\"Domain\/Entity\/Client.php.html#159\">AppBundle\\Domain\\Entity\\Client::eraseCredentials<\/a>"],[0,1,"<a href=\"Domain\/Entity\/Phone.php.html#183\">AppBundle\\Domain\\Entity\\Phone::__construct<\/a>"],[0,1,"<a href=\"Domain\/Entity\/Phone.php.html#222\">AppBundle\\Domain\\Entity\\Phone::getId<\/a>"],[0,1,"<a href=\"Domain\/Entity\/Phone.php.html#230\">AppBundle\\Domain\\Entity\\Phone::getBrand<\/a>"],[0,1,"<a href=\"Domain\/Entity\/Phone.php.html#238\">AppBundle\\Domain\\Entity\\Phone::getModel<\/a>"],[0,1,"<a href=\"Domain\/Entity\/Phone.php.html#246\">AppBundle\\Domain\\Entity\\Phone::getOs<\/a>"],[0,1,"<a href=\"Domain\/Entity\/Phone.php.html#254\">AppBundle\\Domain\\Entity\\Phone::getPrice<\/a>"],[0,1,"<a href=\"Domain\/Entity\/Phone.php.html#262\">AppBundle\\Domain\\Entity\\Phone::getCpu<\/a>"],[0,1,"<a href=\"Domain\/Entity\/Phone.php.html#270\">AppBundle\\Domain\\Entity\\Phone::getGpu<\/a>"],[0,1,"<a href=\"Domain\/Entity\/Phone.php.html#278\">AppBundle\\Domain\\Entity\\Phone::getRam<\/a>"],[0,1,"<a href=\"Domain\/Entity\/Phone.php.html#286\">AppBundle\\Domain\\Entity\\Phone::getMemory<\/a>"],[0,1,"<a href=\"Domain\/Entity\/Phone.php.html#294\">AppBundle\\Domain\\Entity\\Phone::getDimensions<\/a>"],[0,1,"<a href=\"Domain\/Entity\/Phone.php.html#302\">AppBundle\\Domain\\Entity\\Phone::getWeight<\/a>"],[0,1,"<a href=\"Domain\/Entity\/Phone.php.html#310\">AppBundle\\Domain\\Entity\\Phone::getResolution<\/a>"],[0,1,"<a href=\"Domain\/Entity\/Phone.php.html#318\">AppBundle\\Domain\\Entity\\Phone::getMainCamera<\/a>"],[0,1,"<a href=\"Domain\/Entity\/Phone.php.html#326\">AppBundle\\Domain\\Entity\\Phone::getSelfieCamera<\/a>"],[0,1,"<a href=\"Domain\/Entity\/Phone.php.html#334\">AppBundle\\Domain\\Entity\\Phone::getSound<\/a>"],[0,1,"<a href=\"Domain\/Entity\/Phone.php.html#342\">AppBundle\\Domain\\Entity\\Phone::getBattery<\/a>"],[0,1,"<a href=\"Domain\/Entity\/Phone.php.html#350\">AppBundle\\Domain\\Entity\\Phone::getColors<\/a>"],[100,1,"<a href=\"Domain\/Entity\/User.php.html#103\">AppBundle\\Domain\\Entity\\User::__construct<\/a>"],[100,2,"<a href=\"Domain\/Entity\/User.php.html#124\">AppBundle\\Domain\\Entity\\User::getId<\/a>"],[100,1,"<a href=\"Domain\/Entity\/User.php.html#132\">AppBundle\\Domain\\Entity\\User::getFirstname<\/a>"],[100,1,"<a href=\"Domain\/Entity\/User.php.html#140\">AppBundle\\Domain\\Entity\\User::getName<\/a>"],[0,1,"<a href=\"Domain\/Entity\/User.php.html#148\">AppBundle\\Domain\\Entity\\User::getAddress<\/a>"],[0,1,"<a href=\"Domain\/Entity\/User.php.html#156\">AppBundle\\Domain\\Entity\\User::getCp<\/a>"],[0,1,"<a href=\"Domain\/Entity\/User.php.html#164\">AppBundle\\Domain\\Entity\\User::getCity<\/a>"],[0,1,"<a href=\"Domain\/Entity\/User.php.html#172\">AppBundle\\Domain\\Entity\\User::getPhoneNumber<\/a>"],[100,1,"<a href=\"Domain\/Entity\/User.php.html#180\">AppBundle\\Domain\\Entity\\User::getClient<\/a>"],[100,1,"<a href=\"Domain\/Helpers\/Client\/DB\/ClientDBManager.php.html#34\">AppBundle\\Domain\\Helpers\\Client\\DB\\ClientDBManager::__construct<\/a>"],[0,2,"<a href=\"Domain\/Helpers\/Client\/DB\/ClientDBManager.php.html#49\">AppBundle\\Domain\\Helpers\\Client\\DB\\ClientDBManager::existClientById<\/a>"],[0,2,"<a href=\"Domain\/Helpers\/Client\/DB\/ClientDBManager.php.html#62\">AppBundle\\Domain\\Helpers\\Client\\DB\\ClientDBManager::existClientByUsername<\/a>"],[0,1,"<a href=\"Domain\/Helpers\/Client\/DB\/ClientDBManager.php.html#74\">AppBundle\\Domain\\Helpers\\Client\\DB\\ClientDBManager::createClient<\/a>"],[0,1,"<a href=\"Domain\/Helpers\/Client\/Validator\/ClientValidatorHelper.php.html#27\">AppBundle\\Domain\\Helpers\\Client\\Validator\\ClientValidatorHelper::__construct<\/a>"],[0,1,"<a href=\"Domain\/Helpers\/Client\/Validator\/ClientValidatorHelper.php.html#35\">AppBundle\\Domain\\Helpers\\Client\\Validator\\ClientValidatorHelper::createClientParameterValidate<\/a>"],[0,2,"<a href=\"Domain\/Helpers\/Client\/Validator\/ClientValidatorHelper.php.html#50\">AppBundle\\Domain\\Helpers\\Client\\Validator\\ClientValidatorHelper::checkErrors<\/a>"],[100,2,"<a href=\"Domain\/Helpers\/Common\/ExceptionManager.php.html#22\">AppBundle\\Domain\\Helpers\\Common\\ExceptionManager::validatorExceptionToJson<\/a>"],[0,1,"<a href=\"Domain\/Helpers\/Common\/ExceptionManager.php.html#33\">AppBundle\\Domain\\Helpers\\Common\\ExceptionManager::pageNotFoundExceptionToJson<\/a>"],[0,1,"<a href=\"Domain\/Helpers\/Common\/ExceptionManager.php.html#43\">AppBundle\\Domain\\Helpers\\Common\\ExceptionManager::unauthorizedAccessExceptionToJson<\/a>"],[0,1,"<a href=\"Domain\/Helpers\/Common\/ExceptionManager.php.html#53\">AppBundle\\Domain\\Helpers\\Common\\ExceptionManager::conflictExceptionToJson<\/a>"],[0,1,"<a href=\"Domain\/Helpers\/Common\/HateoasManager.php.html#29\">AppBundle\\Domain\\Helpers\\Common\\HateoasManager::__construct<\/a>"],[0,2,"<a href=\"Domain\/Helpers\/Common\/HateoasManager.php.html#41\">AppBundle\\Domain\\Helpers\\Common\\HateoasManager::buildHateoas<\/a>"],[0,6,"<a href=\"Domain\/Helpers\/Common\/HateoasManager.php.html#58\">AppBundle\\Domain\\Helpers\\Common\\HateoasManager::buildLink<\/a>"],[0,1,"<a href=\"Domain\/Helpers\/Phone\/DB\/PhoneDBManager.php.html#29\">AppBundle\\Domain\\Helpers\\Phone\\DB\\PhoneDBManager::__construct<\/a>"],[0,1,"<a href=\"Domain\/Helpers\/Phone\/DB\/PhoneDBManager.php.html#42\">AppBundle\\Domain\\Helpers\\Phone\\DB\\PhoneDBManager::listPhone<\/a>"],[0,2,"<a href=\"Domain\/Helpers\/Phone\/DB\/PhoneDBManager.php.html#59\">AppBundle\\Domain\\Helpers\\Phone\\DB\\PhoneDBManager::existPhone<\/a>"],[0,1,"<a href=\"Domain\/Helpers\/Phone\/DB\/PhoneDBManager.php.html#72\">AppBundle\\Domain\\Helpers\\Phone\\DB\\PhoneDBManager::createPhone<\/a>"],[0,1,"<a href=\"Domain\/Helpers\/Phone\/DB\/PhoneDBManager.php.html#98\">AppBundle\\Domain\\Helpers\\Phone\\DB\\PhoneDBManager::delete<\/a>"],[0,1,"<a href=\"Domain\/Helpers\/Phone\/Validator\/PhoneValidatorHelper.php.html#29\">AppBundle\\Domain\\Helpers\\Phone\\Validator\\PhoneValidatorHelper::__construct<\/a>"],[0,4,"<a href=\"Domain\/Helpers\/Phone\/Validator\/PhoneValidatorHelper.php.html#41\">AppBundle\\Domain\\Helpers\\Phone\\Validator\\PhoneValidatorHelper::listPhoneParameterValidate<\/a>"],[0,1,"<a href=\"Domain\/Helpers\/Phone\/Validator\/PhoneValidatorHelper.php.html#61\">AppBundle\\Domain\\Helpers\\Phone\\Validator\\PhoneValidatorHelper::createPhoneParameterValidate<\/a>"],[0,2,"<a href=\"Domain\/Helpers\/Phone\/Validator\/PhoneValidatorHelper.php.html#90\">AppBundle\\Domain\\Helpers\\Phone\\Validator\\PhoneValidatorHelper::checkErrors<\/a>"],[100,1,"<a href=\"Domain\/Helpers\/Security\/JWTManager.php.html#32\">AppBundle\\Domain\\Helpers\\Security\\JWTManager::__construct<\/a>"],[100,1,"<a href=\"Domain\/Helpers\/Security\/JWTManager.php.html#45\">AppBundle\\Domain\\Helpers\\Security\\JWTManager::build<\/a>"],[100,3,"<a href=\"Domain\/Helpers\/Security\/JWTManager.php.html#100\">AppBundle\\Domain\\Helpers\\Security\\JWTManager::buildWithString<\/a>"],[100,2,"<a href=\"Domain\/Helpers\/Security\/JWTManager.php.html#116\">AppBundle\\Domain\\Helpers\\Security\\JWTManager::isValidClient<\/a>"],[100,1,"<a href=\"Domain\/Helpers\/User\/DB\/UserDBManager.php.html#29\">AppBundle\\Domain\\Helpers\\User\\DB\\UserDBManager::__construct<\/a>"],[100,1,"<a href=\"Domain\/Helpers\/User\/DB\/UserDBManager.php.html#43\">AppBundle\\Domain\\Helpers\\User\\DB\\UserDBManager::listUser<\/a>"],[0,4,"<a href=\"Domain\/Helpers\/User\/DB\/UserDBManager.php.html#61\">AppBundle\\Domain\\Helpers\\User\\DB\\UserDBManager::existUser<\/a>"],[0,1,"<a href=\"Domain\/Helpers\/User\/DB\/UserDBManager.php.html#77\">AppBundle\\Domain\\Helpers\\User\\DB\\UserDBManager::createUser<\/a>"],[0,1,"<a href=\"Domain\/Helpers\/User\/DB\/UserDBManager.php.html#94\">AppBundle\\Domain\\Helpers\\User\\DB\\UserDBManager::delete<\/a>"],[100,1,"<a href=\"Domain\/Helpers\/User\/Validator\/UserValidatorHelper.php.html#34\">AppBundle\\Domain\\Helpers\\User\\Validator\\UserValidatorHelper::__construct<\/a>"],[100,4,"<a href=\"Domain\/Helpers\/User\/Validator\/UserValidatorHelper.php.html#48\">AppBundle\\Domain\\Helpers\\User\\Validator\\UserValidatorHelper::listUserParameterValidate<\/a>"],[0,1,"<a href=\"Domain\/Helpers\/User\/Validator\/UserValidatorHelper.php.html#67\">AppBundle\\Domain\\Helpers\\User\\Validator\\UserValidatorHelper::createUserParameterValidate<\/a>"],[100,2,"<a href=\"Domain\/Helpers\/User\/Validator\/UserValidatorHelper.php.html#83\">AppBundle\\Domain\\Helpers\\User\\Validator\\UserValidatorHelper::checkErrors<\/a>"],[100,1,"<a href=\"Domain\/Objects\/JWT.php.html#32\">AppBundle\\Domain\\Objects\\JWT::__construct<\/a>"],[100,1,"<a href=\"Domain\/Objects\/JWT.php.html#46\">AppBundle\\Domain\\Objects\\JWT::isValid<\/a>"],[100,1,"<a href=\"Domain\/Objects\/JWT.php.html#65\">AppBundle\\Domain\\Objects\\JWT::isOnDate<\/a>"],[100,1,"<a href=\"Domain\/Objects\/JWT.php.html#73\">AppBundle\\Domain\\Objects\\JWT::getJWT<\/a>"],[0,1,"<a href=\"Domain\/Objects\/JWT.php.html#81\">AppBundle\\Domain\\Objects\\JWT::getHeader<\/a>"],[0,1,"<a href=\"Domain\/Objects\/JWT.php.html#89\">AppBundle\\Domain\\Objects\\JWT::setHeader<\/a>"],[100,1,"<a href=\"Domain\/Objects\/JWT.php.html#97\">AppBundle\\Domain\\Objects\\JWT::getPayload<\/a>"],[0,1,"<a href=\"Domain\/Objects\/JWT.php.html#105\">AppBundle\\Domain\\Objects\\JWT::setPayload<\/a>"],[0,1,"<a href=\"Domain\/Objects\/JWT.php.html#113\">AppBundle\\Domain\\Objects\\JWT::getSignature<\/a>"],[0,1,"<a href=\"Domain\/Objects\/JWT.php.html#121\">AppBundle\\Domain\\Objects\\JWT::setSignature<\/a>"],[0,5,"<a href=\"Domain\/Repository\/AbstractRepository.php.html#24\">AppBundle\\Domain\\Repository\\AbstractRepository::paginate<\/a>"],[0,1,"<a href=\"Domain\/Repository\/AbstractRepository.php.html#61\">AppBundle\\Domain\\Repository\\AbstractRepository::getResultAsArray<\/a>"],[0,1,"<a href=\"Domain\/Repository\/AbstractRepository.php.html#66\">AppBundle\\Domain\\Repository\\AbstractRepository::create<\/a>"],[0,1,"<a href=\"Domain\/Repository\/AbstractRepository.php.html#73\">AppBundle\\Domain\\Repository\\AbstractRepository::update<\/a>"],[0,1,"<a href=\"Domain\/Repository\/AbstractRepository.php.html#78\">AppBundle\\Domain\\Repository\\AbstractRepository::delete<\/a>"],[0,1,"<a href=\"Domain\/Repository\/AbstractRepository.php.html#84\">AppBundle\\Domain\\Repository\\AbstractRepository::format<\/a>"],[0,1,"<a href=\"Domain\/Repository\/ClientRepository.php.html#16\">AppBundle\\Domain\\Repository\\ClientRepository::list<\/a>"],[0,1,"<a href=\"Domain\/Repository\/ClientRepository.php.html#31\">AppBundle\\Domain\\Repository\\ClientRepository::findClientById<\/a>"],[0,1,"<a href=\"Domain\/Repository\/ClientRepository.php.html#46\">AppBundle\\Domain\\Repository\\ClientRepository::findClientByUsername<\/a>"],[0,4,"<a href=\"Domain\/Repository\/PhoneRepository.php.html#23\">AppBundle\\Domain\\Repository\\PhoneRepository::listWithPagination<\/a>"],[0,1,"<a href=\"Domain\/Repository\/PhoneRepository.php.html#78\">AppBundle\\Domain\\Repository\\PhoneRepository::list<\/a>"],[0,1,"<a href=\"Domain\/Repository\/PhoneRepository.php.html#94\">AppBundle\\Domain\\Repository\\PhoneRepository::findPhoneById<\/a>"],[0,3,"<a href=\"Domain\/Repository\/UserRepository.php.html#23\">AppBundle\\Domain\\Repository\\UserRepository::listWithPagination<\/a>"],[0,1,"<a href=\"Domain\/Repository\/UserRepository.php.html#66\">AppBundle\\Domain\\Repository\\UserRepository::list<\/a>"],[0,1,"<a href=\"Domain\/Repository\/UserRepository.php.html#80\">AppBundle\\Domain\\Repository\\UserRepository::findUserById<\/a>"],[0,1,"<a href=\"Domain\/Security\/ApiAuthenticator.php.html#69\">AppBundle\\Domain\\Security\\ApiAuthenticator::__construct<\/a>"],[0,1,"<a href=\"Domain\/Security\/ApiAuthenticator.php.html#92\">AppBundle\\Domain\\Security\\ApiAuthenticator::getLoginUrl<\/a>"],[0,2,"<a href=\"Domain\/Security\/ApiAuthenticator.php.html#101\">AppBundle\\Domain\\Security\\ApiAuthenticator::supports<\/a>"],[0,2,"<a href=\"Domain\/Security\/ApiAuthenticator.php.html#130\">AppBundle\\Domain\\Security\\ApiAuthenticator::getCredentials<\/a>"],[0,4,"<a href=\"Domain\/Security\/ApiAuthenticator.php.html#154\">AppBundle\\Domain\\Security\\ApiAuthenticator::getUser<\/a>"],[0,2,"<a href=\"Domain\/Security\/ApiAuthenticator.php.html#191\">AppBundle\\Domain\\Security\\ApiAuthenticator::checkCredentials<\/a>"],[0,1,"<a href=\"Domain\/Security\/ApiAuthenticator.php.html#208\">AppBundle\\Domain\\Security\\ApiAuthenticator::onAuthenticationFailure<\/a>"],[0,1,"<a href=\"Domain\/Security\/ApiAuthenticator.php.html#220\">AppBundle\\Domain\\Security\\ApiAuthenticator::onAuthenticationSuccess<\/a>"],[100,1,"<a href=\"Listeners\/Security\/ApiListener.php.html#38\">AppBundle\\Listeners\\Security\\ApiListener::__construct<\/a>"],[100,9,"<a href=\"Listeners\/Security\/ApiListener.php.html#52\">AppBundle\\Listeners\\Security\\ApiListener::onKernelRequest<\/a>"],[0,1,"<a href=\"Responder\/Client\/ClientResponder.php.html#28\">AppBundle\\Responder\\Client\\ClientResponder::__construct<\/a>"],[0,5,"<a href=\"Responder\/Client\/ClientResponder.php.html#41\">AppBundle\\Responder\\Client\\ClientResponder::showResponse<\/a>"],[0,4,"<a href=\"Responder\/Client\/ClientResponder.php.html#65\">AppBundle\\Responder\\Client\\ClientResponder::createResponse<\/a>"],[0,1,"<a href=\"Responder\/Phone\/PhoneResponder.php.html#29\">AppBundle\\Responder\\Phone\\PhoneResponder::__construct<\/a>"],[0,5,"<a href=\"Responder\/Phone\/PhoneResponder.php.html#42\">AppBundle\\Responder\\Phone\\PhoneResponder::listResponse<\/a>"],[0,5,"<a href=\"Responder\/Phone\/PhoneResponder.php.html#64\">AppBundle\\Responder\\Phone\\PhoneResponder::showResponse<\/a>"],[0,4,"<a href=\"Responder\/Phone\/PhoneResponder.php.html#88\">AppBundle\\Responder\\Phone\\PhoneResponder::createResponse<\/a>"],[0,3,"<a href=\"Responder\/Phone\/PhoneResponder.php.html#113\">AppBundle\\Responder\\Phone\\PhoneResponder::deleteResponse<\/a>"],[0,1,"<a href=\"Responder\/Security\/ApiResponder.php.html#27\">AppBundle\\Responder\\Security\\ApiResponder::__construct<\/a>"],[0,5,"<a href=\"Responder\/Security\/ApiResponder.php.html#40\">AppBundle\\Responder\\Security\\ApiResponder::response<\/a>"],[100,1,"<a href=\"Responder\/User\/UserResponder.php.html#28\">AppBundle\\Responder\\User\\UserResponder::__construct<\/a>"],[83.33333333333334,5,"<a href=\"Responder\/User\/UserResponder.php.html#41\">AppBundle\\Responder\\User\\UserResponder::listResponse<\/a>"],[0,5,"<a href=\"Responder\/User\/UserResponder.php.html#63\">AppBundle\\Responder\\User\\UserResponder::showResponse<\/a>"],[0,4,"<a href=\"Responder\/User\/UserResponder.php.html#87\">AppBundle\\Responder\\User\\UserResponder::createResponse<\/a>"],[0,3,"<a href=\"Responder\/User\/UserResponder.php.html#112\">AppBundle\\Responder\\User\\UserResponder::deleteResponse<\/a>"]], 'Method Complexity'))
+      .transition()
+      .duration(500)
+      .call(chart);
+
+    nv.utils.windowResize(chart.update);
+
+    return chart;
+  });
+
+  function getComplexityData(data, label) {
+    var values = [];
+    $.each(data, function(key) {
+      var value = Math.round(data[key][0]*100) / 100;
+      values.push({
+        x: value,
+        y: data[key][1],
+        class: data[key][2],
+        size: 0.05,
+        shape: 'diamond'
+      });
+    });
+
+    return [
+      {
+        key: label,
+        values: values,
+        color: "#4572A7"
+      }
+    ];
+  }
+});
+  </script>
+ </body>
+</html>

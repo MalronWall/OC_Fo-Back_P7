@@ -14,26 +14,20 @@ use AppBundle\Domain\Helpers\Common\HateoasManager;
 use AppBundle\Domain\Helpers\User\DB\UserDBManager;
 use AppBundle\Domain\Helpers\User\Validator\UserValidatorHelper;
 use AppBundle\Responder\User\UserResponder;
-use Doctrine\ORM\EntityManagerInterface;
 use Nelmio\ApiDocBundle\Annotation\Model;
 use Nelmio\ApiDocBundle\Annotation\Security;
 use Swagger\Annotations as SWG;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 use Symfony\Component\Serializer\SerializerInterface;
 
 class UserController
 {
     /** @var SerializerInterface */
     private $serializer;
-    /** @var UrlGeneratorInterface */
-    private $urlGenerator;
     /** @var UserValidatorHelper */
     private $userValidatorHelper;
-    /** @var EntityManagerInterface */
-    private $entityManager;
     /** @var UserDBManager */
     private $userDBManager;
     /** @var UserResponder */
@@ -48,9 +42,7 @@ class UserController
     /**
      * UserController constructor.
      * @param SerializerInterface $serializer
-     * @param UrlGeneratorInterface $urlGenerator
      * @param UserValidatorHelper $userValidatorHelper
-     * @param EntityManagerInterface $entityManager
      * @param UserDBManager $userDBManager
      * @param ClientDBManager $clientDBManager
      * @param UserResponder $userResponder
@@ -58,18 +50,14 @@ class UserController
      */
     public function __construct(
         SerializerInterface $serializer,
-        UrlGeneratorInterface $urlGenerator,
         UserValidatorHelper $userValidatorHelper,
-        EntityManagerInterface $entityManager,
         UserDBManager $userDBManager,
         ClientDBManager $clientDBManager,
         UserResponder $userResponder,
         HateoasManager $hateoasManager
     ) {
         $this->serializer = $serializer;
-        $this->urlGenerator = $urlGenerator;
         $this->userValidatorHelper = $userValidatorHelper;
-        $this->entityManager = $entityManager;
         $this->userDBManager = $userDBManager;
         $this->clientDBManager = $clientDBManager;
         $this->userResponder = $userResponder;

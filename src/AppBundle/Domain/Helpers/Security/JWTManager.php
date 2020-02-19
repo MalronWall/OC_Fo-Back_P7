@@ -101,6 +101,10 @@ class JWTManager
     {
         $jwt = preg_replace("/Bearer /", "", $jwt);
         $jwtTab = preg_split("/\./", $jwt);
+        if (!isset($jwtTab[1]) || !isset($jwtTab[2])) {
+            $jwtTab[1] = "";
+            $jwtTab[2] = "";
+        }
         return new JWT($jwtTab[0], $jwtTab[1], $jwtTab[2]);
     }
 

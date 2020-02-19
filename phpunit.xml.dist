@@ -22,6 +22,9 @@
         <whitelist>
             <directory>src</directory>
             <exclude>
+                <file>src/AppBundle/AppBundle.php</file>
+                <directory>src/AppBundle/Domain/DoctrineMigrations</directory>
+                <directory>src/AppBundle/Domain/DoctrineFixtures</directory>
                 <directory>src/*Bundle/Resources</directory>
                 <directory>src/*/*Bundle/Resources</directory>
                 <directory>src/*/Bundle/*Bundle/Resources</directory>

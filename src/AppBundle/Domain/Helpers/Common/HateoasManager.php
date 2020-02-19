@@ -83,6 +83,4 @@ class HateoasManager
         }
         return $links;
     }
-
-    // TODO : doc API SWAGGER
 }
