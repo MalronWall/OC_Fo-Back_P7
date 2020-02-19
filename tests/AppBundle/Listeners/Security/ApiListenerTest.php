@@ -21,7 +21,6 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Session\Session;
 use Symfony\Component\HttpFoundation\Session\Storage\MockArraySessionStorage;
-use Symfony\Component\HttpFoundation\Session\Storage\NativeSessionStorage;
 use Symfony\Component\HttpKernel\Event\GetResponseEvent;
 use Symfony\Component\HttpKernel\HttpKernelInterface;
 use Symfony\Component\HttpKernel\KernelInterface;
@@ -159,6 +158,9 @@ class ApiListenerTest extends KernelTestCase
         self::assertEquals("application/json", $response->headers->get("Content-Type"));
     }
 
+    /**
+     * @throws \Doctrine\ORM\NonUniqueResultException
+     */
     public function testIfJwtIsNotValid()
     {
         $request = Request::create('/api/BLA');
@@ -183,6 +185,9 @@ class ApiListenerTest extends KernelTestCase
         self::assertEquals("application/json", $response->headers->get("Content-Type"));
     }
 
+    /**
+     * @throws \Doctrine\ORM\NonUniqueResultException
+     */
     public function testIfJwtIsNotOnDate()
     {
         $request = Request::create('/api/BLA');
