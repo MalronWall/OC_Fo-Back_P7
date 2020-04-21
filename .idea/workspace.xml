@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="69736f7f-dbb0-4f2e-b308-21e5fbe5c728" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -46,24 +47,24 @@
     <select />
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file leaf-file-name="parameters.yml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/config/parameters.yml">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="composer.json" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/composer.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="312">
-              <caret line="12" column="30" lean-forward="true" selection-start-line="12" selection-start-column="30" selection-end-line="12" selection-end-column="30" />
+            <state relative-caret-position="164">
+              <caret line="28" column="18" lean-forward="true" selection-start-line="28" selection-start-column="18" selection-end-line="28" selection-end-column="18" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="README.md" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/README.md">
-          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-            <state split_layout="SPLIT">
-              <first_editor relative-caret-position="178">
-                <caret line="53" column="51" selection-start-line="53" selection-start-column="51" selection-end-line="53" selection-end-column="51" />
-              </first_editor>
-              <second_editor />
+      <file leaf-file-name="Client.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/AppBundle/Domain/Entity/Client.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1976">
+              <caret line="81" column="31" selection-start-line="81" selection-start-column="31" selection-end-line="81" selection-end-column="31" />
+              <folding>
+                <element signature="e#129#172#0#PHP" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -77,13 +78,73 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="User.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/AppBundle/Domain/Entity/User.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="2808">
+              <caret line="111" column="38" selection-start-line="111" selection-start-column="38" selection-end-line="111" selection-end-column="38" />
+              <folding>
+                <element signature="e#129#161#0#PHP" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ApiAuthenticator.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/AppBundle/Domain/Security/ApiAuthenticator.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="2028">
+              <caret line="93" column="8" selection-start-line="93" selection-start-column="8" selection-end-line="93" selection-end-column="54" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="UserControllerTest.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/tests/AppBundle/Controller/Users/UserControllerTest.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1040">
+              <caret line="60" selection-start-line="60" selection-end-line="60" />
+              <folding>
+                <element signature="e#138#184#0#PHP" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="UserController.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/Users/UserController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="3469">
+              <caret line="137" column="16" selection-start-line="137" selection-start-column="8" selection-end-line="137" selection-end-column="16" />
+              <folding>
+                <element signature="e#132#165#0#PHP" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="HateoasManager.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/AppBundle/Domain/Helpers/Common/HateoasManager.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-340">
+              <caret line="14" column="31" lean-forward="true" selection-start-line="14" selection-start-column="31" selection-end-line="14" selection-end-column="31" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ListUserDTO.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/AppBundle/Domain/DTO/Users/ListUserDTO.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="390">
+              <caret line="15" column="23" selection-start-line="15" selection-start-column="23" selection-end-line="15" selection-end-column="23" />
+            </state>
+          </provider>
+        </entry>
+      </file>
     </leaf>
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>Bearer</find>
-      <find>build</find>
-      <find>nelm</find>
       <find>anno</find>
       <find>SWG</find>
       <find>symfony/sym</find>
@@ -111,6 +172,9 @@
       <find>willReturn</find>
       <find>dese</find>
       <find>die</find>
+      <find>session</find>
+      <find>security</find>
+      <find>Security</find>
     </findStrings>
     <dirStrings>
       <dir>D:\Logiciels\wamp64\www\mes_projets\OC_thibaut-tourte\OC\Formation_Backend\Projet_7\app\config</dir>
@@ -175,8 +239,8 @@
         <option value="$PROJECT_DIR$/src/AppBundle/Controller/Users/UserController.php" />
         <option value="$PROJECT_DIR$/src/AppBundle/Domain/Entity/User.php" />
         <option value="$PROJECT_DIR$/src/AppBundle/Domain/Entity/Client.php" />
-        <option value="$PROJECT_DIR$/tests/AppBundle/Controller/Users/UserControllerTest.php" />
         <option value="$PROJECT_DIR$/README.md" />
+        <option value="$PROJECT_DIR$/tests/AppBundle/Controller/Users/UserControllerTest.php" />
       </list>
     </option>
   </component>
@@ -263,10 +327,10 @@
     </include_path>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="436" />
-    <option name="y" value="122" />
-    <option name="width" value="1305" />
-    <option name="height" value="705" />
+    <option name="x" value="1057" />
+    <option name="y" value="87" />
+    <option name="width" value="817" />
+    <option name="height" value="577" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
@@ -356,30 +420,24 @@
               <item name="Projet_7" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="AppBundle" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Listeners" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="Domain" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="Helpers" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
             <path>
               <item name="Projet_7" type="b2602c69:ProjectViewProjectNode" />
               <item name="Projet_7" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="AppBundle" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Listeners" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="Domain" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="Repository" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="Projet_7" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Projet_7" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="AppBundle" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="Domain" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="Security" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="Projet_7" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Projet_7" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="AppBundle" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Responder" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="Projet_7" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Projet_7" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="AppBundle" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Responder" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Client" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
             <path>
               <item name="Projet_7" type="b2602c69:ProjectViewProjectNode" />
@@ -407,28 +465,6 @@
               <item name="Controller" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="Users" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
-            <path>
-              <item name="Projet_7" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Projet_7" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="tests" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="AppBundle" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Fixtures" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="Projet_7" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Projet_7" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="tests" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="AppBundle" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Listeners" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="Projet_7" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Projet_7" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="tests" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="AppBundle" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Listeners" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Security" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
           </expand>
           <select />
         </subPane>
@@ -437,11 +473,11 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="SearchEverywhereHistoryKey" value="JWT&#9;null&#9;null&#10;Listen&#9;FILE&#9;file://D:/Logiciels/wamp/www/mes_projets/OC_thibaut-tourte/OC/Formation_Backend/Projet_7/src/AppBundle/Listeners/Security/ApiListener.php&#10;Phone&#9;FILE&#9;file://D:/Logiciels/wamp/www/mes_projets/OC_thibaut-tourte/OC/Formation_Backend/Projet_7/src/AppBundle/Controller/Phones/PhoneController.php&#10;ClientCon&#9;FILE&#9;file://D:/Logiciels/wamp/www/mes_projets/OC_thibaut-tourte/OC/Formation_Backend/Projet_7/src/AppBundle/Controller/Clients/ClientController.php&#10;Client&#9;FILE&#9;das://c43d6590-88ec-444c-9370-3aa9785843d0/schema/oc_back_p7/table/client&#10;UserDB&#9;FILE&#9;file://D:/Logiciels/wamp/www/mes_projets/OC_thibaut-tourte/OC/Formation_Backend/Projet_7/src/AppBundle/Domain/Helpers/User/DB/UserDBManager.php&#10;liste&#9;FILE&#9;file://D:/Logiciels/wamp/www/mes_projets/OC_thibaut-tourte/OC/Formation_Backend/Projet_7/src/AppBundle/Listeners/Security/ApiListener.php&#10;UserDb&#9;FILE&#9;file://D:/Logiciels/wamp/www/mes_projets/OC_thibaut-tourte/OC/Formation_Backend/Projet_7/src/AppBundle/Domain/Helpers/User/DB/UserDBManager.php&#10;compo&#9;FILE&#9;file://D:/Logiciels/wamp/www/mes_projets/OC_thibaut-tourte/OC/Formation_Backend/Projet_7/composer.json&#10;compos&#9;FILE&#9;file://D:/Logiciels/wamp/www/mes_projets/OC_thibaut-tourte/OC/Formation_Backend/Projet_7/composer.json&#10;Listener&#9;FILE&#9;file://D:/Logiciels/wamp/www/mes_projets/OC_thibaut-tourte/OC/Formation_Backend/Projet_7/src/AppBundle/Listeners/Security/ApiListener.php&#10;JWTM&#9;FILE&#9;file://D:/Logiciels/wamp/www/mes_projets/OC_thibaut-tourte/OC/Formation_Backend/Projet_7/src/AppBundle/Domain/Helpers/Security/JWTManager.php&#10;UserCon&#9;FILE&#9;file://D:/Logiciels/wamp/www/mes_projets/OC_thibaut-tourte/OC/Formation_Backend/Projet_7/src/AppBundle/Controller/Users/UserController.php&#10;ClientC&#9;FILE&#9;file://D:/Logiciels/wamp/www/mes_projets/OC_thibaut-tourte/OC/Formation_Backend/Projet_7/src/AppBundle/Controller/Clients/ClientController.php" />
+    <property name="SearchEverywhereHistoryKey" value="DTO&#9;FILE&#9;file://D:/Logiciels/wamp/www/mes_projets/OC_thibaut-tourte/OC/Formation_Backend/Projet_7/src/AppBundle/Domain/DTO/Users/ListUserDTO.php&#10;Client&#9;FILE&#9;uml://PHP/D:/Logiciels/wamp/www/mes_projets/OC_thibaut-tourte/OC/Formation_Backend/Projet_7/src/AppBundle&#10;JWT&#9;null&#9;null&#10;Listen&#9;FILE&#9;file://D:/Logiciels/wamp/www/mes_projets/OC_thibaut-tourte/OC/Formation_Backend/Projet_7/src/AppBundle/Listeners/Security/ApiListener.php&#10;Phone&#9;FILE&#9;file://D:/Logiciels/wamp/www/mes_projets/OC_thibaut-tourte/OC/Formation_Backend/Projet_7/src/AppBundle/Controller/Phones/PhoneController.php&#10;ClientCon&#9;FILE&#9;file://D:/Logiciels/wamp/www/mes_projets/OC_thibaut-tourte/OC/Formation_Backend/Projet_7/src/AppBundle/Controller/Clients/ClientController.php&#10;UserDB&#9;FILE&#9;file://D:/Logiciels/wamp/www/mes_projets/OC_thibaut-tourte/OC/Formation_Backend/Projet_7/src/AppBundle/Domain/Helpers/User/DB/UserDBManager.php&#10;liste&#9;FILE&#9;file://D:/Logiciels/wamp/www/mes_projets/OC_thibaut-tourte/OC/Formation_Backend/Projet_7/src/AppBundle/Listeners/Security/ApiListener.php&#10;UserDb&#9;FILE&#9;file://D:/Logiciels/wamp/www/mes_projets/OC_thibaut-tourte/OC/Formation_Backend/Projet_7/src/AppBundle/Domain/Helpers/User/DB/UserDBManager.php&#10;compo&#9;FILE&#9;file://D:/Logiciels/wamp/www/mes_projets/OC_thibaut-tourte/OC/Formation_Backend/Projet_7/composer.json&#10;compos&#9;FILE&#9;file://D:/Logiciels/wamp/www/mes_projets/OC_thibaut-tourte/OC/Formation_Backend/Projet_7/composer.json&#10;Listener&#9;FILE&#9;file://D:/Logiciels/wamp/www/mes_projets/OC_thibaut-tourte/OC/Formation_Backend/Projet_7/src/AppBundle/Listeners/Security/ApiListener.php&#10;JWTM&#9;FILE&#9;file://D:/Logiciels/wamp/www/mes_projets/OC_thibaut-tourte/OC/Formation_Backend/Projet_7/src/AppBundle/Domain/Helpers/Security/JWTManager.php&#10;UserCon&#9;FILE&#9;file://D:/Logiciels/wamp/www/mes_projets/OC_thibaut-tourte/OC/Formation_Backend/Projet_7/src/AppBundle/Controller/Users/UserController.php&#10;ClientC&#9;FILE&#9;file://D:/Logiciels/wamp/www/mes_projets/OC_thibaut-tourte/OC/Formation_Backend/Projet_7/src/AppBundle/Controller/Clients/ClientController.php" />
     <property name="WebServerToolWindowFactoryState" value="true" />
     <property name="com.intellij.database.dataSource.DataSourceTemplate" value="MySQL" />
     <property name="database.data.extractors.current.id" value="Tab-separated (TSV)_id" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Projet_6" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="php.override.implement.member.chooser.php.doc" value="NONE" />
@@ -514,6 +550,15 @@
       <workItem from="1579509379405" duration="15086000" />
       <workItem from="1580245555878" duration="32858000" />
       <workItem from="1581541901060" duration="34192000" />
+      <workItem from="1583975280059" duration="9559000" />
+      <workItem from="1584719812854" duration="1946000" />
+      <workItem from="1584971767220" duration="2812000" />
+      <workItem from="1585399406212" duration="599000" />
+      <workItem from="1585438488211" duration="1219000" />
+      <workItem from="1585670861847" duration="996000" />
+      <workItem from="1585672489466" duration="615000" />
+      <workItem from="1585679540969" duration="18000" />
+      <workItem from="1586687601187" duration="363000" />
     </task>
     <task id="LOCAL-00001" summary="[UPD] Client details fix">
       <created>1577656162478</created>
@@ -526,7 +571,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="317294000" />
+    <option name="totallyTimeSpent" value="338108000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -545,18 +590,16 @@
       <window_info anchor="bottom" id="TODO" order="7" weight="0.1605302" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.5013423" side_tool="true" weight="0.6730486" />
       <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="12" />
       <window_info anchor="bottom" id="Run" order="3" weight="0.3298969" />
+      <window_info anchor="bottom" id="Version Control" order="12" />
       <window_info anchor="bottom" id="Terminal" order="11" sideWeight="0.4986577" weight="0.3328424" />
       <window_info anchor="right" id="Remote Host" order="3" />
-      <window_info active="true" anchor="bottom" id="Database Console" order="0" visible="true" weight="0.27982327" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.16107382" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.1442953" />
       <window_info anchor="bottom" id="Docker" order="8" show_stripe_button="false" />
-      <window_info anchor="right" id="Database" order="4" visible="true" weight="0.12080537" />
-      <window_info anchor="bottom" id="Find" order="2" weight="0.4742268" />
+      <window_info anchor="right" id="Database" order="4" visible="true" weight="0.09328859" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Debug" order="4" weight="0.4" />
+      <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="6" weight="0.4" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
@@ -564,29 +607,31 @@
       <window_info anchor="bottom" id="Messages" order="7" weight="0.34167895" />
       <window_info anchor="bottom" id="Message" order="1" />
       <window_info anchor="bottom" id="Cvs" order="5" weight="0.25" />
+      <window_info anchor="bottom" id="Database Console" order="0" visible="true" weight="0.27687776" />
+      <window_info anchor="bottom" id="Find" order="2" weight="0.4742268" />
     </layout>
     <layout-to-restore>
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Docker" order="9" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Run" order="3" weight="0.3298969" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="6" weight="0.4" />
       <window_info anchor="right" id="Remote Host" order="3" />
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.17583893" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="bottom" id="TODO" order="7" weight="0.1605302" />
-      <window_info anchor="bottom" id="Database Changes" order="10" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="13" />
-      <window_info anchor="bottom" id="Find" order="2" weight="0.4742268" />
+      <window_info anchor="right" id="PlantUML" order="4" />
+      <window_info anchor="bottom" id="Run" order="3" weight="0.3298969" />
       <window_info anchor="bottom" id="Cvs" order="5" weight="0.25" />
+      <window_info anchor="bottom" id="Message" order="1" />
       <window_info anchor="bottom" id="Debug" order="4" weight="0.4" />
       <window_info anchor="right" id="Database" order="5" visible="true" weight="0.12080537" />
       <window_info anchor="bottom" id="Terminal" order="12" sideWeight="0.4986577" visible="true" weight="0.17378497" />
       <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.5013423" side_tool="true" weight="0.6730486" />
-      <window_info anchor="bottom" id="Inspection" order="6" weight="0.4" />
-      <window_info anchor="right" id="PlantUML" order="4" />
+      <window_info anchor="bottom" id="Database Changes" order="10" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="13" />
       <window_info anchor="bottom" id="Database Console" order="0" weight="0.27982327" />
-      <window_info anchor="bottom" id="Message" order="1" />
+      <window_info anchor="bottom" id="Find" order="2" weight="0.4742268" />
       <window_info anchor="bottom" id="Messages" order="8" weight="0.34167895" />
       <window_info id="Favorites" order="2" side_tool="true" />
     </layout-to-restore>
@@ -602,31 +647,20 @@
     <option name="LAST_COMMIT_MESSAGE" value="[UPD] Client details fix" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/php/lib/php.jar!/stubs/standard/standard_4.php">
+    <entry file="file://$PROJECT_DIR$/tests/AppBundle/Controller/Users/UserControllerTest.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="332">
-          <caret line="197" column="9" selection-start-line="197" selection-start-column="9" selection-end-line="197" selection-end-column="9" />
+        <state relative-caret-position="1040">
+          <caret line="60" lean-forward="true" selection-start-line="60" selection-end-line="60" />
+          <folding>
+            <element signature="e#138#184#0#PHP" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/AppBundle/Domain/Security/ApiAuthenticator.php">
+    <entry file="file://$PROJECT_DIR$/src/AppBundle/Domain/DTO/Users/ListUserDTO.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="394">
-          <caret line="223" column="34" selection-start-line="223" selection-start-column="34" selection-end-line="223" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vendor/zircote/swagger-php/src/Annotations/AbstractAnnotation.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-6517">
-          <caret line="18" column="15" selection-start-line="18" selection-start-column="15" selection-end-line="18" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vendor/zircote/swagger-php/src/Annotations/Schema.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1221">
-          <caret line="60" column="7" selection-start-line="58" selection-start-column="7" selection-end-line="60" selection-end-column="7" />
+        <state relative-caret-position="390">
+          <caret line="15" column="23" selection-start-line="15" selection-start-column="23" selection-end-line="15" selection-end-column="23" />
         </state>
       </provider>
     </entry>
@@ -634,9 +668,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-961">
           <caret line="13" column="6" selection-start-line="13" selection-start-column="6" selection-end-line="13" selection-end-column="6" />
-          <folding>
-            <element signature="e#132#167#0#PHP" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -651,9 +682,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1397">
           <caret line="66" column="54" selection-start-line="66" selection-start-column="54" selection-end-line="66" selection-end-column="54" />
-          <folding>
-            <element signature="e#135#168#0#PHP" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -661,9 +689,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="293">
           <caret line="284" column="29" selection-start-line="284" selection-start-column="29" selection-end-line="284" selection-end-column="29" />
-          <folding>
-            <element signature="e#134#167#0#PHP" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -671,9 +696,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="26">
           <caret line="40" column="20" selection-start-line="40" selection-start-column="20" selection-end-line="40" selection-end-column="20" />
-          <folding>
-            <element signature="e#146#193#0#PHP" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -706,23 +728,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/composer.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="286">
-          <caret line="48" column="16" selection-start-line="48" selection-start-column="16" selection-end-line="48" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tests/AppBundle/Controller/DefaultControllerTest.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/AppBundle/Listeners/Common/HateoasListener.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="253">
-          <caret line="17" column="14" selection-start-line="17" selection-start-column="14" selection-end-line="17" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AppBundle/Listeners/Common/HateoasListener.php" />
     <entry file="file://$PROJECT_DIR$/src/AppBundle/Responder/Client/ClientResponder.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="280">
@@ -736,9 +742,6 @@
           <caret line="33" column="68" selection-start-line="33" selection-start-column="68" selection-end-line="33" selection-end-column="68" />
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tests/AppBundle/Listeners/Security/ApiListener.php">
-      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/vendor/symfony/symfony/src/Symfony/Component/HttpKernel/Event/KernelEvent.php">
       <provider selected="true" editor-type-id="text-editor">
@@ -779,9 +782,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="676">
           <caret line="60" selection-start-line="60" selection-end-line="60" />
-          <folding>
-            <element signature="e#134#183#0#PHP" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -789,9 +789,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1084">
           <caret line="32" column="37" selection-start-line="32" selection-start-column="28" selection-end-line="32" selection-end-column="37" />
-          <folding>
-            <element signature="e#139#174#0#PHP" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -820,16 +817,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="26">
           <caret line="40" column="29" selection-start-line="40" selection-start-column="15" selection-end-line="40" selection-end-column="29" />
-          <folding>
-            <element signature="e#140#189#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/AppBundle/Domain/DTO/Users/ListUserDTO.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="26" column="18" lean-forward="true" selection-start-line="26" selection-start-column="18" selection-end-line="26" selection-end-column="18" />
         </state>
       </provider>
     </entry>
@@ -858,19 +845,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="360">
           <caret line="29" column="18" selection-start-line="29" selection-start-column="18" selection-end-line="29" selection-end-column="18" />
-          <folding>
-            <element signature="e#137#202#0#PHP" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tests/AppBundle/Controller/Users/Users.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="104">
-          <caret line="6" selection-start-line="6" selection-end-line="6" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/AppBundle/Controller/Users/Users.php" />
     <entry file="file://$PROJECT_DIR$/src/AppBundle/Responder/User/UserResponder.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="15">
@@ -882,9 +860,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="258">
           <caret line="83" column="42" selection-start-line="83" selection-start-column="42" selection-end-line="83" selection-end-column="42" />
-          <folding>
-            <element signature="e#140#175#0#PHP" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -895,77 +870,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/AppBundle/Domain/Helpers/Common/HateoasManager.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="232">
-          <caret line="41" column="5" selection-start-line="41" selection-start-column="5" selection-end-line="41" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/Users/UserController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="171">
-          <caret line="154" column="14" selection-start-line="154" selection-start-column="14" selection-end-line="154" selection-end-column="14" />
-          <folding>
-            <element signature="e#132#165#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tests/AppBundle/Fixtures/Users.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="379">
-          <caret line="24" column="104" selection-start-line="24" selection-start-column="104" selection-end-line="24" selection-end-column="104" />
-          <folding>
-            <element signature="e#104#139#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/AppBundle/Domain/Entity/User.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="253">
-          <caret line="123" column="30" selection-start-line="123" selection-start-column="30" selection-end-line="123" selection-end-column="30" />
-          <folding>
-            <element signature="e#129#161#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/AppBundle/Domain/Helpers/User/DB/UserDBManager.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="156">
           <caret line="44" selection-start-line="44" selection-end-line="44" />
-          <folding>
-            <element signature="e#138#183#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/AppBundle/Domain/Entity/Client.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="254">
-          <caret line="86" column="7" lean-forward="true" selection-start-line="86" selection-start-column="7" selection-end-line="86" selection-end-column="7" />
-          <folding>
-            <element signature="e#129#172#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tests/AppBundle/Controller/Users/UserControllerTest.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="337">
-          <caret line="76" selection-start-line="76" selection-end-line="76" />
-          <folding>
-            <element signature="e#138#184#0#PHP" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/config/parameters.yml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="312">
-          <caret line="12" column="30" lean-forward="true" selection-start-line="12" selection-start-column="30" selection-end-line="12" selection-end-column="30" />
+          <caret line="12" column="30" selection-start-line="12" selection-start-column="30" selection-end-line="12" selection-end-column="30" />
         </state>
       </provider>
     </entry>
@@ -976,6 +891,162 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="338">
+            <caret line="9" column="17" selection-start-line="9" selection-start-column="17" selection-end-line="9" selection-end-column="17" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="uml://PHP/D:/Logiciels/wamp/www/mes_projets/OC_thibaut-tourte/OC/Formation_Backend/Projet_7/src">
+      <provider selected="true" editor-type-id="UmlEditorProvider">
+        <state>
+          <ID>PHP</ID>
+          <OriginalElement>$PROJECT_DIR$/src</OriginalElement>
+          <nodes />
+          <notes />
+          <edges />
+          <settings layout="Hierarchic Group" zoom="1.0" x="-249.0" y="-6.0" />
+          <SelectedNodes />
+          <Categories />
+          <SCOPE>All</SCOPE>
+          <VISIBILITY>private</VISIBILITY>
+        </state>
+      </provider>
+    </entry>
+    <entry file="uml://PHP/D:/Logiciels/wamp/www/mes_projets/OC_thibaut-tourte/OC/Formation_Backend/Projet_7/src/AppBundle">
+      <provider selected="true" editor-type-id="UmlEditorProvider">
+        <state>
+          <ID>PHP</ID>
+          <OriginalElement>$PROJECT_DIR$/src/AppBundle</OriginalElement>
+          <nodes>
+            <node x="0.0" y="237.0">\AppBundle\Domain\Repository\PhoneRepository</node>
+            <node x="134.5" y="158.0">\AppBundle\Domain\Repository\AbstractRepository</node>
+            <node x="321.0" y="612.0">$PROJECT_DIR$/src/AppBundle/Domain/Helpers/User</node>
+            <node x="317.0" y="464.0">\AppBundle\Controller\Users\UserController</node>
+            <node x="464.0" y="0.0">\Symfony\Component\Security\Guard\AuthenticatorInterface</node>
+            <node x="475.0" y="538.0">$PROJECT_DIR$/src/AppBundle/Domain/DTO/Clients</node>
+            <node x="146.0" y="311.0">\AppBundle\Responder\Phone\PhoneResponder</node>
+            <node x="587.0" y="538.0">$PROJECT_DIR$/src/AppBundle/Domain/Helpers/Phone</node>
+            <node x="361.0" y="538.0">$PROJECT_DIR$/src/AppBundle/Domain/DTO/Phones</node>
+            <node x="160.0" y="464.0">\AppBundle\Responder\User\UserResponder</node>
+            <node x="93.28571428571429" y="0.0">\Doctrine\Common\Collections\Selectable</node>
+            <node x="125.0" y="538.0">$PROJECT_DIR$/src/AppBundle/Domain/Helpers/Security</node>
+            <node x="141.5" y="79.0">\Doctrine\ORM\EntityRepository</node>
+            <node x="0.0" y="612.0">\AppBundle\Domain\Entity\Phone</node>
+            <node x="476.0" y="311.0">\AppBundle\Controller\Phones\PhoneController</node>
+            <node x="421.0" y="612.0">\AppBundle\Domain\Entity\User</node>
+            <node x="478.0" y="237.0">\AppBundle\Domain\Security\ApiAuthenticator</node>
+            <node x="0.0" y="464.0">\AppBundle\Controller\Clients\ClientController</node>
+            <node x="243.0" y="538.0">$PROJECT_DIR$/src/AppBundle/Domain/DTO/Security</node>
+            <node x="200.28571428571428" y="0.0">\Doctrine\Common\Persistence\ObjectRepository</node>
+            <node x="109.0" y="612.0">$PROJECT_DIR$/src/AppBundle/Domain/Helpers/Client</node>
+            <node x="470.0" y="464.0">\AppBundle\Responder\Security\ApiResponder</node>
+            <node x="216.0" y="612.0">$PROJECT_DIR$/src/AppBundle/Domain/DTO/Users</node>
+            <node x="449.0" y="79.0">\Symfony\Component\Security\Guard\AbstractGuardAuthenticator</node>
+            <node x="141.0" y="237.0">\AppBundle\Domain\Repository\ClientRepository</node>
+            <node x="280.0" y="237.0">\AppBundle\Domain\Repository\UserRepository</node>
+            <node x="0.0" y="311.0">\Symfony\Component\Security\Core\User\UserInterface</node>
+            <node x="312.0" y="311.0">\AppBundle\Responder\Client\ClientResponder</node>
+            <node x="622.0" y="464.0">\AppBundle\Listeners\Security\ApiListener</node>
+            <node x="19.5" y="390.0">\AppBundle\Domain\Entity\Client</node>
+            <node x="0.0" y="538.0">$PROJECT_DIR$/src/AppBundle/Domain/Helpers/Common</node>
+            <node x="437.0" y="158.0">\Symfony\Component\Security\Guard\Authenticator\AbstractFormLoginAuthenticator</node>
+            <node x="521.0" y="612.0">\AppBundle\Domain\Objects\JWT</node>
+          </nodes>
+          <notes />
+          <edges>
+            <edge source="\AppBundle\Domain\Entity\Client" target="\Symfony\Component\Security\Core\User\UserInterface">
+              <point x="0.0" y="-14.5" />
+              <point x="0.0" y="14.5" />
+            </edge>
+            <edge source="\AppBundle\Domain\Repository\PhoneRepository" target="\AppBundle\Domain\Repository\AbstractRepository">
+              <point x="0.0" y="-14.5" />
+              <point x="60.5" y="212.0" />
+              <point x="156.5" y="212.0" />
+              <point x="-44.0" y="14.5" />
+            </edge>
+            <edge source="\AppBundle\Domain\Repository\AbstractRepository" target="\Doctrine\ORM\EntityRepository">
+              <point x="0.0" y="-14.5" />
+              <point x="0.0" y="14.5" />
+            </edge>
+            <edge source="\AppBundle\Domain\Repository\ClientRepository" target="\AppBundle\Domain\Repository\AbstractRepository">
+              <point x="0.0" y="-14.5" />
+              <point x="0.0" y="14.5" />
+            </edge>
+            <edge source="\Symfony\Component\Security\Guard\Authenticator\AbstractFormLoginAuthenticator" target="\Symfony\Component\Security\Guard\AbstractGuardAuthenticator">
+              <point x="0.0" y="-14.5" />
+              <point x="0.0" y="14.5" />
+            </edge>
+            <edge source="\AppBundle\Domain\Security\ApiAuthenticator" target="\Symfony\Component\Security\Guard\Authenticator\AbstractFormLoginAuthenticator">
+              <point x="0.0" y="-14.5" />
+              <point x="0.0" y="14.5" />
+            </edge>
+            <edge source="\AppBundle\Domain\Repository\UserRepository" target="\AppBundle\Domain\Repository\AbstractRepository">
+              <point x="0.0" y="-14.5" />
+              <point x="336.0" y="212.0" />
+              <point x="244.5" y="212.0" />
+              <point x="44.0" y="14.5" />
+            </edge>
+            <edge source="\Symfony\Component\Security\Guard\AbstractGuardAuthenticator" target="\Symfony\Component\Security\Guard\AuthenticatorInterface">
+              <point x="0.0" y="-14.5" />
+              <point x="0.0" y="14.5" />
+            </edge>
+            <edge source="\Doctrine\ORM\EntityRepository" target="\Doctrine\Common\Persistence\ObjectRepository">
+              <point x="29.5" y="-14.5" />
+              <point x="230.0" y="54.0" />
+              <point x="262.2857142857143" y="54.0" />
+              <point x="0.0" y="14.5" />
+            </edge>
+            <edge source="\Doctrine\ORM\EntityRepository" target="\Doctrine\Common\Collections\Selectable">
+              <point x="-29.5" y="-14.5" />
+              <point x="171.0" y="54.0" />
+              <point x="136.78571428571428" y="54.0" />
+              <point x="0.0" y="14.5" />
+            </edge>
+          </edges>
+          <settings layout="Hierarchic Group" zoom="0.9485627836611196" x="47.0" y="243.0" />
+          <SelectedNodes>
+            <node>\AppBundle\Domain\Repository\PhoneRepository</node>
+          </SelectedNodes>
+          <Categories />
+          <SCOPE>All</SCOPE>
+          <VISIBILITY>private</VISIBILITY>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AppBundle/Domain/DTO/Users/ListUserDTO.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="390">
+          <caret line="15" column="23" selection-start-line="15" selection-start-column="23" selection-end-line="15" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AppBundle/Domain/Repository/ClientRepository.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-156" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AppBundle/Domain/Entity/User.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2808">
+          <caret line="111" column="38" selection-start-line="111" selection-start-column="38" selection-end-line="111" selection-end-column="38" />
+          <folding>
+            <element signature="e#129#161#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AppBundle/Domain/Security/ApiAuthenticator.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2028">
+          <caret line="93" column="8" selection-start-line="93" selection-start-column="8" selection-end-line="93" selection-end-column="54" />
+        </state>
+      </provider>
+    </entry>
     <entry file="das://c43d6590-88ec-444c-9370-3aa9785843d0/schema/oc_back_p7/table/client">
       <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
         <state>
@@ -983,13 +1054,54 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="178">
-            <caret line="53" column="51" selection-start-line="53" selection-start-column="51" selection-end-line="53" selection-end-column="51" />
-          </first_editor>
-          <second_editor />
+    <entry file="file://$PROJECT_DIR$/src/AppBundle/Domain/Entity/Client.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1976">
+          <caret line="81" column="31" selection-start-line="81" selection-start-column="31" selection-end-line="81" selection-end-column="31" />
+          <folding>
+            <element signature="e#129#172#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/AppBundle/Fixtures/Users.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="243">
+          <caret line="20" column="20" selection-start-line="20" selection-start-column="20" selection-end-line="20" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/AppBundle/Controller/Users/UserControllerTest.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1040">
+          <caret line="60" selection-start-line="60" selection-end-line="60" />
+          <folding>
+            <element signature="e#138#184#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AppBundle/Domain/Helpers/Common/HateoasManager.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-340">
+          <caret line="14" column="31" lean-forward="true" selection-start-line="14" selection-start-column="31" selection-end-line="14" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/Users/UserController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3469">
+          <caret line="137" column="16" selection-start-line="137" selection-start-column="8" selection-end-line="137" selection-end-column="16" />
+          <folding>
+            <element signature="e#132#165#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/composer.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="164">
+          <caret line="28" column="18" lean-forward="true" selection-start-line="28" selection-start-column="18" selection-end-line="28" selection-end-column="18" />
         </state>
       </provider>
     </entry>
