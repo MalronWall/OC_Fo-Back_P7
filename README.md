@@ -43,11 +43,11 @@ Projet_7
 
 1. Database creation
 
-    Use the command `php bin/console d:d:c` for database creation.  
+    Use the command `php bin/console d:d:c` for database creation.
     Use the command `php bin/console d:m:m` for creation of the tables.
-    Create the first Client manually in the database
-    `[A valid UUID] | Admin | [An encoded password] | a:1:{i:0;s:10:"ROLE_ADMIN";}`
-
+    Create the first Client manually in the database with this command :
+    `INSERT INTO 'client' ('id', 'username', 'password', 'roles')`
+    `VALUES ('[A valid UUID]', 'Admin', '[A password encoded in bcrypt]', 'a:1:{i:0;s:10:\"ROLE_ADMIN\";}');`
 
 1. Documentation and API tests
 
