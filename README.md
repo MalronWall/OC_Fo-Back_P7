@@ -37,6 +37,10 @@ Projet_7
         If you can't use the both solutions, use your FTP client to download all vendors.  
         This solution is to be used only if no solution with Composer works.
 
+1. Assets install
+
+    Run the command `php app/console assets:install --symlink --relative` to copy assets in your web/ folder.
+
 1. Database creation
 
     Use the command `php bin/console d:d:c` for database creation.  
